@@ -16,9 +16,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    @user.update!(params[:name])
-
-    if @user.update!(params[:name])
+    if @user.update(user_params)
       flash[:notice] = 'Success, user updated.'
     else
       flash[:alert] = 'User not updated, please try again!'
@@ -28,6 +26,6 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, statement_files: [])
   end
 end
