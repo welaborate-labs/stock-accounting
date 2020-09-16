@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
       if @authentication
         self.current_user = @authentication.user
         flash[:notice] = 'Signed in!'
+        redirect_to statement_files_path(@statement_file)
       else
         flash[:notice] = 'Could not sign in or register account!'
       end

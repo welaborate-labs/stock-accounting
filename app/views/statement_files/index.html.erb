@@ -1,0 +1,27 @@
+<h1>Statement Files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>created_at</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @statement_files.each do |statement_file| %>
+      <tr>
+        <td><%= statement_file.attach_file.record.id %></td>
+        <td><%= statement_file.attach_file.record.created_at.to_date %></td>
+        <td><%= link_to 'view pdf', statement_file.attach_file %></td>
+        <td><%= link_to 'download pdf', statement_file.attach_file, download: '' %></td>
+        <td><%= link_to 'Destroy', statement_file, method: :delete, id: statement_file, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Statement File', new_statement_file_path %><br>
+<%= link_to "Logout", "/logout" %>
