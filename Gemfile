@@ -41,8 +41,15 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+  gem 'factory_bot_rails', '~> 6.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
+end
+
+# Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
+group :test do
+  gem 'database_cleaner-active_record', '~> 1.8'
 end
 
 group :development do

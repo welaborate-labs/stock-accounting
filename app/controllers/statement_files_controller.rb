@@ -12,12 +12,12 @@ class StatementFilesController < ApplicationController
   def create
     @statement_file = StatementFile.new(statement_file_params)
 
-    if @statement_file.save!
+    if @statement_file.save
       redirect_to statement_files_path 
-      flash[:notice] = 'Statement file was successfully created.' 
+      flash['success']  = 'file attached successfully.' 
     else
       redirect_to statement_files_path 
-      flash[:notice] = "Statement file was not created, please try again."
+      flash['errors'] = "The attach can't be blank."
     end
   end
 
@@ -26,10 +26,10 @@ class StatementFilesController < ApplicationController
   def destroy
     if @statement_file.destroy
       redirect_to statement_files_path 
-      flash[:notice] = 'Statement file was successfully destroyed.'
+      flash['success'] = 'Statement file was successfully destroyed.'
     else
       redirect_to statement_files_path 
-      flash[:notice] = 'Statement file was not destroyed, please try again.'
+      flash['errors'] = @statement_file.errors
     end
   end
 
