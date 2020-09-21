@@ -1,5 +1,12 @@
 <h1>New Statement File</h1>
 
-<%= render 'form', statement_file: @statement_file %>
+<%= form_with model: StatementFile, method: :post, local: true do |f| %>
+  <%= f.file_field :attach_file, accept: '.pdf' %><br /><br />
+  <%= f.submit 'Upload' %>
+<% end %>
+<br>
+<br>
+<br>
+<%= link_to "Logout", "/logout" %>
 
 <%= link_to 'Back', statement_files_path %>

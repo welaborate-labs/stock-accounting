@@ -1,8 +1,0 @@
-<%= form_with model: StatementFile, method: :post, local: true do |f| %>
-  <%= f.file_field :attach_file, accept: '.pdf' %><br /><br />
-  <%= f.submit 'Upload' %>
-<% end %>
-<br>
-<br>
-<br>
-<%= link_to "Logout", "/logout" %>
