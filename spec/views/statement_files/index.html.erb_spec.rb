@@ -1,14 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "statement_files/index", type: :view do
-  before(:each) do
-    assign(:statement_files, [
-      StatementFile.create!(),
-      StatementFile.create!()
-    ])
-  end
+  let!(:statement_file) { create(:statement_file, :with_attachment) } 
 
-  it "renders a list of statement_files" do
-    render
-  end
+  it "renders a list of statement_files"
 end

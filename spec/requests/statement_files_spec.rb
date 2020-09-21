@@ -42,10 +42,9 @@ RSpec.describe "/statement_files", type: :request do
 
     context "with invalid parameters" do
       it "doesn't create a new StatementFile" do
-        statement_file_2.attach_file = nil
-        statement_file_2.save
-
-        expect(statement_file_2.attach_file).not_to be_attached
+        expect {
+          post statement_files_url, params: { statement_file: nil }
+        }.not_to change(StatementFile, :count)
       end
     end
   end

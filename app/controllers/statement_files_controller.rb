@@ -15,14 +15,13 @@ class StatementFilesController < ApplicationController
       @statement_file = StatementFile.new(statement_file_params)
 
       if @statement_file.save
-        redirect_to statement_files_path 
         flash['success']  = 'file attached successfully.' 
       end
     rescue ActionController::ParameterMissing => exception
-      redirect_to statement_files_path 
       # exception.message
-      flash['errors'] = "The attach can't be blank."
+      flash['errors'] = "The attachment can't be blank."
     end
+    redirect_to statement_files_path 
   end
 
   # DELETE /statement_files/1
