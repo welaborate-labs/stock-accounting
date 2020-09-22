@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<body>
+    <div class="mdl-layout mdl-js-layout">
+        <section class="container">
+            <div id="cube" class="show-front-center">
+                <figure class="front">
+                    <form action="" id="formLogin" class="mdl-card mdl-shadow--6dp">
+                        <div class="mdl-card__title mdl-color--primary mdl-color-text--white relative">
+                            <h2 class="mdl-card__title-text">Login</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text input-container">
+                            <div class="input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="email" name="email" id="email" required/>
+                                <label class="mdl-textfield__label" for="email">E-mail</label>
+                                <span class="error"></span>
+                            </div>
+                            <div class="input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="password" name="password" id="password" required minlength="8" />
+                                <label class="mdl-textfield__label" for="password">Senha</label>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                    <div class="mdl-card__actions mdl-card--border mdl-color-text--primary">
+                        <p class="mdl-color-text--primary" style="text-align: center; margin-top: 5px;"></p>
+                            <div class="mdl-grid">
+                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--blue" type="submit" name="login-facebook"><img class="logo-facebook" src="https://sce.umkc.edu/wp-content/uploads/2018/01/facebook-logo-square.png" width="15%"></img><%= link_to 'Login com Facebook ', '/auth/facebook/' %><br></button>
+                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--orange" type="submit" name="login-google"><img class="logo-google" src="https://cdn.freebiesupply.com/logos/large/2x/google-plus-logo-png-transparent.png" width="10%"></img><%= link_to ' Login com Google+ ', '/auth/google_oauth2/' %></button>
+                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored--green mdl-js-button mdl-js-ripple-effect mdl-color-text--white" type="submit" name="entrar">
+                                    Acessar
+                                </button>
+                            </div>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col">
+                                    <a onClick='flip("show-left")' class="mdl-color-text--primary">Inscreva-se</a>
+                                    <a onClick='flip("show-bottom")' class="mdl-color-text--primary" style="float: right">Esqueceu
+                                        sua senha?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </figure>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" defer>
+
+    const fields = document.querySelectorAll("[required]")
+
+    function Validate(field) {
+
+        function verifyErrors() {
+            let foundError = false;
+
+            for(let error in field.validity) {
+                if (field.validity[error] && !field.validity.valid ) {
+                    foundError = error
+                }
+            }
+            return foundError;
+        }
+
+        function loginMessage(typeError) {
+            const messages = {
+                email: {
+                    valueMissing: "Email é um campo obrigatório",
+                    typeMismatch: "Preencha com um endereço de email válido"
+                },
+                password: {
+                    valueMissing: "Senha é um campo obrigatório",
+                    typeMismatch: "Preencha com uma senha de no mínimo 8 caracteres"
+                }
+            }
+            return messages[field.type][typeError]
+        }
+
+            function setLoginMessage(message) {
+                const spanError = field.parentNode.querySelector("span.error")
+
+                if (message) {
+                    spanError.classList.add("active")
+                    spanError.innerHTML = message
+                } else {
+                    spanError.classList.remove("active")
+                    spanError.innerHTML = ""
+                }
+            }
+
+             return function() {
+                 const error = verifyErrors()
+
+                 if(error) {
+                     const message = loginMessage(error)
+
+                     field.style.borderColor = "red"
+                     setLoginMessage(message)
+                 } else {
+                     field.style.borderColor = "green"
+                     setLoginMessage()
+                } 
+             }
+        }
+
+        function validationForm (event) {
+            const field = event.target
+            const validation = Validate(field)
+
+            validation()
+        }
+
+        for( field of fields ){
+            field.addEventListener("invalid", event => { 
+                event.preventDefault()
+
+                validationForm(event)
+            })
+            field.addEventListener("blur", validationForm)
+        }
+
+        document.querySelector("form")
+        .addEventListener("submit", event => {
+            console.log("Enviar o formulário")
+
+            event.preventDefault()
+        })
+    </script>
+</body>
+</html>
