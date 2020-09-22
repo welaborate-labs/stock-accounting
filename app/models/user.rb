@@ -5,8 +5,8 @@ class User  < ApplicationRecord
 
   def self.create_from_hash(auth)
     user = create! do |user|
-          user.name = auth["info"]["name"]
-          user.email = auth["info"]["email"]
+      user.name = auth['info']['name']
+      user.email = auth['info']['email']
     end
     user
   end
