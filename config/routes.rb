@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root to: 'sessions#new'
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   resources :identities
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
 
-  # Gives letter_opener an interface for browsing sent emails: 
-  # http:localhost:3000/letter_opener
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  mount Sidekiq::Web, at: '/sidekiq' if Rails.env.development?
 end
