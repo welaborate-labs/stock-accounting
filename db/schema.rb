@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_151656) do
+ActiveRecord::Schema.define(version: 2020_09_22_150111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,28 @@ ActiveRecord::Schema.define(version: 2020_09_16_151656) do
     t.datetime "processed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "statements", force: :cascade do |t|
+    t.datetime "statement_date"
+    t.bigint "statement_file_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["statement_file_id"], name: "index_statements_on_statement_file_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "statement_id"
+    t.string "ticker"
+    t.integer "direction"
+    t.boolean "open"
+    t.boolean "close"
+    t.integer "quantity"
+    t.integer "price"
+    t.datetime "transacted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["statement_id"], name: "index_transactions_on_statement_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
 
   resources :identities
+  resources :statements
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
 
 
