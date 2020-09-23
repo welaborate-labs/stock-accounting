@@ -14,6 +14,7 @@ class Authentication < ApplicationRecord
     if !user
       user ||= User.create_from_hash(hash)
     end
+
     Authentication.create!(user: user, uid: hash['uid'], provider: hash['provider']) 
   end
 end

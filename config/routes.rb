@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'sessions#new' # new_sessions_path
 
-  match '/auth/:provider/callback',           to: 'sessions#create',  via: [:get, :post] #registering user with other providers (google and facebook)
+  get   '/auth/:provider/callback',           to: 'sessions#create'
   get   '/login',                             to: 'sessions#new'
   get   '/auth/failure',                      to: 'sessions#failure'
   get   '/logout',                            to: 'sessions#destroy', via: [:get, :post]
