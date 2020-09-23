@@ -22,22 +22,31 @@
                             </div>
                         </div>
                     <div class="mdl-card__actions mdl-card--border mdl-color-text--primary">
-                        <p class="mdl-color-text--primary" style="text-align: center; margin-top: 5px;"></p>
-                            <div class="mdl-grid">
-                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--blue" type="submit" name="login-facebook"><img class="logo-facebook" src="https://sce.umkc.edu/wp-content/uploads/2018/01/facebook-logo-square.png" width="15%"></img><%= link_to 'Login com Facebook ', '/auth/facebook/' %><br></button>
-                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--orange" type="submit" name="login-google"><img class="logo-google" src="https://cdn.freebiesupply.com/logos/large/2x/google-plus-logo-png-transparent.png" width="10%"></img><%= link_to ' Login com Google+ ', '/auth/google_oauth2/' %></button>
-                                <button class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored--green mdl-js-button mdl-js-ripple-effect mdl-color-text--white" type="submit" name="entrar">
-                                    Acessar
-                                </button>
-                            </div>
-
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--12-col">
-                                    <a onClick='flip("show-left")' class="mdl-color-text--primary">Inscreva-se</a>
-                                    <a onClick='flip("show-bottom")' class="mdl-color-text--primary" style="float: right">Esqueceu
-                                        sua senha?</a>
+                        <p class="mdl-color-text--primary"></p>
+                            <div class="button-group">
+                                <div class="mdl-grid">
+                                    <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--blue" type="submit" name="login-facebook">
+                                        <img class="logo-facebook" src="https://sce.umkc.edu/wp-content/uploads/2018/01/facebook-logo-square.png" width="15%">
+                                        <a><%= link_to 'Login com Facebook ', '/auth/facebook/' %></a><br>
+                                    </button>
+                                    <button class="mdl-cell mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-button--colored--orange" type="submit" name="login-google">
+                                        <img class="logo-google" src="https://cdn.freebiesupply.com/logos/large/2x/google-plus-logo-png-transparent.png" width="10%">
+                                            <a><%= link_to ' Login com Google+ ', '/auth/google_oauth2/' %></a>
+                                    </button>
+                                    <button class="mdl-cell mdl-cell--12-col mdl-button mdl-button--raised mdl-button--colored--green mdl-js-button mdl-js-ripple-effect mdl-color-text--white" type="submit" name="entrar">
+                                        <a><%= link_to ' Acessar ', '' %></a>
+                                    </button>
                                 </div>
                             </div>
+                            <div class="form-links">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col">
+                                        <a onClick='flip("show-left")' class="mdl-color-text--primary--subscribe">Inscreva-se</a>
+                                        <a onClick='flip("show-bottom")' class="mdl-color-text--primary--forgot--password">Esqueceu
+                                            sua senha?</a>
+                                    </div>
+                                </div>
+                            <div>
                         </div>
                     </form>
                 </figure>
@@ -94,7 +103,7 @@
                      const message = loginMessage(error)
 
                      field.style.borderColor = "red"
-                     setLoginMessage(message)
+                     setLoginMessage(message)Acessar
                  } else {
                      field.style.borderColor = "green"
                      setLoginMessage()

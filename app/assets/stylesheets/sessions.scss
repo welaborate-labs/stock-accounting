@@ -89,16 +89,16 @@ transform: translateZ(-165px) rotateX(90deg);
   transition: transform .4s;
 }
 
-.mdl-button--colored--blue, .mdl-button--colored--blue:hover {
+.input-container {
+  margin: 17px;
+}
+
+.mdl-button--colored--blue, .mdl-button--colored--blue:hover, .mdl-button--colored--blue a {
   background: rgb(59, 89, 152);
 }
 
-.mdl-button--colored--orange, .mdl-button--colored--orange:hover {
+.mdl-button--colored--orange, .mdl-button--colored--orange:hover, .mdl-button--colored--orange a {
   background: rgb(221, 75, 57);
-}
-
-button.mdl-button {
-  left: -10px
 }
 
 .mdl-button--colored--green, .mdl-button--colored--green:hover {
@@ -115,3 +115,18 @@ button.mdl-button {
   border: 1px solid red;
   padding: 0.3em;
 }
+
+.button-group a {
+  color: #FFFFFF;
+}
+
+.mdl-color-text--primary--forgot--password {
+  float: right;
+}
+
+.form-links .mdl-color-text--primary--subscribe, .form-links .mdl-color-text--primary--subscribe:hover,
+.form-links .mdl-color-text--primary--forgot--password, .mdl-color-text--primary--forgot--password:hover {
+  background-color: #FFFFFF;
+  color:  rgb(0,150,136);
+}
+
