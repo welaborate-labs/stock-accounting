@@ -2,7 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/* Login */
+
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//Resetar configurações padrões do browser
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a:hover, button:hover {
+  cursor: pointer;
+} 
+
+/* Página de Login */
 .container {
   position: absolute;
   left: 50%;
@@ -69,75 +97,12 @@ transform: translateZ(-165px) rotateX(90deg);
   background: rgb(221, 75, 57);
 }
 
-
 button.mdl-button {
   left: -10px
 }
 
 .mdl-button--colored--green, .mdl-button--colored--green:hover {
   background: rgb(0,150,136);
-}
-
-/* Página Inicial e Perfil */
-.be-together-section {
-  position: relative;
-  height: 800px;
-  width: auto;
-  background-color: #f3f3f3;
-  background-size: cover;
-  padding-top: 120px;
-}
-
-.logo-font {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.logo-font-title {
-  line-height: 1;
-  font-weight: 500;
-  font-size: 80px;
-  margin-left: 30px;
-  padding-bottom: 15px;
-  margin-top: 200px
-}
-
-.mdl-button {
-  margin-top: 15px;
-  margin-left: 30px
-}
-
-.mdl-typography--font-light {
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.mdl-mini-footer {
-  background: #446e6a
-}
-
-.mdl-typography--text-left {
-  margin-bottom: 200px;
-  margin-top: 200px;
-}
-
-a:hover {
-  cursor: pointer;
-}
-
-nav.mdl-navigation .mdl-badge[data-badge]:after {
-  top: 2px;
-  right: -5px;
-}
-
-h2 {
-  margin-left: 20px
-}
-
-a {
-  text-decoration: none;
-  color: #FFFFFF
 }
 
 .input span.error {
@@ -149,14 +114,4 @@ a {
 .input span.error-message.active {
   border: 1px solid red;
   padding: 0.3em;
-}
-
-.input-possui-erro-validacao {
-  border-color: #f73859;
-}
-
-.erro-validacao {
-  margin-top: 3px;
-  color: #f73859;
-  font-size: 14px
 }
