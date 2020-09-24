@@ -37,6 +37,9 @@ gem 'redis'
 # Simple, efficient background processing for Ruby.
 gem 'sidekiq'
 
+# Validations for Active Storage (presence)
+gem 'active_storage_validations', '~> 0.9.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

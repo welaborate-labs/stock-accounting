@@ -7,19 +7,23 @@ class StatementFilesController < ApplicationController
     @statement_files = StatementFile.all
   end
 
+  def new
+    @statement_file = StatementFile.new
+  end
+  
   # POST /statement_files
   # POST /statement_files.json
   def create
-    # rescue treatment to avoid 'ActionController::ParameterMissing'
     begin
       @statement_file = StatementFile.new(statement_file_params)
 
       if @statement_file.save
-        flash['success']  = 'file attached successfully.' 
+        flash['success']  = 'File attached successfully' 
+      else
+        flash['errors'] = "#{@statement_file.errors.full_messages.to_sentence}"
       end
     rescue ActionController::ParameterMissing => exception
-      # exception.message
-      flash['errors'] = "The attachment can't be blank."
+      flash['errors'] = "The attachment can't be blank"
     end
     redirect_to statement_files_path 
   end
@@ -28,12 +32,11 @@ class StatementFilesController < ApplicationController
   # DELETE /statement_files/1.json
   def destroy
     if @statement_file.destroy
-      redirect_to statement_files_path 
-      flash['success'] = 'Statement file was successfully destroyed.'
+      flash['success'] = 'Statement file was successfully destroyed'
     else
-      redirect_to statement_files_path 
-      flash['errors'] = @statement_file.errors
+      flash['errors'] = @statement_file.errors.full_messages.to_sentence
     end
+    redirect_to statement_files_path 
   end
 
   private

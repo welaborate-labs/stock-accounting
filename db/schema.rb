@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_150111) do
 
   create_table "statements", force: :cascade do |t|
     t.datetime "statement_date"
-    t.bigint "statement_file_id"
+    t.bigint "statement_file_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["statement_file_id"], name: "index_statements_on_statement_file_id"
@@ -89,4 +89,5 @@ ActiveRecord::Schema.define(version: 2020_09_22_150111) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "statements", "statement_files"
 end
