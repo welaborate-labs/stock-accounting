@@ -1,3 +1,33 @@
 // Place all the styles related to the identities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.app-registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-registration {
+  height: 460px;
+  box-sizing: border-box;
+  margin: 50px 30px;
+  padding: 20px 0px 30px 0px;
+}
+
+.mdl-card.form-login {
+  height: 460px;
+  box-sizing: border-box;
+  margin: 50px 30px;
+  padding: 20px 0px 30px 0px;
+}
+
+.mdl-textfield.mdl-textfield--floating-label {
+  margin: 0px 33px;
+  width: 80%;
+}
+
+.link-button {
+  width: 100%;
+  margin: 10px 15px;
+}

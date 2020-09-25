@@ -1,29 +1,33 @@
-<%= form_tag "/auth/identity/register" do %>
-  <% if @identity && @identity.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
-      <ul>
-      <% @identity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="app-registration">
+  <%= form_tag "/auth/identity/register" do %>
+  <div class="demo-card-wide mdl-card form-registration mdl-shadow--2dp">
+    <% if @identity && @identity.errors.any? %>
+      <div class="error_messages">
+        <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+        <ul>
+        <% @identity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="mdl-textfield mdl-js-textfield name-field mdl-textfield--floating-label">
+      <%= label_tag :name, 'Nome', class: 'mdl-textfield__label'%><br>
+      <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input' %>
     </div>
+    <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label'%><br>
+      <%= text_field_tag :email, @identity.try(:email), class: 'mdl-textfield__input' %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
+      <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %><br>
+      <%= password_field_tag :password, '', class: 'mdl-textfield__input'%>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield field-reset-password mdl-textfield--floating-label">
+      <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label' %><br>
+      <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input' %>
+    </div>
+    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %></div>
+  </div>
   <% end %>
-  <div class="field">
-    <%= label_tag :name %><br>
-    <%= text_field_tag :name, @identity.try(:name) %>
-  </div>
-  <div class="field">
-    <%= label_tag :email %><br>
-    <%= text_field_tag :email, @identity.try(:email) %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="field">
-    <%= label_tag :password_confirmation %><br>
-    <%= password_field_tag :password_confirmation %>
-  </div>
-  <div class="actions"><%= submit_tag "Register" %></div>
-<% end %>
+</div>
