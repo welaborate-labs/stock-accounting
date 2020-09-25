@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'sidekiq/testing'
 
 RSpec.describe StatementFile, type: :model do
   let(:statement_file) { create(:statement_file, :with_attachment) }
