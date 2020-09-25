@@ -1,20 +1,22 @@
-<div>
+<div class="app">
   <%= form_tag '/auth/identity/callback' do %>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <%= label_tag :email, 'Email', class: 'mdl-textfield__label' %>
+  <div class="demo-card-wide mdl-card form-login mdl-shadow--2dp">
+    <div class="mdl-textfield mdl-js-textfield field-email mdl-textfield--floating-label">
+      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %>
       <%= text_field_tag :email, '', class: 'mdl-textfield__input' %>
     </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <%= label_tag :password, 'Password', class: 'mdl-textfield__label' %>
+    <div class="mdl-textfield mdl-js-textfield field-password mdl-textfield--floating-label">
+      <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %>
       <%= password_field_tag :password, '', class: 'mdl-textfield__input' %>
     </div>
-    <div>
-      <%= submit_tag 'Acessar', class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
+    <div class= "link-buttons-group">
+      <%= submit_tag 'Acessar', class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
+      <%= image_tag('fb-icon.png', class: 'facebook-icon') %>
+      <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
+      <%= image_tag('gp-icon.png', class: 'google-icon') %>
+      <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button google-btn mdl-button--raised mdl-js-ripple-effect' %>
+      <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
     </div>
-
-    <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
-    <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button google-btn mdl-button--raised mdl-js-ripple-effect' %>
-  
-    <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+  </div>
   <% end %>
 </div>
