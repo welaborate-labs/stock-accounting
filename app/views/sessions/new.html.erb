@@ -1,16 +1,18 @@
 <div class="app">
-  <%= form_tag '/auth/identity/callback' do %>
+  <span class="error-message-form"><%= form_tag '/auth/identity/callback' do %></span>
   <div class="demo-card-wide mdl-card form-login mdl-shadow--2dp">
     <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
       <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %>
-      <%= text_field_tag :email, '', class: 'mdl-textfield__input' %>
+      <%= text_field_tag :email, '', class: 'mdl-textfield__input', id: 'login-email' %>
+      <ul class="error-message"></ul>
     </div>
     <div class="mdl-textfield mdl-js-textfield field-password mdl-textfield--floating-label">
       <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %>
-      <%= password_field_tag :password, '', class: 'mdl-textfield__input' %>
+      <%= password_field_tag :password, '', class: 'mdl-textfield__input', id:'login-password' %>
+      <ul class="error-message"></ul>
     </div>
     <div class= "link-buttons-group">
-      <%= submit_tag 'Acessar', class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
+      <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'login-button' %>
       <%= image_tag('fb-icon.png', class: 'facebook-icon') %>
       <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('gp-icon.png', class: 'google-icon') %>
@@ -20,3 +22,53 @@
   </div>
   <% end %>
 </div>
+<script type="text/javascript" defer>
+  const form = document.querySelector(".app");
+  const emailField = document.querySelector("#login-email");
+  const passwordField = document.querySelector("#login-password");
+  let errorMessage = document.querySelector('.error-message');
+  const formError = document.querySelector('.error-message-form');
+  
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let errorList = validateLoginForm();
+    if (errorList.length > 0) {
+      showErrorMessage(errorList);
+      return;
+    }
+  });
+    function validateLoginForm(form) {
+      let errorMessage = [];
+      if(emailField.value === '' || emailField.value === undefined) {
+        errorMessage.push('O campo de e-mail é de preechimento obrigatório');
+      }
+      if(passwordField.value === '' || passwordField.value === undefined) {
+        errorMessage.push('O campo de senha é de preenchimento obrigatório');
+      }
+      if(!validateEmail(emailField.value)) {
+        errorMessage.push('Preencha esse campo com um email válido');
+      }
+      if(!validatePassword(passwordField.value)) {
+        errorMessage.push('Digite uma senha que tenha no mínimo 8 caracteres (letras e números)');
+      }
+      return errorMessage;
+    }
+    function validateEmail(emailField) {
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        const emailResult = emailRegex.test(String(emailField).toLowerCase());
+        return emailResult;
+    }
+    function validatePassword(passwordField) {
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        return passwordRegex.test(passwordField);
+    }
+    function showErrorMessage(errorList) {
+        const ul = document.querySelector(".error-message");
+        ul.innerHTML = '';
+        errorList.forEach(function(error){
+          const li = document.createElement("li");
+          li.textContent = error;
+          ul.appendChild(li);
+        })
+    }
+</script> 
