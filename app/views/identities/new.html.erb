@@ -1,6 +1,6 @@
 <div class="app-registration">
   <%= form_tag "/auth/identity/register" do %>
-  <div class="demo-card-wide mdl-card form-registration mdl-shadow--2dp">
+  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="subscription-box">
     <% if @identity && @identity.errors.any? %>
       <div class="error_messages">
         <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -11,23 +11,122 @@
         </ul>
       </div>
     <% end %>
-    <div class="mdl-textfield mdl-js-textfield name-field mdl-textfield--floating-label">
-      <%= label_tag :name, 'Nome', class: 'mdl-textfield__label'%><br>
-      <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input' %>
+    <div class="mdl-textfield mdl-js-textfield name-field mdl-textfield--floating-label" type="text">
+      <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
+      <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input', type: 'text', id:'name' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
-      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label'%><br>
-      <%= text_field_tag :email, @identity.try(:email), class: 'mdl-textfield__input' %>
+      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %><br>
+      <%= text_field_tag :email, @identity.try(:email), class: 'mdl-textfield__input', id:'email' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
-      <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %><br>
-      <%= password_field_tag :password, '', class: 'mdl-textfield__input'%>
+      <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password' %><br>
+      <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password', id:'password' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield field-reset-password mdl-textfield--floating-label">
-      <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label' %><br>
-      <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input' %>
+      <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label', for: 'password2' %><br>
+      <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password', id: 'password2'%>
     </div>
-    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %></div>
+    <div class="error-list">
+      <ul class="error-message"></ul>
+    </div>
+    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', type: 'submit', data: { disable_with: false }, id: ''%></div>
   </div>
   <% end %>
 </div>
+<script type="text/javascript" defer>
+  const form = document.querySelector(".app-registration");
+  const nameField = document.querySelector("#name");
+  const emailField = document.querySelector("#email");
+  const passwordField = document.querySelector("#password");
+  const passwordConfirmationField = document.querySelector("#password2");
+  const errorMessage = document.querySelector('.error-message');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    validateRegistrationForm();
+    if (errorList.length > 0) {
+      showErrorMessage(errorList);
+      return;
+    }
+  });
+
+    function validateRegistrationForm(form) {
+       errorList = [];
+
+      if(!validateName(nameField.value)) {
+        errorList.push('Preencha esse campo com nome válido.');
+      }
+
+      if (!validateEmail(emailField.value)) {
+        errorList.push('Preencha esse campo com e-mail válido.');
+      }
+
+      if (!validatePassword(passwordField.value)) {
+        errorList.push('Preencha esse campo com senha forte.');
+      }
+
+      if (!validatePasswordConfirmation(passwordConfirmationField.value)) {
+        errorList.push('Preencha esse campo com senha forte.');
+      }
+
+      if(passwordField.value !== passwordConfirmationField.value) {
+        errorList.push('As senhas não são iguais.');
+      }
+    }
+
+    function validateEmptyFields(field, fieldValue) {
+      if (fieldValue === '') {
+        errorList.push(`O campo de ${field} é de preenchimento obrigatório.`);
+        return false;
+      }
+      return true;
+    }
+
+    /* Regex de nome que obrigada a escrita de primeira letra maiúscula, nome composto e que aceita acentuacao */
+    function validateName(nameField) {
+      if(validateEmptyFields('name', nameField)) {
+        const nameRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/;
+        return nameRegex.test(nameField);
+      }
+      return true;
+    }
+
+    /* Regex de email, identifica e-mail incompleto terminado por nome, ponto e arroba */
+    function validateEmail(emailField) {
+      if(validateEmptyFields('e-mail', emailField)) {
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        return emailRegex.test(String(emailField).toLowerCase());
+      }
+      return true;
+    }
+
+    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
+    function validatePassword(passwordField) {
+      if(validateEmptyFields('senha', passwordField)) {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+        return passwordRegex.test(passwordField);
+      }
+      return true;
+    }
+
+    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
+    function validatePasswordConfirmation(passwordConfirmationField) {
+      if(validateEmptyFields('senha', passwordConfirmationField)) {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+        return passwordRegex.test(passwordConfirmationField);
+      }
+      return true;
+    }
+
+    function showErrorMessage(errorList) {
+        const ul = document.querySelector(".error-message");
+        ul.innerHTML = '';
+        errorList.forEach(function(error){
+          const li = document.createElement("li");
+          li.textContent = error;
+          ul.appendChild(li);
+        })
+    }
+</script>
+
