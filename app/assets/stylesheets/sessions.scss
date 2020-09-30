@@ -8,15 +8,11 @@
   align-items: center;
 }
 
-.form-login {
-  height: 460px;
+#form-login {
+  height: 555px;
   box-sizing: border-box;
   margin: 50px 30px;
   padding: 20px 0px 30px 0px;
-}
-
-ul {
-  list-style-type: none;
 }
 
 .mdl-textfield {
@@ -35,6 +31,7 @@ ul {
 
 .login-btn {
   width: 90%;
+  margin-top: 10px;
 }
 
 .facebook-icon, .google-icon {
@@ -63,7 +60,14 @@ ul {
   }
 }
 
+.error-list {
+  margin-top: -10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .error-message {
-  color: #FFFFFF;
-  background-color: red;
+  color: red;
 }
