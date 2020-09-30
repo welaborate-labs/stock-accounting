@@ -1,6 +1,6 @@
 <div class="app-registration">
   <%= form_tag "/auth/identity/register" do %>
-  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="">
+  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="signup-form">
     <% if @identity && @identity.errors.any? %>
       <div class="error_messages">
         <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
