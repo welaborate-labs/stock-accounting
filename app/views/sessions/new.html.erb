@@ -9,14 +9,16 @@
       <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %>
       <%= password_field_tag :password, '', class: 'mdl-textfield__input', id:'login-password' %>
     </div>
-    <div class= "link-buttons-group">
+    <div class="error-list">
       <ul class="error-message"></ul>
+    </div>
+    <div class= "link-buttons-group">
       <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'login-button' %>
       <%= image_tag('fb-icon.png', class: 'facebook-icon') %>
       <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('gp-icon.png', class: 'google-icon') %>
       <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button google-btn mdl-button--raised mdl-js-ripple-effect' %>
-      <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored login-btn mdl-js-button mdl-js-ripple-effect' %>
+      <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
     </div>
   </div>
   <% end %>
@@ -41,11 +43,11 @@
        errorList = [];
 
       if (!validateEmail(emailField.value)) {
-        errorList.push('Preencha esse campo com um e-mail válido');
+        errorList.push('Preencha esse campo com e-mail válido.');
       }
 
       if (!validatePassword(passwordField.value)) {
-        errorList.push('Digite uma senha que tenha no mínimo 8 caracteres');
+        errorList.push('Preencha esse campo com senha forte.');
       }
     }
 
@@ -57,6 +59,7 @@
       return true;
     }
 
+    /* Validação de email, identifica e-mail incompleto terminado por nome, ponto e arroba */
     function validateEmail(emailField) {
       if(validateEmptyFields('e-mail', emailField)) {
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -65,6 +68,7 @@
       return true;
     }
 
+    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
     function validatePassword(passwordField) {
       if(validateEmptyFields('senha', passwordField)) {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
@@ -83,3 +87,4 @@
         })
     }
 </script> 
+
