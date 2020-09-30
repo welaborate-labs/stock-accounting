@@ -1,6 +1,6 @@
 <div class="app-registration">
   <%= form_tag "/auth/identity/register" do %>
-  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="subscription-box">
+  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="">
     <% if @identity && @identity.errors.any? %>
       <div class="error_messages">
         <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -30,7 +30,7 @@
     <div class="error-list">
       <ul class="error-message"></ul>
     </div>
-    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', type: 'submit', data: { disable_with: false }, id: ''%></div>
+    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', type: 'submit', data: { disable_with: false }, id: 'register-btn'%></div>
   </div>
   <% end %>
 </div>

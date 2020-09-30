@@ -8,13 +8,6 @@
   align-items: center;
 }
 
-.form-registration {
-  height: 460px;
-  box-sizing: border-box;
-  margin: 50px 30px;
-  padding: 20px 0px 30px 0px;
-}
-
 .mdl-card.form-login {
   height: 460px;
   box-sizing: border-box;
@@ -29,5 +22,21 @@
 
 .link-button {
   width: 100%;
-  margin: 10px 15px;
+  margin: 10px 15px 10px 15px;
+}
+
+#register-btn {
+  margin-top: -10px;
+}
+
+.error-list {
+  margin-top: -10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.error-message {
+  color: red;
 }
