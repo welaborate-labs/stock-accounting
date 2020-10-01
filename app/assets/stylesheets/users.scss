@@ -1,0 +1,35 @@
+// Place all the styles related to the authentications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.mdl-button {
+  width: 40%;
+  margin: 10px 15px;
+}
+
+.save-data-btn {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.link-facebook-btn, .link-google-btn {
+  z-index: 1;
+}
+
+.link-facebook-btn {
+  background-color: rgb(59, 89, 152);
+  color: #ffffff;
+
+  &:hover {
+    background-color: rgb(59, 89, 152);
+  }
+}
+
+.link-google-btn {
+  background-color: rgb(221, 75, 57);
+  color: #ffffff;
+
+  &:hover {
+    background-color: rgb(221, 75, 57);
+  }
+}
