@@ -1,4 +1,4 @@
 class Statement < ApplicationRecord
   belongs_to :statement_file
-  has_many :transactions, dependent: :destroy
+  has_many :trades, dependent: :destroy
 end

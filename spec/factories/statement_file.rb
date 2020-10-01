@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :statement_file do
     created_at { DateTime.now }
     updated_at { DateTime.now }
+    account
 
     trait :with_file do
       after :build do |statement_file|
