@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get   '/auth/failure',                      to: 'sessions#failure'
   get   '/logout',                            to: 'sessions#destroy', via: [:get, :post]
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
+  get 'profile' ,                             to: 'users#profile'
 
   resources :identities
   resources :password_resets
