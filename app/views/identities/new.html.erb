@@ -53,6 +53,7 @@
 
     function validateRegistrationForm(form) {
        errorList = [];
+       errorMessage.innerHTML = "";
 
       if(!validateName(nameField.value)) errorList.push('Preencha esse campo com nome válido.');     
       if (!validateEmail(emailField.value)) errorList.push('Preencha esse campo com e-mail válido.');

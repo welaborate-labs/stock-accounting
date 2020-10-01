@@ -10,7 +10,7 @@
       <%= password_field_tag :password, '', class: 'mdl-textfield__input', id:'login-password' %>
     </div>
     <div class="error-list">
-      <ul class="error-message"></ul>
+      <ul class="error-message" id="error-message"></ul>
     </div>
     <div class= "link-buttons-group">
       <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'login-button' %>
@@ -28,7 +28,6 @@
   const emailField = document.querySelector("#login-email");
   const passwordField = document.querySelector("#login-password");
   const errorMessage = document.querySelector('.error-message');
-  const formError = document.querySelector('.error-message-form');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -41,14 +40,10 @@
 
     function validateLoginForm(form) {
        errorList = [];
+       errorMessage.innerHTML = "";
 
-      if (!validateEmail(emailField.value)) {
-        errorList.push('Preencha esse campo com e-mail válido.');
-      }
-
-      if (!validatePassword(passwordField.value)) {
-        errorList.push('Preencha esse campo com senha forte.');
-      }
+      if (!validateEmail(emailField.value)) errorList.push('Preencha esse campo com e-mail válido.');
+      if (!validatePassword(passwordField.value)) errorList.push('Preencha esse campo com senha forte.');
     }
 
     function validateEmptyFields(field, fieldValue) {
