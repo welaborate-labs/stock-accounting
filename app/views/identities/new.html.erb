@@ -1,6 +1,6 @@
 <div class="app-registration">
   <%= form_tag "/auth/identity/register" do %>
-  <div class="demo-card-wide mdl-card registration-form mdl-shadow--2dp" id="signup-form">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="signup-form">
     <% if @identity && @identity.errors.any? %>
       <div class="error_messages">
         <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -54,25 +54,11 @@
     function validateRegistrationForm(form) {
        errorList = [];
 
-      if(!validateName(nameField.value)) {
-        errorList.push('Preencha esse campo com nome válido.');
-      }
-
-      if (!validateEmail(emailField.value)) {
-        errorList.push('Preencha esse campo com e-mail válido.');
-      }
-
-      if (!validatePassword(passwordField.value)) {
-        errorList.push('Preencha esse campo com senha forte.');
-      }
-
-      if (!validatePasswordConfirmation(passwordConfirmationField.value)) {
-        errorList.push('Preencha esse campo com senha forte.');
-      }
-
-      if(passwordField.value !== passwordConfirmationField.value) {
-        errorList.push('As senhas não são iguais.');
-      }
+      if(!validateName(nameField.value)) errorList.push('Preencha esse campo com nome válido.');     
+      if (!validateEmail(emailField.value)) errorList.push('Preencha esse campo com e-mail válido.');
+      if (!validatePassword(passwordField.value)) errorList.push('Preencha esse campo com senha forte.');
+      if (!validatePasswordConfirmation(passwordConfirmationField.value)) errorList.push('Preencha esse campo com senha forte.');
+      if(passwordField.value !== passwordConfirmationField.value) errorList.push('As senhas não são iguais.');
     }
 
     function validateEmptyFields(field, fieldValue) {
