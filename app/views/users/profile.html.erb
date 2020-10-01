@@ -1,63 +1,79 @@
-<!DOCTYPE html>
-  <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <div class="mdl-layout-spacer"></div>
-        <nav class="mdl-navigation hide-cell">
-          <div class="material-icons mdl-badge mdl-badge--overlap">settings</div>
-          <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications_active</div>
-          <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">account_box</div>
-        </nav>
-      </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Menu</span>
-        <nav class="mdl-navigation">
-          <a href="#" class="mdl-navigation__link">Link 1</a>
-          <a href="#" class="mdl-navigation__link">Link 2</a>
-          <a href="#" class="mdl-navigation__link">Link 3</a>
-          <div class="show-cell">
-            <nav class="mdl-navigation hide-cell">
-              <div class="material-icons mdl-badge mdl-badge--overlap">settings</div>
-              <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications_active</div>
-              <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">account_box</div>
-            </nav>
-          </div>
+<div class="app-profile">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation hide-cell">
+        <div class="material-icons mdl-badge mdl-badge--overlap">settings</div>
+        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications_active</div>
+        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">account_box</div>
       </nav>
       </div>
-      <div class="mdl-layout__content">
-        <main>
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col md1-cell--6-col-tablet">
-              <h3>Ícones</h3>
-              <div class="background-grey">
-
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col md1-cell--6-col-tablet">
-              <h3>Botões</h3>
-              <div class="background-grey">
-
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col md1-cell--6-col-tablet">
-              <h3>Cards</h3>
-              <div class="background-grey">
-              </div>
-            </div>
-          </div>
-        </main>
-        <footer class="mdl-mini-footer">
-          <div class="mdl-mini-footer__left-section">
-            <div class="mdl-logo">Nome da empresa</div>
-            <ul class="mdl-mini-footer__link-list">
-              <li><a href="#">Contato</a></li>
-              <li><a href="#">Ajuda</a></li>
-            </ul>
-          </div>
-        </footer>
-      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a href="#" class="mdl-navigation__link">Perfil</a>
+        <a href="#" class="mdl-navigation__link">Notas de Corretagem</a>
+      </nav>
     </div>
-  </body>
-</html>
+    <div class="mdl-layout__content">
+      <main>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--10-col md1-cell--6-col-tablet">
+            <ul class="demo-list-three mdl-list">
+              <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>Bryan Cranston</span>
+                  <span class="mdl-list__item-text-body">Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+                  for playing Hal in Malcom in the Middle.</span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                </span>
+              </li>
+            </ul>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'Nome', class: 'mdl-textfield__label', for: 'name' %><br>
+              <span>Bryan Cranston</span>
+              <span class="material-icons edit">edit</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'Nome de Usuário', class: 'mdl-textfield__label', for: 'name' %><br>
+              <span>bryancranston</span>
+              <span class="material-icons edit">edit</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'E-mail', class: 'mdl-textfield__label', for: 'email' %><br>
+              <span>bryancranston@gmail.com</span>
+              <span class="material-icons edit">edit</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'CPF/CNPJ', class: 'mdl-textfield__label', for: 'number' %><br>
+              <span>000.000.000-00</span>
+              <span class="material-icons edit">edit</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'Vincular Conta', class: 'mdl-textfield__label', for: 'number' %><br>
+            </div>
+              <%= image_tag('fb-icon.png', class: 'facebook-icon') %>
+              <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button link-facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
+              <%= image_tag('gp-icon.png', class: 'google-icon') %>
+              <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button link-google-btn mdl-button--raised mdl-js-ripple-effect' %>
+              <%= submit_tag 'Salvar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button save-data-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'login-button' %>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">Nome da empresa</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Ajuda</a></li>
+          </ul>
+      </div>
+    </footer>
+  </div>
+</div>
