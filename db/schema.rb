@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_182053) do
+ActiveRecord::Schema.define(version: 2020_10_02_134220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 2020_09_30_182053) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "brokerage_accounts", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.integer "brokerage"
+    t.string "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_brokerage_accounts_on_account_id"
+  end
+
   create_table "identities", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -85,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_182053) do
     t.bigint "statement_file_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "brokerage_account_id", null: false
+    t.index ["brokerage_account_id"], name: "index_statements_on_brokerage_account_id"
     t.index ["statement_file_id"], name: "index_statements_on_statement_file_id"
   end
 
@@ -111,6 +122,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_182053) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "brokerage_accounts", "accounts"
   add_foreign_key "statement_files", "accounts"
+  add_foreign_key "statements", "brokerage_accounts"
   add_foreign_key "statements", "statement_files"
 end
