@@ -6,42 +6,33 @@ RSpec.describe Account, type: :model do
   let(:account_invalid) { build(:account, name: nil, document: nil, user: nil)  }
 
   describe "valid attributes" do
-    subject { build(:account) }
+    subject { create(:account) }
     it { is_expected.to be_valid }
   end
 
   describe "invalid attributes" do
     before { account_invalid.save }
+    subject { account_invalid.errors.full_messages }
 
-    it { is_expected.to be_invalid }
-
-    context "name" do
-      it { expect(account_invalid.errors[:name]).to include "can't be blank" }
-    end
-
-    context "document" do
-      it { expect(account_invalid.errors[:document]).to include "can't be blank" }
-    end
-
-    context "user" do
-      it { expect(account_invalid.errors[:user]).to include("must exist", "can't be blank") }
-    end
+    it { is_expected.to include("User must exist",
+                                "User can't be blank",
+                                "Name can't be blank",
+                                "Document can't be blank") }
   end
 
   describe "relationships" do
-    before do
-      FactoryBot.create_list(:statement_file, 3, :with_file, account: account)
-    end
-
-    context "statement_files" do
-      context "has many" do
+    context "has many/dependent destroy" do
+      context "statement_files" do
+        before { FactoryBot.create_list(:statement_file, 3, :with_file, account: account) }
         it { expect(account.statement_files.count).to eq(3) }
+        it { expect{account.destroy}.to change{StatementFile.count}.by(-3) }
       end
 
-      context "dependent destroy" do
-        it { expect{account.destroy}.to change{StatementFile.count}.by(-3) }
+      context "brokerage_accounts" do
+        before { FactoryBot.create_list(:brokerage_account, 3, account: account) } 
+        it { expect(account.brokerage_accounts.count).to eq(3) }
+        it { expect{account.destroy}.to change{BrokerageAccount.count}.by(-3) }
       end
     end
   end
-  
 end

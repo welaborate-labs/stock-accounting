@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :account do
-    user 
+    user
     name { "MyString" }
     document { "MyString" }
     address { "MyText" }

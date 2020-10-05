@@ -2,8 +2,9 @@ require 'rails_helper'
 require 'sidekiq/testing'
 
 RSpec.describe Trade, type: :model do
-  let(:statement_file) { build(:statement_file, :with_attachment) } 
+  let(:statement_file) { build(:statement_file, :with_file) } 
   let(:statement) { build(:statement, statement_file: statement_file) }
+  let(:invalid) { build(:trade, statement: nil) } 
 
   describe 'validatons' do
     context 'valid' do
@@ -13,11 +14,11 @@ RSpec.describe Trade, type: :model do
     end
 
     context 'invalid' do
-      subject { build(:trade) }
+      before { invalid.save }
+      subject { invalid.errors.full_messages }
 
-      it { is_expected.not_to be_valid }
-      it { expect(trade.errors.keys).to include :statement }
-      it { expect(trade.errors[:statement]).to include 'must exist' }
+      it { expect(invalid.errors.keys).to include :statement }
+      it { expect(invalid.errors[:statement]).to include 'must exist' }
     end
   end
 end
