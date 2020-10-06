@@ -2,29 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.save-data-btn {
+.app-profile .main-area {
+  margin: 30px 20px;
+}
+
+.app-profile .mdl-card {
+  height: 770px;
+  width: 700px;
+  padding: 10px;
+}
+
+.app-profile .material-icons.edit {
+  padding-left: 50px;
+}
+
+.app-profile .link-buttons-group {
+  position: absolute;
   width: 40%;
-  margin-top: 10px;
+  padding: 20px 10px;
+  margin-left: 10px;
 }
 
-.link-facebook-btn, .link-google-btn {
-  z-index: 1;
-}
-
-.link-facebook-btn {
+.app-profile .link-facebook-btn {
   background-color: rgb(59, 89, 152);
   color: #ffffff;
-
   &:hover {
     background-color: rgb(59, 89, 152);
   }
 }
-
-.link-google-btn {
+.app-profile .link-google-btn {
   background-color: rgb(221, 75, 57);
   color: #ffffff;
-
   &:hover {
     background-color: rgb(221, 75, 57);
   }
+}
+
+.app-profile .save-data-btn {
+  width: 90%;
 }
