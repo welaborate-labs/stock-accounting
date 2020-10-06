@@ -21,3 +21,16 @@ services:
       - db
     env_file:
       - .env.local
+
+  redis:
+    image: redis
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    env_file:
+      - .env.local
+    depends_on:
+      - redis

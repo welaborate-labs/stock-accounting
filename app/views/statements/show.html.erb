@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Statement date:</strong>
+  <%= @statement.statement_date %>
+</p>
+
+<p>
+  <strong>Statement file:</strong>
+  <%= @statement.statement_file_id %>
+</p>
+
+<%= link_to 'Edit', edit_statement_path(@statement) %> |
+<%= link_to 'Back', statements_path %>
