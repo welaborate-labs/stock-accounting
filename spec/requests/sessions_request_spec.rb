@@ -44,7 +44,7 @@ RSpec.describe "Sessions", type: :request do
           end
 
           it { is_expected.to have_http_status :redirect }
-          it { is_expected.to redirect_to root_path }
+          it { is_expected.to redirect_to statement_files_path }
           it 'sends Signed in! flash message' do
             expect(flash[:notice]).to eq 'Signed in!'
           end
@@ -73,7 +73,7 @@ RSpec.describe "Sessions", type: :request do
           end
 
           it { is_expected.to have_http_status :redirect }
-          it { is_expected.to redirect_to root_path }
+          it { is_expected.to redirect_to statement_files_path }
           it 'sends Signed in! flash message' do
             expect(flash[:notice]).to eq 'Signed in!'
           end
@@ -104,7 +104,7 @@ RSpec.describe "Sessions", type: :request do
           end
 
           it { is_expected.to have_http_status :redirect }
-          it { is_expected.to redirect_to root_path }
+          it { is_expected.to redirect_to statement_files_path }
           it 'sends Signed in! flash message' do
             expect(flash[:notice]).to eq 'Signed in!'
           end
@@ -135,7 +135,7 @@ RSpec.describe "Sessions", type: :request do
           end
 
           it { is_expected.to have_http_status :redirect }
-          it { is_expected.to redirect_to root_path }
+          it { is_expected.to redirect_to statement_files_path }
           it 'sends Account successfully linked! flash message' do
             expect(flash[:notice]).to eq 'Account successfully linked!'
           end
@@ -158,7 +158,7 @@ RSpec.describe "Sessions", type: :request do
           end
 
           it { is_expected.to have_http_status :redirect }
-          it { is_expected.to redirect_to root_path }
+          it { is_expected.to redirect_to statement_files_path }
           it 'sends Account successfully linked! flash message' do
             expect(flash[:notice]).to eq 'Account successfully linked!'
           end

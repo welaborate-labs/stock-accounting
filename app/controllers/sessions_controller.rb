@@ -9,18 +9,18 @@ class SessionsController < ApplicationController
       if @authentication
         flash[:notice] = 'Account successfully linked!'
       else
-        flash[:notice] = 'Could not link this account!'
+        redirect_to root_path, alert: 'Could not link this account!' and return
       end
     else
       if @authentication
         self.current_user = @authentication.user
         flash[:notice] = 'Signed in!'
       else
-        flash[:notice] = 'Could not sign in or register account!'
+        redirect_to root_path, alert: 'Could not sign in or register account!' and return
       end
     end
 
-    redirect_to root_path
+    redirect_to statement_files_path
   end
 
   def destroy
