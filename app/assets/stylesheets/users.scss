@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .app-profile .main-area {
-  margin: 30px 20px;
+  margin: 20px 10px;
 }
 
 .app-profile .mdl-card {
@@ -12,13 +12,30 @@
   padding: 10px;
 }
 
+.app-profile .subtitle {
+  margin-left: 30px;
+}
+
+.app-profile .mdl-textfield--floating-label {
+  width: 40%;
+}
+
 .app-profile .material-icons.edit {
   padding-left: 50px;
 }
 
+.app-profile .link-account {
+  margin: 10px 500px 10px 20px;
+}
+
+.app-profile ul {
+  padding: 0px;
+  display: inline;
+}
+
 .app-profile .link-buttons-group {
   position: absolute;
-  width: 40%;
+  width: 45%;
   padding: 20px 10px;
   margin-left: 10px;
 }
