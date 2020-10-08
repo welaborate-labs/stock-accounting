@@ -1,14 +1,11 @@
 // Place all the styles related to the authentications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-.app-profile .main-area {
+.app-profile .mdl-layout__content {
   margin: 20px 10px;
 }
 
 .app-profile .mdl-card {
-  height: 770px;
-  width: 700px;
   padding: 10px;
 }
 
@@ -20,34 +17,41 @@
   width: 40%;
 }
 
-.app-profile .material-icons.edit {
-  padding-left: 50px;
-}
-
 .app-profile .link-account {
   margin: 10px 500px 10px 20px;
 }
 
-.app-profile ul {
-  padding: 0px;
-  display: inline;
-}
-
 .app-profile .link-buttons-group {
-  position: absolute;
-  width: 45%;
-  padding: 20px 10px;
+  display: flex;
+  padding: 10px 10px;
   margin-left: 10px;
 }
 
+.app-profile .facebook-button-icon {
+  position: absolute;
+  width: 25px;
+  margin: 16px 75px;
+  z-index: 1;
+}
+
+.app-profile .google-button-icon {
+  position: absolute;
+  width: 25px;
+  margin: 16px 490px;
+  z-index: 1;
+}
+
 .app-profile .link-facebook-btn {
+  width: 40%;
   background-color: rgb(59, 89, 152);
   color: #ffffff;
   &:hover {
     background-color: rgb(59, 89, 152);
   }
 }
+
 .app-profile .link-google-btn {
+  width: 40%;
   background-color: rgb(221, 75, 57);
   color: #ffffff;
   &:hover {
@@ -56,5 +60,6 @@
 }
 
 .app-profile .save-data-btn {
-  width: 90%;
+  width: 42%;
+  margin: 35px;
 }
