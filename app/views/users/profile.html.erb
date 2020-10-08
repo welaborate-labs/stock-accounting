@@ -101,3 +101,107 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" defer>
+  const form = document.querySelector(".app-profile");
+  const fullnameField = document.querySelector("#profile-fullname")
+  const usernameField  = document.querySelector("#profile-username");
+  const numberField = document.querySelector("#profile-number");
+  const emailField = document.querySelector("#profile-email");
+  const passwordField = document.querySelector("#profile-password");
+  const passwordConfirmationField = document.querySelector("#profile-password2");
+  const errorMessage = document.querySelector('.error-message');
+
+    form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    validateProfileForm();
+    if (errorList.length > 0) {
+      showErrorMessage(errorList);
+      return;
+    }
+  });
+
+    function validateProfileForm(form) {
+      errorList = [];
+      errorMessage.innerHTML = "";
+
+      if (!validateName(fullnameField.value)) errorList.push('Preencha esse campo com nome composto válido.');
+      if (!validateUsername(usernameField.value)) errorList.push('Preencha esse campo com nome de usuário válido.');
+      if (!validateNumber(numberField.value)) errorList.push('Preencha esse campo com um número de CNPJ ou CPF válido.');
+      if (!validateEmail(emailField.value)) errorList.push('Preencha esse campo com e-mail válido.');
+      if (!validatePassword(passwordField.value)) errorList.push('Preencha esse campo com senha forte.');
+      if (!validatePasswordConfirmation(passwordConfirmationField.value)) errorList.push('Preencha esse campo com senha forte.');
+      if(passwordField.value !== passwordConfirmationField.value) errorList.push('As senhas não são iguais.');
+    }
+
+    function validateEmptyFields(field, fieldValue) {
+      if (fieldValue === '') {
+        errorList.push(`O campo de ${field} é de preenchimento obrigatório.`);
+        return false;
+      }
+      return true;
+    }
+
+    /* Regex de nome que obrigada a escrita de primeira letra maiúscula, nome composto e que aceita acentuacao */
+    function validateName(nameField) {
+      if(validateEmptyFields('nome', nameField)) {
+        const nameRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/;
+        return nameRegex.test(nameField);
+      }
+      return true;
+    }
+
+    /* Regex de nome de usuário de 2 à 20 caracteres */
+    function validateUsername(usernameField) {
+      if(validateEmptyFields('nome de usúario', usernameField)) {
+        const usernameRegex = /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/;
+        return usernameRegex.test(usernameField);
+      }
+      return true;
+    }
+
+    /* Regex de validação de CPF e CNPJ com cálculo do dígito verificador */
+    function validateNumber(numberField) {
+      if(validateEmptyFields('CNPJ ou CPF', numberField)) {
+        const numberRegex = /^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})$/;
+        return numberRegex.test(numberField);
+      }
+      return true;
+    }
+
+    /* Regex de email, identifica e-mail incompleto terminado por nome, ponto e arroba */
+    function validateEmail(emailField) {
+      if(validateEmptyFields('e-mail', emailField)) {
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        return emailRegex.test(String(emailField).toLowerCase());
+      }
+      return true;
+    }
+
+    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
+    function validatePassword(passwordField) {
+      if(validateEmptyFields('senha', passwordField)) {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+        return passwordRegex.test(passwordField);
+      }
+      return true;
+    }
+
+    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
+    function validatePasswordConfirmation(passwordConfirmationField) {
+      if(validateEmptyFields('confirmação de senha', passwordConfirmationField)) {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+        return passwordRegex.test(passwordConfirmationField);
+      }
+      return true;
+    }
+
+    function showErrorMessage(errorList) {
+        const ul = document.querySelector(".error-message");
+        ul.innerHTML = '';
+        errorList.forEach(function(error){
+          const li = document.createElement("li");
+          li.textContent = error;
+          ul.appendChild(li);
+        })
+    }
+</script> 
