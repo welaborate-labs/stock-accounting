@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_150111) do
+ActiveRecord::Schema.define(version: 2020_09_30_182053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "document"
+    t.text "address"
+    t.text "address_complement"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "zipcode"
+    t.string "phone_personal"
+    t.string "phone_business"
+    t.string "phone_mobile"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_150111) do
     t.datetime "processed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_statement_files_on_account_id"
   end
 
   create_table "statements", force: :cascade do |t|
@@ -88,6 +109,8 @@ ActiveRecord::Schema.define(version: 2020_09_22_150111) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "accounts", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "statement_files", "accounts"
   add_foreign_key "statements", "statement_files"
 end
