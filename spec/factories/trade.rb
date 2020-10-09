@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :trade do
-    statement { nil }
+    statement
     ticker { "MyString" }
     direction { 1 }
     open { false }
