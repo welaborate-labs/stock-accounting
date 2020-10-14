@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :identities
   resources :statements
+  resources :accounts,                        only: [:new, :edit, :create, :update]
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
-
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount Sidekiq::Web, at: '/sidekiq' if Rails.env.development?
