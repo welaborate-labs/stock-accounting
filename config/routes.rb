@@ -1,5 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  root to: 'sessions#new' # new_sessions_path
+  root to: 'sessions#new'
 
   get   '/auth/:provider/callback',           to: 'sessions#create'
   get   '/login',                             to: 'sessions#new'
@@ -8,9 +10,11 @@ Rails.application.routes.draw do
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
 
   resources :identities
-  resources :password_resets
-  resources :users, only: [:show]
+  resources :statements
+  resources :users,                           only: [:show]
+  resources :accounts,                        only: [:new, :edit, :create, :update]
+  resources :statement_files,                 only: [:index, :new, :create, :destroy]
 
-  # Gives letter_opener an interface for browsing sent emails: http:localhost:3000/letter_opener
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  mount Sidekiq::Web, at: '/sidekiq' if Rails.env.development?
 end
