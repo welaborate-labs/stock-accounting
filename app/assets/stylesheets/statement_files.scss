@@ -68,6 +68,9 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   .app-statement .add-file-btn {
     margin: 20px 20px 20px 30px;
   }
+  #statement-messages {
+    margin: 97px 20px -115px 20px;
+  }
 }
 
 @media screen and (min-width: 361px) and (max-width: 600px) {
@@ -82,6 +85,9 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   }
   .app-statement .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
     display: none;
+  }
+  #statement-messages {
+    margin: 97px 20px -115px 40px;
   }
 }
 
@@ -113,10 +119,13 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   }
   .app-statement table {
     margin: 40px 20px 20px 45px;
-    width: 90%;
+    width: 70%;
   }
   .app-statement table th, .app-statement table td, .app-statement .add-file-btn {
     font-size: 18px;
+  }
+  #statement-messages {
+    font-size: 22px;
   }
 }
 
@@ -132,6 +141,9 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   }
   .app-statement table {
     margin: 40px 20px 20px 45px;
-    width: 70%;
+    width: 75%;
+  }
+  #statement-messages {
+    font-size: 22px;
   }
 }
