@@ -1,4 +1,4 @@
-<div class="app">
+<div class="app-login">
   <span class="error-message-form"><%= form_tag '/auth/identity/callback' do %></span>
   <div class="demo-card-wide mdl-card form-login mdl-shadow--2dp" id="form-login">
     <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
@@ -18,7 +18,7 @@
       <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('gp-icon.png', class: 'google-icon') %>
       <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button google-btn mdl-button--raised mdl-js-ripple-effect' %>
-      <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+      <%= link_to 'Registrar-se', '/signup', class: 'mdl-button mdl-button--colored mdl-js-button signup-btn mdl-js-ripple-effect' %>
     </div>
   </div>
   <% end %>
