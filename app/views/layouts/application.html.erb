@@ -18,7 +18,7 @@
   </head>
   <body>
     <% flash.each do |type, msg| %> 
-      <div class="#{type}"><%= msg %></div>
+      <div class="#{type}" id="statement-messages"><%= msg %></div>
     <% end %>
     <%= yield %>
   </body>

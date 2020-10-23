@@ -1,17 +1,17 @@
-<div class="app">
+<div class="app-statement">
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <div class="mdl-layout-spacer">
-          <div class="mdl-cell mdl-cell--4-col md1-cell--6-col-tablet">
-            <h5>Notas de Corretagem</h5>
+          <div class="mdl-cell">
+          <h5>Notas de Corretagem</h5>
           </div>
         </div>
-        <nav class="mdl-navigation hide-cell">
-          <div class="material-icons mdl-badge mdl-badge--overlap">settings</div>
-          <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications_active</div>
-          <div class="material-icons mdl-badge mdl-badge--overlap"><a><%= link_to "account_box", "/logout" %></a></div>
-        </nav>
+      <nav class="mdl-navigation hide-cell">
+        <div class="material-icons mdl-badge mdl-badge--overlap">settings</div>
+        <div class="material-icons mdl-badge mdl-badge--overlap">notifications_active</div>
+        <div class="material-icons mdl-badge mdl-badge--overlap account-icon"><a><%= link_to "account_box", "/logout" %></a></div>
+      </nav>
       </div>
     </header>
     <div class="mdl-layout__drawer">
@@ -20,54 +20,55 @@
         <a href="#" class="mdl-navigation__link">Dashboard</a>
         <a href="#" class="mdl-navigation__link">Perfil</a>
         <a href="#" class="mdl-navigation__link">Notas de Corretagem</a>
-    </nav>
+        <a href="#" class="mdl-navigation__link logout-link">
+        <span class="material-icons logout-icon">logout<%= link_to "", "/logout" %></span>
+        </a>
+      </nav>
     </div>
     <div class="mdl-layout__content">
       <main>
         <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell-12-col md1-cell--6-col-tablet">
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-            <thead>
-              <tr>
-                <th class="mdl-data-table__cell--non-numeric">Id</th>
-                <th>Data de criação</th>
-                <th>Visualizar documento</th>
-                <th>Baixar documento</th>
-                <th>Excluir documento</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @statement_files.each do |statement_file| %>
-                <tr>
-                  <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
-                  <td><%= statement_file.file.record.created_at.to_date %></td>
-                  <td><span class="material-icons"><%= link_to 'visibility', statement_file.file, target: '_blank'%></span></td>
-                  <td><span class="material-icons"><%= link_to 'get_app', statement_file.file, download: ''%></span></td>
-                  <td><span class="material-icons"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></span></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-            <div class="button-group">
-              <div class="mdl-grid">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-                  <i class="material-icons"><a><%= link_to 'add', new_statement_file_path %></a></i>
-                </button>
-              </div>
-            </div>
+          <div class="mdl-card__actions mdl-color-text--primary">
           </div>
-      </main>
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">Nome da empresa</div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="#">Contato</a></li>
-            <li><a href="#">Ajuda</a></li>
-          </ul>
         </div>
-      </footer>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Id</th>
+              <th class="date">Data de criação</th>
+              <th>Visualizar</th>
+              <th>Baixar</th>
+              <th>Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @statement_files.each do |statement_file| %>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">1111<%= statement_file.file.record.id %></td>
+              <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
+              <td>
+                <button class="mdl-button mdl-js-button mdl-button--icon visibility-btn">
+                  <i class="material-icons visibility-icon"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
+                </button>
+              </td>
+              <td>
+                <button class="mdl-button mdl-js-button mdl-button--icon download-btn">
+                  <i class="material-icons download-icon"><%= link_to 'get_app', statement_file.file, download: ''%></i>
+                </button>
+              </td>
+              <td>
+                <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
+                  <i class="material-icons delete-icon"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
+                </button>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <button class="mdl-button mdl-js-button add-file-btn mdl-button--raised mdl-button--colored">
+            <a><%= link_to 'Adicionar Arquivo', new_statement_file_path %></a>
+        </button>
+      </main>
     </div>
   </div>
 </div>
-<script type="text/javascript" defer>
-</script>
