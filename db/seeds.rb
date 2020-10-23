@@ -1,7 +1,59 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# this must be used after the server is up to use the redis for the attachment
+# user for tests purposes using identity
+# email: test@identity pass: 1234567890
+User.create!(name: 'Test Seed', email: 'test@seed.com')
+puts 'User created successfully'
+
+Identity.create!(name: 'Test Identity', email: 'test@identity.com', password_digest: '1234567890')
+puts 'Identity created successfully'
+
+Authentication.create!(user: User.last, uid: '123456789101112131415', provider: 'identity') 
+puts "Authentication by 'identity' created successfully"
+
+Authentication.create!(user: User.last, uid: '12345678910', provider: 'facebook') 
+puts "Authentication by 'facebook' created successfully"
+
+Account.create!(user_id: User.last.id, name: 'Test Account',
+                document: 'modelo.pdf',
+                address: 'address', 
+                address_complement: 'address complement',
+                city: 'city', state: 'state', country: 'country',
+                zipcode: '00000-000',
+                phone_personal: '11 1111-1111', 
+                phone_business: '22 2222-2222', 
+                phone_mobile:   '33 3333-3333',
+                status: 'active') 
+puts "Account created successfully"
+BrokerageAccount.create!(account_id: Account.last.id, brokerage: '1', number: '44')
+puts "BrokerageAccount created successfully"
+
+10.times { 
+  statement_file = StatementFile.new(account_id: Account.last.id, processed_at: DateTime.now)
+  statement_file.file.attach(io: File.open(Rails.root.join 'spec/fixtures/files/modelo.pdf'), filename: 'modelo.pdf', content_type: 'application/pdf')
+  statement_file.save!
+}
+puts "StatementFiles created successfully"
+
+Statement.create!(statement_date: DateTime.now, 
+                  statement_file_id: StatementFile.last.id,
+                  brokerage_account_id: BrokerageAccount.last.id)
+puts "Statement created successfully"
+
+Trade.create!(statement_id: Statement.last.id, 
+              ticker: 'ticker',
+              direction: 1,
+              open: true,
+              close: false,
+              quantity: 4,
+              price: 44,
+              transacted_at: DateTime.now)  
+puts "Trade open created successfully"
+Trade.create!(statement_id: Statement.last.id, 
+              ticker: 'ticker',
+              direction: 1,
+              open: false,
+              close: true,
+              quantity: 4,
+              price: 44,
+              transacted_at: DateTime.now)  
+puts "Trade close created successfully"
