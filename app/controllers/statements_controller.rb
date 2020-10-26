@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :set_statement, only: [:show, :edit, :destroy]
+  before_action :set_statement, only: [:show, :edit, :update, :destroy]
 
   def index
     @statements = Statement.all
@@ -46,11 +46,11 @@ class StatementsController < ApplicationController
   end
 
   private
-    def set_statement
-      @statement = Statement.find(params[:id])
-    end
+  def set_statement
+    @statement = Statement.find(params[:id])
+  end
 
-    def statement_params
-      params.require(:statement).permit(:statement_date, :statement_file_id, :brokerage_account_id)
-    end
+  def statement_params
+    params.require(:statement).permit(:statement_date, :statement_file_id, :brokerage_account_id)
+  end
 end
