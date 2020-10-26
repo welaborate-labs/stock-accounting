@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Statement date:</strong>
   <%= @statement.statement_date %>
@@ -8,6 +6,11 @@
 <p>
   <strong>Statement file:</strong>
   <%= @statement.statement_file_id %>
+</p>
+
+<p>
+  <strong>Brokerage Account:</strong>
+  <%= @statement.brokerage_account_id %>
 </p>
 
 <%= link_to 'Edit', edit_statement_path(@statement) %> |
