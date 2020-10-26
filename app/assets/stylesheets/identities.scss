@@ -8,41 +8,41 @@
   align-items: center;
 }
 
-#signup-form {
+.app-registration #signup-form {
   box-sizing: border-box;
   margin: 50px 30px;
   padding: 20px 0px 30px 0px;
 }
 
-.mdl-card.form-login {
+.app-registration .mdl-card.form-login {
   height: 460px;
   box-sizing: border-box;
   margin: 50px 30px;
   padding: 20px 0px 30px 0px;
 }
 
-.mdl-textfield.mdl-textfield--floating-label {
+.app-registration .mdl-textfield.mdl-textfield--floating-label {
   margin: 0px 33px;
   width: 80%;
 }
 
-.link-button {
+.app-registration .link-button {
   width: 100%;
   margin: 10px 15px 10px 15px;
 }
 
-#register-btn {
-  margin-top: -10px;
+.app-registration #register-btn {
+  margin: 10px 87px;
 }
 
-.error-list {
-  margin-top: -10px;
+.app-registration .error-list {
+  margin: 10px 30px;
 }
 
-ul {
+.app-registration ul {
   list-style-type: none;
 }
 
-.error-message {
+.app-registration .error-message {
   color: red;
 }

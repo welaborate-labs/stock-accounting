@@ -1,7 +1,6 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 .app-login {
   display: flex;
   justify-content: center;
@@ -62,14 +61,19 @@
   }
 }
 
-.error-list {
-  margin-top: -10px;
+.app-login .error-list {
+  margin: 10px 30px;
 }
 
-ul {
+.app-login ul {
   list-style-type: none;
 }
 
-.error-message {
+.app-login .error-message {
   color: red;
+}
+
+#statement-messages {
+  color: red;
+  margin: 97px 20px -115px 50px;
 }
