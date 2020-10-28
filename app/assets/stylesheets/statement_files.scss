@@ -37,11 +37,7 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
 .app-statement table {
   margin: 40px 40px 25px 40px;
   width: 40%;
-}
 
-#statement-messages {
-  color: red;
-  margin: 97px 20px -115px 50px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 360px) {
@@ -64,6 +60,7 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   .app-statement table td, .app-statement table tr {
     padding: 10px 14px;
     text-align: center;
+    font-size: 14px;
   }
   .app-statement .add-file-btn {
     margin: 20px 20px 20px 30px;
@@ -131,7 +128,7 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
 
 @media screen and (min-width: 1201px) {
   .app-statement h5 {
-    font-size: 24px;
+    font-size: 22px;
   }
   .app-statement .logout-icon {
     padding-top: 1050px;
@@ -141,7 +138,7 @@ nav .account-icon a, .app-statement .add-file-btn a, .app-statement h5 {
   }
   .app-statement table {
     margin: 40px 20px 20px 45px;
-    width: 75%;
+    width: 60%;
   }
   #statement-messages {
     font-size: 22px;
