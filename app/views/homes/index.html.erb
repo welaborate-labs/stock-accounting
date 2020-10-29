@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-  <body>
-    <header>
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-          <div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer"></div>
-          <nav class="mdl-navigation">
+  <div class="app-home">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer">
+            <div class="mdl-cell">
+              <h5>Página Inicial</h5>
+            </div>
+          </div>
+          <nav class="mdl-navigation hide-cell">
+            <div class="material-icons mdl-badge mdl-badge--overlap user_icon"><a><%= link_to "account_circle", "/login" %></a></div>
           </nav>
         </div>
-        </header>
-        <div class="mdl-layout__drawer">
-          <span class="mdl-layout-title">Menu</span>
-          <nav class="mdl-navigation">
-            <a href="#" class="mdl-navigation__link">Link 1</a>
-            <a href="#" class="mdl-navigation__link">Link 2</a>
-            <a href="#" class="mdl-navigation__link">Link 3</a>
-        </nav>
-      </div>
-    </header>
+      </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link">
+          <span class="material-icons">account_circle<a><%= link_to "Entrar", "/login" %></a></span>
+        </a>
+        <a class="mdl-navigation__link">Página Inicial</a>
+      </nav>
+    </div>
       <main>
         <div class="mdl-layout__content">
-          <div class="mdl-cell mdl-cell--8-col mdl-typography--text-left">
-            <div class="logo-font-title">Heading text</div>
-            <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt.</div>
-            <div class="logo-font">Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
-            <button href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-              LOG IN
-            </button>
-          </div>
-            <div class="mdl-cell mdl-cell--12-col mdl-typography--text-left">
+          <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left">
+            <div class="logo-font-title">Main Title</div>
+            <div class="logo-font subtitle">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt.</div>
+            <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left text">
+              <div class="logo-font">Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
               <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.</div>
               <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
               <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.</div>
               <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
             </div>
           </div>
+          </div>
       </main>
       </div>
     </div>
-  </body>
-</html>
+  </div>
