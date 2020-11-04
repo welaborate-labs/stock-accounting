@@ -8,19 +8,34 @@
             </div>
           </div>
           <nav class="mdl-navigation hide-cell">
-            <div class="material-icons mdl-badge mdl-badge--overlap user_icon"><a><%= link_to "account_circle", "/login" %></a></div>
+            <span class="material-icons">
+              <a><%= link_to "account_circle", user_path(current_user) %></a>
+            </span>
+            <span class="material-icons">
+              <a><%= link_to "settings", accounts_path(current_user) %></a>
+            </span>
+            <button id="demo-menu-lower-right" 
+              class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">more_vert</i>
+            </button>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="demo-menu-lower-right">
+                <li class="mdl-menu__item">
+                  <a><%= link_to "Página Inicial", "/home" %></a>
+                </li>
+                <li class="mdl-menu__item">
+                  <a><%= link_to "Perfil", user_path(current_user) %></a>
+                </li>
+                <li class="mdl-menu__item">
+                  <a><%= link_to "Notas de Corretagem", statement_files_path(current_user) %></a>
+                </li>
+                <li class="mdl-menu__item">
+                  <a><%= link_to "Logout", "/logout" %></a>
+                </li>
+            </ul>
           </nav>
         </div>
       </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Menu</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link">
-          <span class="material-icons">account_circle<a><%= link_to "Entrar", "/login" %></a></span>
-        </a>
-        <a class="mdl-navigation__link">Página Inicial</a>
-      </nav>
-    </div>
       <main>
         <div class="mdl-layout__content">
           <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left">
