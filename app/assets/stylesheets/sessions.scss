@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.app-login #form-login {
+.app-login .demo-card-wide {
   height: 555px;
   box-sizing: border-box;
   margin: 50px 30px;
@@ -59,16 +59,4 @@
   &:hover {
     background-color: rgb(221, 75, 57);
   }
-}
-
-.app-login .error-list {
-  margin: 10px 30px;
-}
-
-.app-login ul {
-  list-style-type: none;
-}
-
-.app-login .error-message {
-  color: red;
 }
