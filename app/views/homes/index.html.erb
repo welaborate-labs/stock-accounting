@@ -1,4 +1,4 @@
-  <div class="app-home">
+ <div class="app-home">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -8,30 +8,36 @@
             </div>
           </div>
           <nav class="mdl-navigation hide-cell">
-            <span class="material-icons">
-              <a><%= link_to "account_circle", user_path(current_user) %></a>
-            </span>
-            <span class="material-icons">
-              <a><%= link_to "settings", accounts_path(current_user) %></a>
-            </span>
-            <button id="demo-menu-lower-right" 
-              class="mdl-button mdl-js-button mdl-button--icon">
-              <i class="material-icons">more_vert</i>
-            </button>
-              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                for="demo-menu-lower-right">
+            <% if signed_in? %>
+              <span class="material-icons">
+                <%= link_to "account_circle", account_path(current_user.id) %>
+              </span>
+              <span class="material-icons">
+                <%= link_to "settings", accounts_path %>
+              </span>
+              <button id="demo-menu-lower-right" 
+                class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+              </button>
+            <% end %>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+              <% if signed_in? %>
                 <li class="mdl-menu__item">
-                  <a><%= link_to "Página Inicial", "/home" %></a>
+                  <%= link_to "Página Inicial", home_path %>
                 </li>
                 <li class="mdl-menu__item">
-                  <a><%= link_to "Perfil", user_path(current_user) %></a>
+                  <%= link_to "Perfil", user_path(current_user.id) %>
                 </li>
                 <li class="mdl-menu__item">
-                  <a><%= link_to "Notas de Corretagem", statement_files_path(current_user) %></a>
+                  <%= link_to "Notas de Corretagem", statement_files_path %>
                 </li>
                 <li class="mdl-menu__item">
-                  <a><%= link_to "Logout", "/logout" %></a>
+                  <%= link_to "Logout", logout_path %>
+              <% else %>
+                </li><li class="mdl-menu__item">
+                  <%= link_to "Login", login_path %>
                 </li>
+              <% end %>   
             </ul>
           </nav>
         </div>
@@ -53,4 +59,4 @@
       </main>
       </div>
     </div>
-  </div>
+  </div> 
