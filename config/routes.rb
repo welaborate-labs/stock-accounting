@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get 'landing/index'
   root to: 'landing#index'
 
-  get   '/auth/:provider/callback',           to: 'sessions#create'
+  match '/auth/:provider/callback',           to: 'sessions#create', via: [:get, :post]
   get   '/login',                             to: 'sessions#new'
   get   '/auth/failure',                      to: 'sessions#failure'
-  get   '/logout',                            to: 'sessions#destroy', via: [:get, :post]
+  match '/logout',                            to: 'sessions#destroy', via: [:get, :post]
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
   get   '/home',                              to: 'homes#index'
 
