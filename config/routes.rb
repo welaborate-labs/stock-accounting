@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get   '/logout',                            to: 'sessions#destroy', via: [:get, :post]
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
 
+  resources :accounts
   resources :identities
   resources :statements
   resources :users,                           only: [:show]
-  resources :accounts,                        only: [:new, :edit, :create, :update]
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
