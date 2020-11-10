@@ -1,20 +1,22 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:edit, :update]
+  before_action :set_account, only: [:edit, :update, :show]
+
+  def index
+    @accounts = Account.all
+  end
 
   def new
     @account = Account.new
   end
 
-  def edit
-  end
-
   def create
     @account = Account.new(account_params)
+    @account.user_id = current_user.id
 
     if @account.save
       redirect_to new_account_path, notice: 'Account was successfully created.'
     else
-      redirect_to new_account_path, alert: @account.errors.full_messages.to_sentence
+      redirect_to new_account_path, alert: @account.errors.full_messages
     end
   end
 
@@ -22,7 +24,7 @@ class AccountsController < ApplicationController
     if @account.update(account_params)
       redirect_to new_account_path, notice: 'Account was successfully updated.'
     else
-      redirect_to new_account_path, alert: @account.errors.full_messages.to_sentence
+      redirect_to new_account_path, alert: @account.errors.full_messages
     end
   end
 
