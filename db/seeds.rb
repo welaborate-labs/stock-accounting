@@ -14,7 +14,7 @@ Authentication.create!(user: User.last, uid: '12345678910', provider: 'facebook'
 puts "Authentication by 'facebook' created successfully"
 
 Account.create!(user_id: User.last.id, name: 'Test Account',
-                document: 'modelo.pdf',
+                document: '123.456.789-01',
                 address: 'address', 
                 address_complement: 'address complement',
                 city: 'city', state: 'state', country: 'country',
@@ -24,7 +24,7 @@ Account.create!(user_id: User.last.id, name: 'Test Account',
                 phone_mobile:   '33 3333-3333',
                 status: 'active') 
 puts "Account created successfully"
-BrokerageAccount.create!(account_id: Account.last.id, brokerage: '1', number: '44')
+BrokerageAccount.create!(account_id: Account.last.id, brokerage: 123456, branch: 'branch',account_number: '123.456.789-01')
 puts "BrokerageAccount created successfully"
 
 10.times { 
@@ -40,7 +40,7 @@ Statement.create!(statement_date: DateTime.now,
 puts "Statement created successfully"
 
 Trade.create!(statement_id: Statement.last.id, 
-              ticker: 'ticker',
+              ticker: 'ticker1',
               direction: 1,
               open: true,
               close: false,
@@ -49,7 +49,7 @@ Trade.create!(statement_id: Statement.last.id,
               transacted_at: DateTime.now)  
 puts "Trade open created successfully"
 Trade.create!(statement_id: Statement.last.id, 
-              ticker: 'ticker',
+              ticker: 'ticker2',
               direction: 1,
               open: false,
               close: true,
