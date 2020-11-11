@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Accounts", type: :request do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let(:account) { create(:account, user_id: user.id) }
+
+  before { allow(controller).to receive(:current_user) { user } }
 
   describe "GET #index" do
     before { get accounts_path }
@@ -38,7 +40,7 @@ RSpec.describe "Accounts", type: :request do
       subject { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
 
       it { expect {subject}.to change(Account, :count).by(1) }
-      it { is_expected.to redirect_to new_account_path }
+      it { is_expected.to redirect_to accounts_path }
       it { expect(flash[:notice]).to eq("Account was successfully created.") }
     end
 
@@ -59,7 +61,7 @@ RSpec.describe "Accounts", type: :request do
       end
 
       it { expect(account.name).to eq('NameChanged') }
-      it { is_expected.to redirect_to new_account_path }
+      it { is_expected.to redirect_to accounts_path }
       it { expect(flash[:notice]).to eq('Account was successfully updated.') }
     end
 
@@ -71,7 +73,7 @@ RSpec.describe "Accounts", type: :request do
 
       it { expect(account.name).to eq('MyString') }
       it { expect(account.name).not_to eq(nil) }
-      it { is_expected.to redirect_to new_account_path }
+      it { is_expected.to redirect_to accounts_path }
       it { expect(flash[:alert]).to eq(["Name can't be blank"]) }
     end
   end
