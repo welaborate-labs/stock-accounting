@@ -18,6 +18,7 @@ RSpec.describe "/statement_files", type: :request do
   describe 'GET #new' do
     before { get new_statement_file_path }
 
+    it { expect(assigns(:statement_file)).to be_a_new(StatementFile) } 
     it { is_expected.to render_template('new') }
     it { expect(assigns(:statement_file)).to be_a_new(StatementFile) }
   end
