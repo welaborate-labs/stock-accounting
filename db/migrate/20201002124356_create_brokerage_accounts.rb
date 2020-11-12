@@ -4,6 +4,7 @@ class CreateBrokerageAccounts < ActiveRecord::Migration[6.0]
       t.belongs_to :account, null: false, foreign_key: true
       t.integer :brokerage
       t.string :number
+      t.string :account_number
 
       t.timestamps
     end

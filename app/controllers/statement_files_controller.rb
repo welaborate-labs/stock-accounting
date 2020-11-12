@@ -12,6 +12,8 @@ class StatementFilesController < ApplicationController
   def create
     begin
       @statement_file = StatementFile.new(statement_file_params)
+      # TODO Account last
+      @statement_file.account_id = Account.last.id
 
       if @statement_file.save
         redirect_to statement_files_path, notice: 'Statement file was successfully created.'
