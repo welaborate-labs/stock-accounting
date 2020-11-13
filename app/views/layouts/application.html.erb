@@ -17,7 +17,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div>
+    <div class="mdl-layout mdl-js-layout application mdl-layout--fixed-header">
+      <% if current_user %>
+        <%= render 'shared/navbar' %>
+      <% end %>
       <% flash.each do |type, msg| %> 
         <div class="#{type}" id="statement-messages">
         <span class="material-icons feedback-icon">warning</span><%= msg %>

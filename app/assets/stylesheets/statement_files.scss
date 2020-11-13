@@ -1,19 +1,10 @@
 // Place all the styles related to the StatementFiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-body {
-  margin: 0;
-}
 
-.app-statement h5 {
-  margin: 25px 20px;
-  display: contents;
-}
-
-.app-statement .mdl-button--colored a, .app-statement h5, .app-statement .material-icons a {
+.app-statement .mdl-button--colored a, .app-statement .material-icons a {
   color: white;
 }
-
 .app-statement .mdl-button--icon, .app-statement .mdl-button--icon a:hover {
   background-color: white;
 }
@@ -35,11 +26,7 @@ body {
 }
 
 .app-statement .mdl-button--colored {
-  margin: 20px 20px 20px 50px;
-}
-
-.app-statement .mdl-button--colored a:hover, .app-statement nav .mdl-button--icon, .app-statement nav .mdl-button--icon a:hover, .app-statement nav span a:hover {
-  background-color: rgb(0,150,136);
+  margin: 60px 20px -10px 40px;
 }
 
 .app-statement table {

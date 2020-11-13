@@ -1,67 +1,26 @@
 <div class="app-upload-statement">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer">
+  <div class="mdl-layout__content">
+    <main>
+      <%= form_with model: StatementFile, method: :post, local: true do |f| %>
+        <div class="mdl-grid">
           <div class="mdl-cell">
-          <h5>Notas de Corretagem</h5>
-          </div>
-        </div>
-        <nav class="mdl-navigation hide-cell">
-          <span class="material-icons">
-            <a href="#"><%= link_to "account_circle", "" %></a>
-          </span>
-          <span class="material-icons">
-            <a href="#"><%= link_to "settings", "" %></a>
-          </span>
-          <button id="demo-menu-lower-right" 
-            class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-              for="demo-menu-lower-right">
-              <li class="mdl-menu__item">
-                <a><%= link_to "Página Inicial", home_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Perfil", user_path(current_user.id) %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Notas de Corretagem", statement_files_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Logout", logout_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Login", login_path %></a>
-              </li>
-          </ul>
-        </nav>
-        </div>
-    </header>
-    <div class="mdl-layout__content">
-      <main>
-        <%= form_with model: StatementFile, method: :post, local: true do |f| %>
-          <div class="mdl-grid">
-            <div class="mdl-cell">
-            <div class="button-group">
-                <div class="mdl-grid">
-                  <button class="mdl-button mdl-js-button">
-                    <span class="material-icons">
-                      <a><%= link_to 'undo', statement_files_path %></a>
-                    </span>
-                  </button>
-                    <div class="content-group">
-                    <label for="file">Escolha o arquivo</label>
-                      <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
-                      <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
-                    </div>
-                </div>
+          <div class="button-group">
+              <div class="mdl-grid">
+                <button class="mdl-button mdl-js-button">
+                  <span class="material-icons">
+                    <a><%= link_to 'undo', statement_files_path %></a>
+                  </span>
+                </button>
+                  <div class="content-group">
+                  <label for="file">Escolha o arquivo</label>
+                    <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
+                    <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
+                  </div>
               </div>
             </div>
-            <% end %>
-        </main>
-    </div>
+          </div>
+          <% end %>
+      </main>
   </div>
 </div>
 

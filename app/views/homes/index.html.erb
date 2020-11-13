@@ -1,62 +1,23 @@
- <div class="app-home">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <div class="mdl-layout-spacer">
-            <div class="mdl-cell">
-              <h5>Página Inicial</h5>
-            </div>
-          </div>
-          <nav class="mdl-navigation hide-cell">
-            <% if signed_in? %>
-              <span class="material-icons">
-                <%= link_to "account_circle", account_path(current_user.id) %>
-              </span>
-              <span class="material-icons">
-                <%= link_to "settings", accounts_path %>
-              </span>
-              <button id="demo-menu-lower-right" 
-                class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">more_vert</i>
-              </button>
-            <% end %>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-              <% if signed_in? %>
-                <li class="mdl-menu__item">
-                  <%= link_to "Página Inicial", home_path %>
-                </li>
-                <li class="mdl-menu__item">
-                  <%= link_to "Perfil", user_path(current_user.id) %>
-                </li>
-                <li class="mdl-menu__item">
-                  <%= link_to "Notas de Corretagem", statement_files_path %>
-                </li>
-                <li class="mdl-menu__item">
-                  <%= link_to "Logout", logout_path %>
-              <% else %>
-                </li><li class="mdl-menu__item">
-                  <%= link_to "Login", login_path %>
-                </li>
-              <% end %>   
-            </ul>
-          </nav>
+<div class="app-home">
+  <main>
+    <div class="mdl-layout__content">
+      <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left">
+        <div class="logo-font-title">Main Title
         </div>
-      </header>
-      <main>
-        <div class="mdl-layout__content">
-          <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left">
-            <div class="logo-font-title">Main Title</div>
-            <div class="logo-font subtitle">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt.</div>
-            <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left text">
-              <div class="logo-font">Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
-              <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.</div>
-              <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
-              <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.</div>
-              <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.</div>
-            </div>
+        <div class="logo-font subtitle">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt.
+        </div>
+        <div class="mdl-cell mdl-cell--10-col mdl-typography--text-left text">
+          <div class="logo-font">Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.
           </div>
+          <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.
           </div>
-      </main>
+          <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.
+          </div>
+          <div class="logo-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare iaculis purus, eget gravida est lacinia at. Nam magna dolor, vestibulum ut consequat in, dictum a metus.
+          </div>
+          <div class="logo-font">Pellentesque vulputate arcu sed risus auctor tincidunt. Morbi eget massa turpis. Fusce aliquet dolor eu posuere tincidunt. Fusce ultricies luctus dui, dapibus pharetra risus semper non. Maecenas tempus est neque, sit amet malesuada augue tempor vitae. Proin mattis efficitur enim ut molestie.
+          </div>
+        </div>
       </div>
-    </div>
-  </div> 
+  </main>
+</div> 

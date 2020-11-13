@@ -1,128 +1,82 @@
 <div class="app-profile">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer">
-          <h5>Perfil</h5>
-        </div>
-        <nav class="mdl-navigation hide-cell">
-          <span class="material-icons">
-            <a href="#"><%= link_to "account_circle", "" %></a>
-          </span>
-          <span class="material-icons">
-            <a href="#"><%= link_to "settings", "" %></a>
-          </span>
-          <button id="demo-menu-lower-right" 
-            class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-              for="demo-menu-lower-right">
-              <li class="mdl-menu__item">
-                <a><%= link_to "Página Inicial", home_path %></a>
+  <div class="mdl-layout__content">
+    <main>
+      <div class="mdl-grid">
+        <form>
+          <div class="mdl-cell mdl-cell--12-col md1-cell--9-col-tablet">
+            <ul class="demo-list-three mdl-list">
+              <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>Username</span>
+                  <span class="mdl-list__item-text-body">Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+                  for playing Hal in Malcom.</span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <a class="mdl-list__item-secondary" href="#"><i class="material-icons edit-icon">edit</i></a>
+                </span>
               </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Perfil", user_path(current_user.id) %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Notas de Corretagem", statement_files_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Logout", logout_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Login", login_path %></a>
-              </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Menu</span>
-      <nav class="mdl-navigation">
-        <a href="#" class="mdl-navigation__link">Perfil</a>
-        <a href="#" class="mdl-navigation__link">Notas de Corretagem</a>
-      </nav>
-    </div>
-    <div class="mdl-layout__content">
-      <main>
-        <div class="mdl-grid">
-          <form>
-            <div class="mdl-cell mdl-cell--12-col md1-cell--9-col-tablet">
-              <ul class="demo-list-three mdl-list">
-                <li class="mdl-list__item mdl-list__item--three-line">
-                  <span class="mdl-list__item-primary-content">
-                    <i class="material-icons mdl-list__item-avatar">person</i>
-                    <span>Username</span>
-                    <span class="mdl-list__item-text-body">Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-                    for playing Hal in Malcom.</span>
-                  </span>
-                  <span class="mdl-list__item-secondary-content">
-                    <a class="mdl-list__item-secondary" href="#"><i class="material-icons edit-icon">edit</i></a>
-                  </span>
-                </li>
-              </ul>
-              <h5 class="subtitle">Dados cadastrais</h5>
-              <div class="mdl-textfield mdl-js-textfield fullname-field mdl-textfield--floating-label">
-                <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
-                <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text', id:'profile-fullname' %>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield username-field mdl-textfield--floating-label">
-                <%= label_tag :name, 'Nome de Usuário', class: 'mdl-textfield__label', for: 'name' %><br>
-                <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text', id: 'profile-username' %>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield number-field mdl-textfield--floating-label">
-                <%= label_tag :name, 'CPF/CNPJ', class: 'mdl-textfield__label', for: 'number' %><br>
-                <%= number_field_tag :name, '', class: 'mdl-textfield__input', type: 'number', id: 'profile-number' %>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
-                <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label', for: 'email' %><br>
-                <%= email_field_tag :email, '', class: 'mdl-textfield__input', type: 'email', id: 'profile-email' %>
-              </div>
-               </div>
-               <h5 class="subtitle">Alteração de senha</h5>
-              <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
-                <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password' %><br>
-                <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password', id:'profile-password' %>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
-                <%= label_tag :password_confirmation, 'Confirmação de senha', class: 'mdl-textfield__label', for: 'password2' %><br>
-                <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password', id: 'profile-password2'%>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <%= label_tag :name, 'Contas Vinculadas', class: 'mdl-textfield__label' %><br>
-              </div>
-              <div class="link-account">
-                <ul class="demo-list-control mdl-list">
-                <li class="mdl-list__item">
-                  <span class="mdl-list__item-primary-content">
-                    <i class="material-icons mdl-list__item-avatar">facebook</i>
-                    <small>Bob Odenkirk</small>
-                    <label class="mdl-switch facebook-switch mdl-js-switch mdl-js-ripple-effect" for="switch">
-                      <input type="checkbox" id="switch" class="mdl-switch__input" checked>
-                      <span class="mdl-switch__label"></span>
-                    </label>
-                  </span>
-                </li>
-                </ul>
-              </div>
-              <div class="mdl-textfield mdl-js-textfield field-reset-password mdl-textfield--floating-label">
-                <%= label_tag :name, 'Vincular Conta', class: 'mdl-textfield__label' %><br>
-              </div>
-              <div class="link-buttons-group">
-                <%= image_tag('fb-icon.png', class: 'facebook-button-icon') %>
-                <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button link-facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
-                <%= image_tag('gp-icon.png', class: 'google-button-icon') %>
-                <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button link-google-btn mdl-button--raised mdl-js-ripple-effect' %>
-              </div>
-              <div class="error-list">
-                <ul class="error-message" id="error-message"></ul>
-              </div>
-              <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button save-data-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'profile-btn' %>
+            </ul>
+            <h5 class="subtitle">Dados cadastrais</h5>
+            <div class="mdl-textfield mdl-js-textfield fullname-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text', id:'profile-fullname' %>
             </div>
-          </form>
-        </div>
-      </main>
-    </div>
+            <div class="mdl-textfield mdl-js-textfield username-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'Nome de Usuário', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text', id: 'profile-username' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield number-field mdl-textfield--floating-label">
+              <%= label_tag :name, 'CPF/CNPJ', class: 'mdl-textfield__label', for: 'number' %><br>
+              <%= number_field_tag :name, '', class: 'mdl-textfield__input', type: 'number', id: 'profile-number' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
+              <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label', for: 'email' %><br>
+              <%= email_field_tag :email, '', class: 'mdl-textfield__input', type: 'email', id: 'profile-email' %>
+            </div>
+              </div>
+              <h5 class="subtitle">Alteração de senha</h5>
+            <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
+              <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password' %><br>
+              <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password', id:'profile-password' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield password-field mdl-textfield--floating-label">
+              <%= label_tag :password_confirmation, 'Confirmação de senha', class: 'mdl-textfield__label', for: 'password2' %><br>
+              <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password', id: 'profile-password2'%>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= label_tag :name, 'Contas Vinculadas', class: 'mdl-textfield__label' %><br>
+            </div>
+            <div class="link-account">
+              <ul class="demo-list-control mdl-list">
+              <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">facebook</i>
+                  <small>Bob Odenkirk</small>
+                  <label class="mdl-switch facebook-switch mdl-js-switch mdl-js-ripple-effect" for="switch">
+                    <input type="checkbox" id="switch" class="mdl-switch__input" checked>
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                </span>
+              </li>
+              </ul>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield field-reset-password mdl-textfield--floating-label">
+              <%= label_tag :name, 'Vincular Conta', class: 'mdl-textfield__label' %><br>
+            </div>
+            <div class="link-buttons-group">
+              <%= image_tag('fb-icon.png', class: 'facebook-button-icon') %>
+              <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button link-facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
+              <%= image_tag('gp-icon.png', class: 'google-button-icon') %>
+              <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button link-google-btn mdl-button--raised mdl-js-ripple-effect' %>
+            </div>
+            <div class="error-list">
+              <ul class="error-message" id="error-message"></ul>
+            </div>
+            <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button save-data-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'profile-btn' %>
+          </div>
+        </form>
+      </div>
+    </main>
   </div>
 </div>

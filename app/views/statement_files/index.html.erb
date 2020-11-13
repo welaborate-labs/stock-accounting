@@ -1,88 +1,48 @@
 <div class="app-statement">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer">
-          <div class="mdl-cell">
-            <h5>Notas de Corretagem</h5>
-          </div>
+  <div class="mdl-layout__content">
+    <main>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+        <a><%= link_to 'Adicionar Arquivo', new_statement_file_path %></a>
+      </button>
+      <div class="mdl-grid">
+        <div class="mdl-card__actions mdl-color-text--primary">
         </div>
-        <nav class="mdl-navigation hide-cell">
-          <span class="material-icons">
-            <a href="#"><%= link_to "account_circle", "" %></a>
-          </span>
-          <span class="material-icons">
-            <a href="#"><%= link_to "settings", "" %></a>
-          </span>
-          <button id="demo-menu-lower-right" 
-            class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-              for="demo-menu-lower-right">
-              <li class="mdl-menu__item">
-                <a><%= link_to "Página Inicial", home_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Perfil", user_path(current_user.id) %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Notas de Corretagem", statement_files_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Logout", logout_path %></a>
-              </li>
-              <li class="mdl-menu__item">
-                <a><%= link_to "Login", login_path %></a>
-              </li>
-          </ul>
-        </nav>
       </div>
-    </header>
-      <div class="mdl-layout__content">
-        <main>
-          <div class="mdl-grid">
-            <div class="mdl-card__actions mdl-color-text--primary">
-            </div>
-          </div>
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-            <thead>
-              <tr>
-                <th class="mdl-data-table__cell--non-numeric">Id</th>
-                <th class="date">Data de criação</th>
-                <th>Visualizar</th>
-                <th>Baixar</th>
-                <th>Excluir</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @statement_files.each do |statement_file| %>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">1111<%= statement_file.file.record.id %></td>
-                <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
-                <td>
-                  <button class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
-                  </button>
-                </td>
-                <td>
-                  <button class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons"><%= link_to 'get_app', statement_file.file, download: ''%></i>
-                  </button>
-                </td>
-                <td>
-                  <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
-                    <i class="material-icons"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
-                  </button>
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              <a><%= link_to 'Adicionar Arquivo', new_statement_file_path %></a>
-          </button>
-        </main>
-      </div>
+      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Id</th>
+            <th class="date">Data de criação</th>
+            <th>Visualizar</th>
+            <th>Baixar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @statement_files.each do |statement_file| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">1111<%= statement_file.file.record.id %></td>
+            <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
+            <td>
+              <button class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
+              </button>
+            </td>
+            <span class="material-icons"><span>
+            <td>
+              <button class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons"><%= link_to 'get_app', statement_file.file, download: ''%></i>
+              </button>
+            </td>
+            <td>
+              <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
+                <i class="material-icons"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
+              </button>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </main>
   </div>
 </div>
