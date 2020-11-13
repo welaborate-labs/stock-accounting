@@ -24,7 +24,7 @@ Account.create!(user_id: User.last.id, name: 'Test Account',
                 phone_mobile:   '33 3333-3333',
                 status: 'active') 
 puts "Account created successfully"
-BrokerageAccount.create!(account_id: Account.last.id, brokerage: 123456, branch: 'branch',account_number: '123.456.789-01')
+BrokerageAccount.create!(account_id: Account.last.id, brokerage: 123456, number: '123456-7',account_number: '123.456.789-01')
 puts "BrokerageAccount created successfully"
 
 10.times { 
