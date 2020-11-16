@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
   get   '/home',                              to: 'homes#index'
 
+  resources :accounts
   resources :identities
   resources :statements
   resources :users,                           only: [:show]
-  resources :accounts,                        only: [:new, :edit, :create, :update]
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?

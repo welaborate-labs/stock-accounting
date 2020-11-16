@@ -1,8 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "Accounts", type: :request do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
   let(:account) { create(:account, user_id: user.id) }
+
+  before { allow(controller).to receive(:current_user) { user } }
+
+  describe "GET #index" do
+    before { get accounts_path }
+
+    it { is_expected.to render_template("index") }
+    it { expect(assigns(:accounts)).to eq([account]) }
+  end
+
+  describe "GET #show" do
+    before { get account_path(account) }
+
+    it { expect(assigns(:account)).to eq(account) } 
+    it { expect(response.body).to include account.name.to_s } 
+  end
 
   describe "GET #new" do
     before { get new_account_path }
@@ -17,14 +33,14 @@ RSpec.describe "Accounts", type: :request do
     it { is_expected.to render_template("edit") }
     it { expect(assigns(:account)).to eq(account) }
   end
-
-  describe "GET #create" do
+  
+  describe "POST #create" do
     context "valid attributes" do
       before { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
       subject { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
 
       it { expect {subject}.to change(Account, :count).by(1) }
-      it { is_expected.to redirect_to new_account_path }
+      it { is_expected.to redirect_to accounts_path }
       it { expect(flash[:notice]).to eq("Account was successfully created.") }
     end
 
@@ -32,7 +48,7 @@ RSpec.describe "Accounts", type: :request do
       before { post accounts_path, params: { account: { user_id: nil, document: nil, name: nil }}}
       subject { post accounts_path, params: { account: { user_id: nil, document: nil, name: nil }}} 
 
-      it { expect(flash[:alert]).to eq("User must exist, User can't be blank, Name can't be blank, and Document can't be blank") }
+      it { expect(flash[:alert]).to eq(["User must exist", "User can't be blank", "Name can't be blank", "Document can't be blank"])}
       it { expect {subject}.not_to change(Account, :count) }
     end
   end
@@ -45,7 +61,7 @@ RSpec.describe "Accounts", type: :request do
       end
 
       it { expect(account.name).to eq('NameChanged') }
-      it { is_expected.to redirect_to new_account_path }
+      it { is_expected.to redirect_to accounts_path }
       it { expect(flash[:notice]).to eq('Account was successfully updated.') }
     end
 
@@ -57,8 +73,8 @@ RSpec.describe "Accounts", type: :request do
 
       it { expect(account.name).to eq('MyString') }
       it { expect(account.name).not_to eq(nil) }
-      it { is_expected.to redirect_to new_account_path }
-      it { expect(flash[:alert]).to eq("Name can't be blank") }
+      it { is_expected.to redirect_to accounts_path }
+      it { expect(flash[:alert]).to eq(["Name can't be blank"]) }
     end
   end
 end
