@@ -32,6 +32,7 @@
     display: none;
   }
 }
+
 @media screen and (min-width: 361px) and (max-width: 600px) {
   .app-upload-statement h5, .app-upload-statement .content-group {
     font-size: 20px;
@@ -41,12 +42,14 @@
     width: 80%;
   }
 }
+
 @media screen and (min-width: 601px) and (max-width: 912px) {
   .app-upload-statement .mdl-button--colored {
     font-size: 18px;
     width: 85%;
   }
 }
+
 @media screen and (min-width: 913px) and (max-width: 1200px) {
   .app-upload-statement h5, .app-upload-statement .content-group {
     font-size: 22px;
@@ -55,6 +58,7 @@
     font-size: 20px;
   }
 }
+
 @media screen and (min-width: 1201px) {
   .app-upload-statement h5, .app-upload-statement .content-group {
     font-size: 24px;

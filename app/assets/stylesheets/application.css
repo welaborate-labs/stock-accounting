@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Header and user menu */
 body {
   margin: 0;
 }
@@ -58,6 +60,28 @@ main {
   padding: 10px 20px 10px 15px;
 }
 
+/* Login and registration */
+.app-login, .app-registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-card-wide {
+  height: 555px;
+  box-sizing: border-box;
+  margin: 50px 30px;
+  padding: 20px 0px 30px 0px;
+}
+
+.facebook-btn, .facebook-btn:hover  {
+  background-color: rgb(59, 89, 152);
+}
+
+.google-btn, .google-btn:hover {
+  background-color: rgb(221, 75, 57);
+}
+
 @media screen and (min-width: 320px) and (max-width: 360px) {
   header nav.mdl-navigation {
     width: 30%;
@@ -76,6 +100,7 @@ main {
     margin: 20px 10px 20px 630px;
   }
 }
+
 @media screen and (min-width: 769px) and (max-width: 1200px) {
   header nav.mdl-navigation {
     margin: 20px 10px 20px 880px;

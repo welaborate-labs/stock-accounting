@@ -1,19 +1,6 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.app-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-login .demo-card-wide {
-  height: 555px;
-  box-sizing: border-box;
-  margin: 50px 30px;
-  padding: 20px 0px 30px 0px;
-}
-
 .app-login .mdl-textfield {
   margin: 10px 33px;
   width: 80%;
@@ -29,7 +16,7 @@
   color: white;
 }
 
-.app-login .login-btn {
+.login-btn {
   width: 90%;
   margin-top: 10px;
 }
@@ -43,20 +30,4 @@
   width: 25px;
   margin: 17px 35px;
   z-index: 1;
-}
-
-.app-login .facebook-btn {
-  background-color: rgb(59, 89, 152);
-
-  &:hover {
-    background-color: rgb(59, 89, 152);
-  }
-}
-
-.app-login .google-btn {
-  background-color: rgb(221, 75, 57);
-
-  &:hover {
-    background-color: rgb(221, 75, 57);
-  }
 }
