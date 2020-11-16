@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ #statement-messages {
+  color: #333;
+  margin: 70px 20px -115px 1500px;
+  font-size: 18px;
+  position: absolute;
+  z-index: 1;
+}
+
+#statement-messages span {
+  padding: 10px 20px 10px 15px;
+}
