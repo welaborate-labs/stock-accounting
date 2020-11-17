@@ -1,3 +1,30 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#logo {
+  width: 50%;
+}
+
+#login-button {
+  border: 1px solid;
+}
+
+.container {
+  background: #673ab7;
+  color: #fff;
+}
+
+.mdl-navigation > .mdl-button {
+  min-width: fit-content;
+  margin: 0;
+  margin-left: 2vw;
+}
+
+.mdl-layout__header {
+  padding-top: 5vh;
+}
+
+.mdl-layout__header-row {
+  padding: 0 5vw;
+}

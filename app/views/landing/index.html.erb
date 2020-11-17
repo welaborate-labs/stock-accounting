@@ -1,2 +1,24 @@
-<h1 class="display-4">Landing#index</h1>
-<p>Find me in app/views/landing/index.html.erb</p>
+<div class="mdl-layout mdl-js-layout container">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">
+        <%= image_tag "logo.svg", { id: "logo" } %>
+      </span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <button class="mdl-button mdl-js-button mdl-button--accent">
+          o que é
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--accent">
+          preço
+        </button>
+        <button id="login-button" class="mdl-button mdl-js-button mdl-button--accent">
+          fazer login
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+          quero me inscrever
+        </button>
+      </nav>
+    </div>
+  </header>
+</div>
