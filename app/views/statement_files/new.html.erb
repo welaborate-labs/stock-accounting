@@ -5,17 +5,15 @@
         <div class="mdl-grid">
           <div class="mdl-cell">
           <div class="button-group">
-              <div class="mdl-grid">
-                <button class="mdl-button mdl-js-button">
-                  <span class="material-icons">
-                    <a><%= link_to 'undo', statement_files_path %></a>
-                  </span>
-                </button>
-                  <div class="content-group">
-                  <label for="file">Escolha o arquivo</label>
-                    <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
-                    <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
-                  </div>
+            <button class="mdl-button mdl-js-button">
+              <span class="material-icons">
+                <a><%= link_to 'undo', statement_files_path %></a>
+              </span>
+            </button>
+              <div class="content-group">
+              <label for="file">Escolha o arquivo</label>
+                <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
+                <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
               </div>
             </div>
           </div>

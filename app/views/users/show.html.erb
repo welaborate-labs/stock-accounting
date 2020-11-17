@@ -70,9 +70,6 @@
               <%= image_tag('gp-icon.png', class: 'google-button-icon') %>
               <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button link-google-btn mdl-button--raised mdl-js-ripple-effect' %>
             </div>
-            <div class="error-list">
-              <ul class="error-message" id="error-message"></ul>
-            </div>
             <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button save-data-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'profile-btn' %>
           </div>
         </form>

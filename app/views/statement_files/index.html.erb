@@ -1,13 +1,9 @@
 <div class="app-statement">
-  <div class="mdl-layout__content">
-    <main>
+  <main>
+    <div class="mdl-layout__content">
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
         <a><%= link_to 'Adicionar Arquivo', new_statement_file_path %></a>
       </button>
-      <div class="mdl-grid">
-        <div class="mdl-card__actions mdl-color-text--primary">
-        </div>
-      </div>
       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
         <thead>
           <tr>
@@ -43,6 +39,6 @@
           <% end %>
         </tbody>
       </table>
-    </main>
-  </div>
+    </div>
+  </main>
 </div>
