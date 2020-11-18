@@ -2,48 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .app-upload-statement label {
-  margin: 20px 20px 20px 60px;
-  padding-left: 30px;
+  margin: 70px 10px 20px 10px;
 }
 
 .app-upload-statement .content-group {
-  margin: 80px 20px 20px -80px;
+  display: flex;
   font-size: 16px;
 }
 
-.app-upload-statement .mdl-button--colored {
-  margin: 0px 30px 10px 90px;
-}
-
-
 @media screen and (min-width: 320px) and (max-width: 360px) {
-  .app-upload-statement nav span {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 361px) and (max-width: 600px) {
-  .app-upload-statement .content-group {
-    font-size: 20px;
-  }
-  .app-upload-statement .mdl-button--colored {
-    font-size: 15px;
-    width: 80%;
-  }
-}
-
-@media screen and (min-width: 601px) and (max-width: 912px) {
-  .app-upload-statement .mdl-button--colored {
-    font-size: 18px;
-    width: 85%;
-  }
-}
-
-@media screen and (min-width: 913px) and (max-width: 1200px) {
-  .app-upload-statement .content-group {
-    font-size: 22px;
-  }
-  .app-upload-statement .mdl-button--colored {
-    font-size: 20px;
+  .app-upload-statement label {
+    margin: 70px 0px 20px 0px;
   }
 }

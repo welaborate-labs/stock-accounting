@@ -2,7 +2,7 @@
   <main>
     <div class="mdl-layout__content">
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-        <a><%= link_to 'Adicionar Arquivo', new_statement_file_path %></a>
+        <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
       </button>
       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
         <thead>
@@ -17,14 +17,13 @@
         <tbody>
           <% @statement_files.each do |statement_file| %>
           <tr>
-            <td class="mdl-data-table__cell--non-numeric">1111<%= statement_file.file.record.id %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
             <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
             <td>
               <button class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
               </button>
             </td>
-            <span class="material-icons"><span>
             <td>
               <button class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons"><%= link_to 'get_app', statement_file.file, download: ''%></i>

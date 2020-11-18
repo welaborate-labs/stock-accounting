@@ -3,19 +3,13 @@
     <main>
       <%= form_with model: StatementFile, method: :post, local: true do |f| %>
         <div class="mdl-grid">
-          <div class="mdl-cell">
           <div class="button-group">
-            <button class="mdl-button mdl-js-button">
-              <span class="material-icons">
-                <a><%= link_to 'undo', statement_files_path %></a>
-              </span>
-            </button>
-              <div class="content-group">
+            <div class="content-group">
+              <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
+              <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
               <label for="file">Escolha o arquivo</label>
-                <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
-                <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
-              </div>
             </div>
+            <%= link_to 'Voltar', statement_files_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
           </div>
           <% end %>
       </main>
