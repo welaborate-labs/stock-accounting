@@ -25,6 +25,30 @@
   padding-top: 5vh;
 }
 
-.mdl-layout__header-row {
+.mdl-layout__drawer {
+  background: #673ab7;
+  color: #fff;
+}
+
+.mdl-layout--no-drawer-button .mdl-layout__header-row {
   padding: 0 5vw;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  color: rgb(255, 171, 64);
+}
+
+.mdl-layout__drawer .mdl-navigation button {
+  margin-bottom: 2vh;
+  margin-left: 0;
+}
+
+.mdl-layout__drawer .mdl-navigation {
+  padding-left: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .mdl-layout__drawer-button {
+    color: #fff;
+  }
 }
