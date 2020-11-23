@@ -1,0 +1,45 @@
+<svg width="323" height="300" viewBox="0 0 323 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="173" cy="150" r="150" fill="#4C2590"/>
+<path d="M209 145C209 143.895 209.895 143 211 143H299C300.105 143 301 143.895 301 145V290C301 295.523 296.523 300 291 300H219C213.477 300 209 295.523 209 290V145Z" fill="#FF9800"/>
+<circle cx="226.814" cy="218.477" r="6.26569" fill="#EDE7F6"/>
+<circle cx="226.814" cy="201.769" r="3.13284" fill="#FFCC80"/>
+<circle cx="226.814" cy="237.274" r="6.26569" fill="#EDE7F6"/>
+<circle cx="226.814" cy="256.072" r="6.26569" fill="#EDE7F6"/>
+<circle cx="226.814" cy="274.869" r="6.26569" fill="#EDE7F6"/>
+<circle cx="245.611" cy="218.477" r="6.26569" fill="#EDE7F6"/>
+<circle cx="245.611" cy="201.769" r="3.13284" fill="#FFCC80"/>
+<circle cx="245.611" cy="237.274" r="6.26569" fill="#EDE7F6"/>
+<circle cx="245.611" cy="256.072" r="6.26569" fill="#EDE7F6"/>
+<circle cx="245.611" cy="274.869" r="6.26569" fill="#EDE7F6"/>
+<circle cx="264.408" cy="218.477" r="6.26569" fill="#EDE7F6"/>
+<circle cx="264.408" cy="237.274" r="6.26569" fill="#EDE7F6"/>
+<circle cx="264.408" cy="256.072" r="6.26569" fill="#EDE7F6"/>
+<circle cx="264.408" cy="274.869" r="6.26569" fill="#EDE7F6"/>
+<circle cx="283.205" cy="218.477" r="6.26569" fill="#EDE7F6"/>
+<circle cx="283.205" cy="237.274" r="6.26569" fill="#EDE7F6"/>
+<circle cx="283.205" cy="256.072" r="6.26569" fill="#EDE7F6"/>
+<circle cx="283.205" cy="274.869" r="6.26569" fill="#EDE7F6"/>
+<rect x="220.548" y="164.175" width="68.9226" height="18.7971" fill="#CEA7FF"/>
+<rect x="224.726" y="167.308" width="60.5683" height="12.5314" rx="2" fill="#EDE7F6"/>
+<g clip-path="url(#clip0)">
+<rect x="1.5" y="73.0828" width="178.126" height="118.417" rx="0.5" fill="#FFCC80" stroke="#FF9800"/>
+<path d="M1 73.5828C1 73.0305 1.44772 72.5828 2 72.5828H179.126C179.678 72.5828 180.126 73.0305 180.126 73.5828V83.3303H1V73.5828Z" fill="#FF9800"/>
+<path d="M6.97095 77.1653C6.97095 76.613 7.41866 76.1653 7.97095 76.1653H35.8253C36.3775 76.1653 36.8253 76.613 36.8253 77.1653V86.9129H6.97095V77.1653Z" fill="#FFCC80"/>
+<circle cx="172.961" cy="78.5537" r="2.38834" fill="#EDE7F6"/>
+<circle cx="33.2426" cy="79.7478" r="1.19417" fill="#EDE7F6"/>
+<path d="M3.03552 82.7603H178.09V190.643H3.03552V82.7603Z" fill="#EDE7F6"/>
+<rect x="3.03552" y="82.7603" width="175.055" height="8.14208" fill="#FFCC80"/>
+<rect x="10.5534" y="78.5536" width="13.1359" height="2.38834" fill="#FF9800"/>
+<circle cx="17.7184" cy="114.379" r="7.16503" fill="#FFCC80"/>
+<rect x="32.0485" y="111.99" width="133.747" height="4.77669" fill="#FFCC80"/>
+<circle cx="17.7184" cy="138.262" r="7.16503" fill="#FFCC80"/>
+<rect x="32.0485" y="135.874" width="133.747" height="4.77669" fill="#FFCC80"/>
+<circle cx="17.7184" cy="162.146" r="7.16503" fill="#FFCC80"/>
+<rect x="32.0485" y="159.757" width="133.747" height="4.77669" fill="#FFCC80"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="178" height="119" fill="white" transform="translate(1 73)"/>
+</clipPath>
+</defs>
+</svg>
