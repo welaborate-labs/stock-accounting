@@ -31,7 +31,7 @@
 }
 
 .mdl-layout--no-drawer-button .mdl-layout__header-row {
-  padding: 0 5vw;
+  padding: 0 10vw;
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -47,7 +47,57 @@
   padding-left: 16px;
 }
 
+.mdl-cell {
+  padding: 0;
+  margin: 0;
+}
+
+.mdl-cell .mdl-typography--display-2 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 1024px) {
+  #main-illustration {
+    width: 100%;
+  }
+
+  .material-icons {
+    font-size: 22px;
+  }
+
+  .mdl-layout__header {
+    margin-bottom: 10vh;
+  }
+
+  #hero-message__phone {
+    display: none;
+  }
+
+  #hero-message__desktop .mdl-button {
+    width: fit-content;
+    margin: 0;
+    margin-top: 5vh;
+  }
+
+  .mdl-grid {
+    padding: 0 10vw;
+  }
+}
+
 @media screen and (max-width: 1024px) {
+  #main-illustration {
+    width: 80vw;
+  }
+
+  #hero-message__desktop {
+    display: none;
+  }
+
+  .mdl-grid {
+    margin-top: 5vh;
+  }
+
   .mdl-layout__drawer-button {
     color: #fff;
   }
