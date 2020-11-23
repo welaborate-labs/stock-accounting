@@ -47,11 +47,6 @@
   padding-left: 16px;
 }
 
-.mdl-cell {
-  padding: 0;
-  margin: 0;
-}
-
 .mdl-cell .mdl-typography--display-2 {
   font-weight: 300;
   line-height: 1.2;
@@ -83,15 +78,30 @@
   .mdl-grid {
     padding: 0 10vw;
   }
+
+  .mdl-cell {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   #main-illustration {
-    width: 80vw;
+    width: 100%;
+    margin-bottom: 5vh;
+    padding: 0 5vw;
   }
 
   #hero-message__desktop {
     display: none;
+  }
+
+  #hero-message__phone {
+    margin-bottom: 5vh;
+  }
+
+  #hero-message__phone .mdl-typography--display-1 {
+    font-weight: 300;
   }
 
   .mdl-grid {
