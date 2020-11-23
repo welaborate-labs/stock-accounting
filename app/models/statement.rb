@@ -2,40 +2,20 @@ class Statement < ApplicationRecord
   belongs_to :statement_file
   belongs_to :brokerage_account
   has_many :trades, dependent: :destroy
+  before_validation :set_brokerage_account_from_content
+  before_validation :set_statement_date_from_content
+  validates :number, uniqueness: { scope: :brokerage_account_id }
 
-  # note_number     = page.text.match('\d{6}').to_s
-  #     date            = page.text.match('\d{1,2}\/\d{1,2}\/\d{4}').to_s
-  #     client_number   = page.text.match('\d{7}\-?\d{1}').to_s
-  #     cnpj            = page.text.match('\d{2}\.?\d{3}\.?\d{3}\/\d{4}\-?\d{2}').to_s
-  #     cpf             = page.text.match('\d{3}\.?\d{3}\.?\d{3}\-?\d{2}').to_s
-  #     content         = page.text
+  private
 
-  # if cpf.present?
-  #   cnpj_or_cpf = cpf
-  # else
-  #   cnpj_or_cpf = cnpj[2]
-  # end
+    def set_statement_date_from_content
+      self.statement_date = content.match('\d{1,2}\/\d{1,2}\/\d{4}').to_s
+    end
 
-  # # TODO make mechanism to set the right brokerage
-  # brokerage = BrokerageAccount.find_by(brokerage: 1)
-  # unless brokerage do
-  #   brokerage = BrokerageAccount.create(account_id: Account.last.id,
-  #                           brokerage: note_number,
-  #                           number: client_number,
-  #                           account_number: cnpj_or_cpf)
-  # end
+    def set_brokerage_account_from_content
+      client_number  = content.match('\d{7}\-?\d{1}').to_s
+      account        = statement_file.account
 
-  # if note_number.present?
-  #   if brokerage.present?
-  #     statement = Statement.find_by(statement_date: date)
-  #     statement.content << content
-  #     statement.save!
-  #   else
-  #     # TODO Account.last
-  #     Statement.create(statement_date: date,
-  #                       statement_file_id: statement_file.id,
-  #                       brokerage_account_id: BrokerageAccount.last.id,
-  #                       content: content)
-  #   end
-  # end
+      self.brokerage_account = account.brokerage_accounts.find_or_create_by(brokerage: 1, number: client_number)
+    end
 end

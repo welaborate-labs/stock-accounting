@@ -7,10 +7,11 @@ class StatementFile < ApplicationRecord
   validates :account, presence: true
   validates :file, presence: true
   validates :file, attached: true,
-    size: { less_than: 5.megabytes },
+    size: { less_than: 20.megabytes },
     content_type: { in: 'application/pdf' }
 
-  def parse_file
-    ReadingNotesJob.perform_later(statement_file_id: id)
-  end
+  private
+    def parse_file
+      ProcessStatementFileJob.perform_later(statement_file_id: id)
+    end
 end

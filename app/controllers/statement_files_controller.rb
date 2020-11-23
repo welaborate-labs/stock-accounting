@@ -11,9 +11,7 @@ class StatementFilesController < ApplicationController
 
   def create
     begin
-      @statement_file = StatementFile.new(statement_file_params)
-      # TODO Account last
-      @statement_file.account_id = Account.last.id
+      @statement_file = current_user.accounts.last.statement_files.build(statement_file_params)
 
       if @statement_file.save
         redirect_to statement_files_path, notice: 'Statement file was successfully created.'
@@ -40,6 +38,6 @@ class StatementFilesController < ApplicationController
   end
 
   def statement_file_params
-    params.require(:statement_file).permit(:file, :account_id)
+    params.require(:statement_file).permit(:file)
   end
 end
