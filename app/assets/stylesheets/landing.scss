@@ -52,6 +52,58 @@
   line-height: 1.2;
 }
 
+#features-message__desktop {
+  margin-top: 227.87px;
+}
+
+span.mdl-typography--headline {
+  margin-top: 38px;
+}
+
+.mdl-cell .mdl-typography--headline {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+}
+
+.features-images {
+  display: inline-flex;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 23px;
+}
+
+#first-illustration {
+  margin: 50px 124px 0px 144px;
+}
+
+#second-illustration{
+  margin: 50px 124px 0px 93px;
+}
+
+#third-illustration {
+  margin: 50px 124px 0px 100px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 110%;
+}
+
+#features-message__desktop .mdl-grid {
+  position: absolute;
+  margin: 348px 0px 187px 0px;
+  padding: 0;
+}
+.mdl-cell p {
+  padding-right: 192px;
+  padding-top: 11px;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+}
+
 @media screen and (min-width: 1024px) {
   #main-illustration {
     width: 100%;
