@@ -69,24 +69,24 @@ span.mdl-typography--headline {
 .features-images {
   display: inline-flex;
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 100%;
   left: 23px;
 }
 
 #first-illustration {
-  margin: 50px 124px 0px 144px;
+  margin: 50px 124px 0px 160px;
 }
 
 #second-illustration{
-  margin: 50px 124px 0px 93px;
+  margin: 50px 124px 0px 115px;
 }
 
 #third-illustration {
-  margin: 50px 124px 0px 100px;
+  margin: 50px 124px 0px 97px;
 }
 
 h5 {
+  margin-top: 48px;
   font-size: 24px;
   line-height: 110%;
 }
@@ -102,6 +102,10 @@ h5 {
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.005em;
+}
+
+#features-message__phone {
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {
@@ -135,6 +139,7 @@ h5 {
     padding: 0;
     margin: 0;
   }
+  
 }
 
 @media screen and (max-width: 1024px) {
@@ -144,7 +149,7 @@ h5 {
     padding: 0 5vw;
   }
 
-  #hero-message__desktop {
+  #hero-message__desktop, #features-message__desktop {
     display: none;
   }
 
@@ -156,6 +161,10 @@ h5 {
     font-weight: 300;
   }
 
+  #features-message__desktop {
+    margin: 52px;
+  }
+
   .mdl-grid {
     margin-top: 5vh;
   }
@@ -163,4 +172,42 @@ h5 {
   .mdl-layout__drawer-button {
     color: #fff;
   }
+
+  .features-images {
+    display: inline-block;
+    max-width: 210px;
+    max-height: 210px;
+  }
+
+  #features-message__desktop h5 {
+    margin: 0px 10px 0px 15px;
+    font-size: 20px;
+  }
+
+  .mdl-cell p {
+    padding: 11px 10px 76px 15px;
+  }
+
+  #features-message__phone {
+    padding: 158px 10px 10px 10px;
+    display: inline;
+  }
+
+  #features-message__phone .mdl-grid, #features-message__phone .mdl-cell.mdl-cell--4-col, #features-message__phone p {
+    padding: 0px;
+  }
+
+  #features-message__phone h5 {
+    font-size: 20px;
+  }
+
+  #features-message__phone p {
+    margin: 11px 20px 0px 0px;
+    font-size: 16px;
+  }
+
+  #features-message__phone .mdl-cell.mdl-cell--4-col {
+    margin-top: 300px;
+  }
+
 }
