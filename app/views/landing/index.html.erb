@@ -1,7 +1,7 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button container">
+<div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
   <%= render "header-desktop" %>
   <%= render "header-phone" %>
-  <main class="mdl-grid">
+  <main class="mdl-grid container">
     <%= render "hero-message-desktop" %>
     <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
       <%= image_tag "ilustra-landing.svg", { id: "main-illustration" } %>
@@ -16,5 +16,8 @@
         <%= image_tag "Features-3.svg", { id: "third-illustration", class: 'feature-image' } %>
       </div>
     </div>
+    <%= render "features" %>
+    <%= render "price-desktop" %>
+    <%= render "price-phone" %>
   </main>
 </div>

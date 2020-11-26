@@ -10,15 +10,43 @@
   border: 1px solid;
 }
 
-.container {
-  background: #673ab7;
-  color: #fff;
+#price-illustration-col p {
+  margin-top: -15rem;
+  margin-right: 2vw;
+}
+
+#price-illustration-col button {
+  margin-left: 0;
+  padding: 0 2vw;
+  max-width: fit-content;
+}
+
+#price-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.feature-item {
+  margin-bottom: 2rem;
+}
+
+.feature-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  color: rgb(255, 171, 64);
 }
 
 .mdl-navigation > .mdl-button {
   min-width: fit-content;
   margin: 0;
   margin-left: 2vw;
+}
+
+.mdl-layout {
+  background: #673ab7;
+  color: #fff;
 }
 
 .mdl-layout__header {
@@ -47,7 +75,9 @@
   padding-left: 16px;
 }
 
-.mdl-cell .mdl-typography--display-2 {
+.mdl-typography--display-3,
+.mdl-typography--display-2,
+.mdl-typography--display-1 {
   font-weight: 300;
   line-height: 1.2;
 }
@@ -77,7 +107,7 @@ span.mdl-typography--headline {
   margin: 50px 124px 0px 160px;
 }
 
-#second-illustration{
+#second-illustration {
   margin: 50px 124px 0px 115px;
 }
 
@@ -96,6 +126,7 @@ h5 {
   margin: 348px 0px 187px 0px;
   padding: 0;
 }
+
 .mdl-cell p {
   padding-right: 192px;
   padding-top: 11px;
@@ -109,19 +140,21 @@ h5 {
 }
 
 @media screen and (min-width: 1024px) {
+  .price-icon {
+    height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
   #main-illustration {
     width: 100%;
   }
 
-  .material-icons {
-    font-size: 22px;
-  }
-
-  .mdl-layout__header {
-    margin-bottom: 10vh;
-  }
-
   #hero-message__phone {
+    display: none;
+  }
+
+  #price__phone {
     display: none;
   }
 
@@ -131,25 +164,38 @@ h5 {
     margin-top: 5vh;
   }
 
-  .mdl-grid {
+  #price-illustration-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #price-illustration {
+    width: 80%;
+  }
+
+  .container {
     padding: 0 10vw;
   }
 
-  .mdl-cell {
-    padding: 0;
-    margin: 0;
+  .material-icons {
+    font-size: 22px;
   }
-  
 }
 
-@media screen and (max-width: 1024px) {
-  #main-illustration {
-    width: 100%;
-    margin-bottom: 5vh;
-    padding: 0 5vw;
-  }
+.mdl-layout__header {
+  margin-bottom: 10vh;
+}
 
-  #hero-message__desktop, #features-message__desktop {
+#hero-message__desktop,
+#features-message__desktop {
+  .section-title {
+    margin-bottom: 10vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  #hero-message__desktop,
+  #price__desktop {
     display: none;
   }
 
@@ -157,8 +203,14 @@ h5 {
     margin-bottom: 5vh;
   }
 
-  #hero-message__phone .mdl-typography--display-1 {
-    font-weight: 300;
+  #main-illustration {
+    width: 100%;
+    margin-bottom: 5vh;
+    padding: 0 5vw;
+  }
+
+  #price-content-container {
+    align-items: center;
   }
 
   #features-message__desktop {
@@ -193,7 +245,9 @@ h5 {
     display: inline;
   }
 
-  #features-message__phone .mdl-grid, #features-message__phone .mdl-cell.mdl-cell--4-col, #features-message__phone p {
+  #features-message__phone .mdl-grid,
+  #features-message__phone .mdl-cell.mdl-cell--4-col,
+  #features-message__phone p {
     padding: 0px;
   }
 
@@ -209,5 +263,4 @@ h5 {
   #features-message__phone .mdl-cell.mdl-cell--4-col {
     margin-top: 300px;
   }
-
 }
