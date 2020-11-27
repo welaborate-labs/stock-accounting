@@ -29,7 +29,7 @@ RSpec.describe "/statements", type: :request do
 
   describe "GET #new" do
     before { get new_statement_path }
-    
+
     it { is_expected.to render_template("new") }
     it { expect(assigns(:statement)).to be_a_new(Statement) } 
   end
@@ -58,7 +58,6 @@ RSpec.describe "/statements", type: :request do
       it { expect { subject }.not_to change(Statement, :count) } 
       it { expect(flash[:alert]).to eq("[\"Statement file must exist\", \"Brokerage account must exist\"]") }
     end
-  end
 
   describe "PATCH/PUT #update" do
     describe "valid attributes" do
@@ -81,7 +80,6 @@ RSpec.describe "/statements", type: :request do
       it { is_expected.to redirect_to statement_files_path }
       it { expect(flash[:alert]).to eq("[\"Statement file must exist\"]") }
     end
-  end
 
   describe "DELETE #destroy" do
     subject { delete statement_path(statement2) }

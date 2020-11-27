@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :statement_file do
-    account
-
     trait :with_file do
       after :build do |statement_file|
         file_name = 'modelo.pdf'

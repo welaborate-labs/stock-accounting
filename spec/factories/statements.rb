@@ -1,8 +1,13 @@
 FactoryBot.define do
   factory :statement do
-    statement_date { "2020-09-22 14:34:19" }
-    statement_file
-    brokerage_account
-    content { '123456 12/12/2020 123.123.123-12' }
+    sequence :content do |n|
+      "client_number= 1234567-8
+      statement_date= 12/10/2020 
+      cnpj_or_cpf = 123.123.123-12
+      statement_number= 12345#{n}"
+    end
+    sequence :number do |n|
+      "01234#{n}"
+    end
   end
 end

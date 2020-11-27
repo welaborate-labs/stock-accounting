@@ -22,7 +22,7 @@ RSpec.describe "/statement_files", type: :request do
     it { is_expected.to render_template('new') }
     it { expect(assigns(:statement_file)).to be_a_new(StatementFile) }
   end
-
+  
   describe 'POST #create' do
     context 'valid parameters' do
       subject { post statement_files_path, params: { statement_file: { file: file, account_id: account.id }}}
