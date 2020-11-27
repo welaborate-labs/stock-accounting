@@ -38,6 +38,11 @@
   color: rgb(255, 171, 64);
 }
 
+.features-img-container {
+  display: flex;
+  justify-content: center;
+}
+
 .mdl-navigation > .mdl-button {
   min-width: fit-content;
   margin: 0;
@@ -75,15 +80,15 @@
   padding-left: 16px;
 }
 
+.mdl-grid {
+  width: 100%;
+}
+
 .mdl-typography--display-3,
 .mdl-typography--display-2,
 .mdl-typography--display-1 {
   font-weight: 300;
   line-height: 1.2;
-}
-
-#features-message__desktop {
-  margin-top: 227.87px;
 }
 
 span.mdl-typography--headline {
@@ -96,56 +101,13 @@ span.mdl-typography--headline {
   letter-spacing: 0.005em;
 }
 
-.features-images {
-  display: inline-flex;
-  position: absolute;
-  width: 100%;
-  left: 23px;
-}
-
-#first-illustration {
-  margin: 50px 124px 0px 160px;
-}
-
-#second-illustration {
-  margin: 50px 124px 0px 115px;
-}
-
-#third-illustration {
-  margin: 50px 124px 0px 97px;
-}
-
 h5 {
   margin-top: 48px;
   font-size: 24px;
   line-height: 110%;
 }
 
-#features-message__desktop .mdl-grid {
-  position: absolute;
-  margin: 348px 0px 187px 0px;
-  padding: 0;
-}
-
-.mdl-cell p {
-  padding-right: 192px;
-  padding-top: 11px;
-  font-size: 16px;
-  line-height: 150%;
-  letter-spacing: 0.005em;
-}
-
-#features-message__phone {
-  display: none;
-}
-
 @media screen and (min-width: 1024px) {
-  .price-icon {
-    height: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
   #main-illustration {
     width: 100%;
   }
@@ -173,12 +135,26 @@ h5 {
     width: 80%;
   }
 
+  #price-value {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 5vw;
+  }
+
   .container {
     padding: 0 10vw;
   }
 
+  .features-img {
+    width: 80%;
+  }
+
   .material-icons {
     font-size: 22px;
+  }
+
+  .price-icon {
+    height: 2.5rem;
   }
 }
 
@@ -194,8 +170,7 @@ h5 {
 }
 
 @media (max-width: 1024px) {
-  #hero-message__desktop,
-  #price__desktop {
+  #hero-message__desktop {
     display: none;
   }
 
@@ -211,6 +186,12 @@ h5 {
 
   #price-content-container {
     align-items: center;
+  }
+
+  #price-value {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 50vw;
   }
 
   #features-message__desktop {
@@ -229,38 +210,5 @@ h5 {
     display: inline-block;
     max-width: 210px;
     max-height: 210px;
-  }
-
-  #features-message__desktop h5 {
-    margin: 0px 10px 0px 15px;
-    font-size: 20px;
-  }
-
-  .mdl-cell p {
-    padding: 11px 10px 76px 15px;
-  }
-
-  #features-message__phone {
-    padding: 158px 10px 10px 10px;
-    display: inline;
-  }
-
-  #features-message__phone .mdl-grid,
-  #features-message__phone .mdl-cell.mdl-cell--4-col,
-  #features-message__phone p {
-    padding: 0px;
-  }
-
-  #features-message__phone h5 {
-    font-size: 20px;
-  }
-
-  #features-message__phone p {
-    margin: 11px 20px 0px 0px;
-    font-size: 16px;
-  }
-
-  #features-message__phone .mdl-cell.mdl-cell--4-col {
-    margin-top: 300px;
   }
 }
