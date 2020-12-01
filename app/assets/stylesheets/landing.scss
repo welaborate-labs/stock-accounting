@@ -11,7 +11,7 @@
 }
 
 #price-illustration-col p {
-  margin-top: -12rem;
+  margin-top: -11.5rem;
   margin-right: 2vw;
 }
 
@@ -112,24 +112,12 @@ h5 {
   line-height: 110%;
 }
 
-.section-title {
-  margin: 5rem 0;
-}
-
 @media screen and (min-width: 1024px) {
   #main-illustration {
     width: 100%;
   }
 
-  #hero-message__phone {
-    display: none;
-  }
-
-  #price__phone {
-    display: none;
-  }
-
-  #hero-message__desktop .mdl-button {
+  .mdl-button {
     width: fit-content;
     margin: 0;
     margin-top: 5vh;
@@ -165,6 +153,10 @@ h5 {
   .price-icon {
     height: 2.5rem;
   }
+
+  .section-title {
+    margin: 5rem 0;
+  }
 }
 
 .mdl-layout__header {
@@ -192,10 +184,6 @@ h5 {
     font-size: 10vh;
   }
 
-  #features-message__desktop {
-    margin: 52px;
-  }
-
   .mdl-grid {
     margin-top: 5vh;
   }
@@ -208,5 +196,9 @@ h5 {
     display: inline-block;
     max-width: 210px;
     max-height: 210px;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem 0;
   }
 }
