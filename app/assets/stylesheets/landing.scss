@@ -113,6 +113,10 @@ h5 {
 }
 
 @media screen and (min-width: 1024px) {
+  #hero-message__phone {
+    display: none;
+  }
+
   #main-illustration {
     width: 100%;
   }
@@ -164,6 +168,10 @@ h5 {
 }
 
 @media (max-width: 1024px) {
+  #hero-message__desktop {
+    display: none;
+  }
+
   #hero-message__phone {
     margin-bottom: 5vh;
   }
@@ -199,6 +207,6 @@ h5 {
   }
 
   .section-title {
-    margin-bottom: 2.5rem 0;
+    margin: 2.5rem 0;
   }
 }
