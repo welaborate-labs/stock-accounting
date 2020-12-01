@@ -11,7 +11,7 @@
 }
 
 #price-illustration-col p {
-  margin-top: -15rem;
+  margin-top: -12rem;
   margin-right: 2vw;
 }
 
@@ -107,6 +107,10 @@ h5 {
   line-height: 110%;
 }
 
+.section-title {
+  margin-bottom: 10vh;
+}
+
 @media screen and (min-width: 1024px) {
   #main-illustration {
     width: 100%;
@@ -162,18 +166,7 @@ h5 {
   margin-bottom: 10vh;
 }
 
-#hero-message__desktop,
-#features-message__desktop {
-  .section-title {
-    margin-bottom: 10vh;
-  }
-}
-
 @media (max-width: 1024px) {
-  #hero-message__desktop {
-    display: none;
-  }
-
   #hero-message__phone {
     margin-bottom: 5vh;
   }
@@ -191,7 +184,7 @@ h5 {
   #price-value {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 50vw;
+    font-size: 10vh;
   }
 
   #features-message__desktop {
