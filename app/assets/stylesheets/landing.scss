@@ -108,6 +108,68 @@ h5 {
   display: none;
 }
 
+#form-message__desktop .mdl-grid {
+  position: absolute;
+  padding: 0px;
+  display: grid;
+  margin-top: 50px;
+}
+
+#form-message__desktop {
+  margin: 908px 0px 0px 608px;
+}
+
+#form-illustration {
+  margin: -110px 0px 508px 135px;
+  width: 320px;
+  height: 320px;
+}
+
+#form-message__desktop p {
+  line-height: 24px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  margin: -296px 10px 10px -475px;
+}
+
+.mdl-cell #email-form {
+  width: 350px;
+}
+
+.mdl-cell #message-form {
+  width: 707.66px;
+}
+
+#form-message__desktop button {
+  background: #FF9800;
+  border-radius: 4px;
+  width: 139px;
+  height: 36px;
+  margin: 4px 124px 441px 570px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+#form-message__desktop button span {
+  margin: 8px 5px 11px 15px;
+}
+
+#form-message__desktop label {
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.15px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+#form-message__desktop input {
+  margin: 22px 0px;
+  border-bottom: 1.5px solid #FF9800;
+}
+
 @media screen and (min-width: 1024px) {
   #main-illustration {
     width: 100%;
@@ -149,7 +211,7 @@ h5 {
     padding: 0 5vw;
   }
 
-  #hero-message__desktop, #features-message__desktop {
+  #hero-message__desktop, #features-message__desktop, #form-message__desktop p {
     display: none;
   }
 
@@ -206,8 +268,49 @@ h5 {
     font-size: 16px;
   }
 
-  #features-message__phone .mdl-cell.mdl-cell--4-col {
+  #features-message__phone .mdl-cell {
     margin-top: 300px;
+  }
+
+  #form-message__desktop {
+    margin: 0px;
+  }
+
+  #form-message__desktop span {
+    font-size: 34px;
+    line-height: 120%;
+    letter-spacing: 0.0025em;
+  }
+
+  #form-message__desktop .title {
+    margin: 42px 12px 276.68px 20px;
+  }
+
+  #form-illustration {
+    width: 163px;
+    height: 163px;
+    margin: -230px 105.38px 412px 106.62px;
+  }
+
+  #form-message__desktop .mdl-grid {
+    margin-left: 25px;
+  }
+
+  #form-message__desktop #email-form {
+    width: 280px;
+  }
+
+  #form-message__desktop #message-form {
+    width: 320px;
+  }
+
+  #form-message__desktop button {
+    margin: 0px 124px 441px 180px;
+  }
+
+  #form-message__desktop button span {
+    margin: -5px 1px -5px 15px;
+    width: 21px;
   }
 
 }
