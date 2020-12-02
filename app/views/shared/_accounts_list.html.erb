@@ -1,0 +1,4 @@
+<%= form_tag nil, :method => 'get' do %>
+  <%= label_tag 'Account Choosen' %>
+  <%= select_tag 'choosen_account_id', options_from_collection_for_select(current_user.accounts, 'id', 'document', selected: choosen_account&.id), prompt: 'Choose an account', onchange: 'this.form.submit();' %>
+<% end %>
