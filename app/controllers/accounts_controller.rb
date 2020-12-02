@@ -1,19 +1,12 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:edit, :update, :show, :destroy]
 
-  def index
-    # TODO need to mock the current_user to pass the test
-    @accounts = Account.where(user_id: current_user)
-  end
-
   def new
     @account = Account.new
   end
 
   def create
-    @account = Account.new(account_params)
-    #TODO need to uncomment for test pass
-    @account.user_id = current_user.id
+    @account = current_user.accounts.build(account_params)
 
     if @account.save
       redirect_to accounts_path, notice: 'Account was successfully created.'
@@ -45,8 +38,7 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(:account).permit(:user_id,
-                                    :name,
+    params.require(:account).permit(:name,
                                     :document,
                                     :address,
                                     :address_complement,
