@@ -27,6 +27,7 @@
         <span class="material-icons feedback-icon">warning</span><%= msg %>
         </div>
       <% end %>
+        <%= render 'shared/accounts_list' if current_user %>
       <%= yield %>
     </div>
   </body>
