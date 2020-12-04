@@ -52,7 +52,7 @@ class AccountsController < ApplicationController
   end
 
   def set_choosen_account
-    if params[:choosen_account_id]
+    if params[:choosen_account_id].present?
       choosen_account = current_user.accounts.find(params[:choosen_account_id])
       session[:choosen_account_id] = choosen_account.id
     end
