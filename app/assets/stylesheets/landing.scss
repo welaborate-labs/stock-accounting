@@ -48,6 +48,14 @@
   justify-content: center;
 }
 
+.form-item {
+  margin-left: 0;
+}
+
+.form-multiline-field {
+  width: 100%;
+}
+
 .mdl-navigation > .mdl-button {
   min-width: fit-content;
   margin: 0;
@@ -66,6 +74,21 @@
 .mdl-layout__drawer {
   background: #673ab7;
   color: #fff;
+}
+
+.mdl-textfield__input {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.mdl-textfield__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.025rem;
+  color: rgb(255, 255, 255);
+}
+
+.mdl-textfield__label:after {
+  background-color: rgb(255, 171, 64);
 }
 
 .mdl-layout--no-drawer-button .mdl-layout__header-row {
