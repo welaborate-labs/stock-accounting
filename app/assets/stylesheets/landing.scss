@@ -6,8 +6,16 @@
   width: 50%;
 }
 
+#landing .mdl-button {
+  margin-left: 0;
+}
+
 #login-button {
   border: 1px solid;
+}
+
+#hero-message-text {
+  margin-bottom: 5vh;
 }
 
 #price-illustration-col button {
@@ -146,8 +154,16 @@ h5 {
 }
 
 @media screen and (min-width: 1024px) {
+  #form-section {
+    margin-top: 10vh;
+  }
+
   #hero-message__phone {
     display: none;
+  }
+
+  #hero-message__desktop {
+    margin-bottom: 5vh;
   }
 
   #main-illustration {
