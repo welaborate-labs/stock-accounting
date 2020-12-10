@@ -1,7 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  root to: 'homes#index'
+  get 'landing/index'
+  root to: 'landing#index'
 
   match '/auth/:provider/callback',           to: 'sessions#create', via: [:get, :post]
   get   '/login',                             to: 'sessions#new'

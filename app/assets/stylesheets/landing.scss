@@ -1,0 +1,282 @@
+// Place all the styles related to the landing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#logo {
+  width: 50%;
+}
+
+#landing .mdl-button {
+  margin-left: 0;
+}
+
+#login-button {
+  border: 1px solid;
+}
+
+#hero-message-text {
+  margin-bottom: 5vh;
+}
+
+#price-illustration-col button {
+  margin-left: 0;
+  padding: 0 2vw;
+  max-width: fit-content;
+}
+
+#price-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#price-col3-spacer {
+  width: 100%;
+  height: 5rem;
+  margin-top: -13.15rem;
+}
+
+.column-subtitle {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.feature-item {
+  margin-bottom: 2rem;
+}
+
+.feature-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  color: rgb(255, 171, 64);
+}
+
+.form-item {
+  margin-left: 0;
+}
+
+.form-multiline-field {
+  width: 100%;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.mdl-navigation > .mdl-button {
+  min-width: fit-content;
+  margin: 0;
+  margin-left: 2vw;
+}
+
+.mdl-layout {
+  background: #673ab7;
+  color: #fff;
+}
+
+.mdl-layout__header {
+  padding-top: 5vh;
+}
+
+.mdl-layout__drawer {
+  background: #673ab7;
+  color: #fff;
+}
+
+.mdl-textfield__input {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.mdl-textfield__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.025rem;
+  color: rgb(255, 255, 255);
+}
+
+.mdl-textfield__label:after {
+  background-color: rgb(255, 171, 64);
+}
+
+.mdl-layout--no-drawer-button .mdl-layout__header-row {
+  padding: 0 10vw;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  color: rgb(255, 171, 64);
+}
+
+.mdl-layout__drawer .mdl-navigation button {
+  margin-bottom: 2vh;
+  margin-left: 0;
+}
+
+.mdl-layout__drawer .mdl-navigation {
+  padding-left: 16px;
+}
+
+.mdl-grid {
+  width: 100%;
+}
+
+.mdl-typography--display-3,
+.mdl-typography--display-2,
+.mdl-typography--display-1 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+span.mdl-typography--headline {
+  margin-top: 38px;
+}
+
+.mdl-cell .mdl-typography--headline {
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.005em;
+}
+
+.landing-header-item {
+  margin-left: 2.5vw !important;
+}
+
+.price-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.price-img {
+  width: 75%;
+}
+
+h5 {
+  margin-top: 48px;
+  font-size: 24px;
+  line-height: 110%;
+}
+
+#landing-header a:hover {
+  background: none;
+}
+
+@media screen and (min-width: 1024px) {
+  #form-section {
+    margin-top: 10vh;
+  }
+
+  #hero-message__phone {
+    display: none;
+  }
+
+  #hero-message__desktop {
+    margin-bottom: 5vh;
+  }
+
+  #main-illustration {
+    width: 100%;
+  }
+
+  .mdl-button {
+    width: fit-content;
+    margin: 0;
+  }
+
+  #price-illustration-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #price-illustration {
+    width: 80%;
+  }
+
+  .price-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 5vw;
+    margin-top: -10.5rem;
+    margin-right: 2vw;
+  }
+
+  .container {
+    padding: 0 10vw;
+  }
+
+  .features-img {
+    width: 80%;
+  }
+
+  .material-icons {
+    font-size: 22px;
+  }
+
+  .price-icon {
+    height: 2.5rem;
+  }
+
+  .price-button {
+    margin-top: 7.5vh;
+  }
+
+  .section-title {
+    margin: 5rem 0;
+  }
+}
+
+.mdl-layout__header {
+  margin-bottom: 10vh;
+}
+
+@media (max-width: 1024px) {
+  #hero-message__desktop {
+    display: none;
+  }
+
+  #hero-message__phone {
+    margin-bottom: 5vh;
+  }
+
+  #main-illustration {
+    width: 100%;
+    margin-bottom: 5vh;
+    padding: 0 5vw;
+  }
+
+  #price-content-container {
+    align-items: center;
+  }
+
+  #price-col3-spacer {
+    width: 100%;
+    height: 5rem;
+    margin-top: -11.15rem;
+  }
+
+  .mdl-grid {
+    margin-top: 5vh;
+  }
+
+  .mdl-layout__drawer-button {
+    color: #fff;
+  }
+
+  .features-images {
+    display: inline-block;
+    max-width: 210px;
+    max-height: 210px;
+  }
+
+  .price-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 5rem;
+    margin-top: -8.5rem;
+    margin-right: 2vw;
+  }
+
+  .section-title {
+    margin: 2.5rem 0;
+  }
+}

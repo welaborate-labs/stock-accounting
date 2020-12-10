@@ -1,0 +1,14 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button" id="landing">
+  <%= render "header-desktop" %>
+  <%= render "header-phone" %>
+  <main class="mdl-grid container">
+    <%= render "hero-message-desktop" %>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
+      <%= image_tag "ilustra-landing.svg", { id: "main-illustration" } %>
+    </div>
+    <%= render "hero-message-phone" %>
+    <%= render "features" %>
+    <%= render "price" %>
+    <%= render "form" %>
+  </main>
+</div>
