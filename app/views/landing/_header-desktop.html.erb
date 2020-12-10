@@ -1,22 +1,30 @@
-<header class="mdl-layout__header mdl-layout__header--transparent">
+<header class="mdl-layout__header mdl-layout__header--transparent" id="landing-header">
   <div class="mdl-layout__header-row header__desktop">
     <span class="mdl-layout-title">
       <%= image_tag "logo.svg", { id: "logo" } %>
     </span>
     <div class="mdl-layout-spacer"></div>
     <nav class="mdl-navigation">
-      <button class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
-        o que é
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
-        preço
-      </button>
-      <button id="login-button" class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
-        fazer login
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent landing-header-item">
-        quero assinar
-      </button>
+      <a href="#features">
+        <button class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
+          o que é
+        </button>
+      </a>
+      <a href="#price">
+        <button class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
+          preço
+        </button>
+      </a>
+      <a href="/login">
+        <button id="login-button" class="mdl-button mdl-js-button mdl-button--accent landing-header-item">
+          fazer login
+        </button>
+      </a>
+      <a href="/signup">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent landing-header-item">
+          quero assinar
+        </button>
+      </a>
     </nav>
   </div>
 </header>

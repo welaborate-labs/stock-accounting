@@ -157,6 +157,10 @@ h5 {
   line-height: 110%;
 }
 
+#landing-header a:hover {
+  background: none;
+}
+
 @media screen and (min-width: 1024px) {
   #form-section {
     margin-top: 10vh;
