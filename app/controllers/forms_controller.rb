@@ -7,7 +7,7 @@ class FormsController < ApplicationController
       FormsMailer.contact_us(contact_params).deliver_now
       flash[:notice] = 'Formulário de contato enviado com sucesso!'
     else
-      flash[:alert] = contact.errors.full_messages
+      flash[:alert] = 'Dados para contato inválidos.'
     end
 
     redirect_to root_path
