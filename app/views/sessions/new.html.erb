@@ -1,19 +1,16 @@
 <div class="app-login">
-  <span class="error-message-form"><%= form_tag '/auth/identity/callback' do %></span>
-  <div class="demo-card-wide mdl-card form-login mdl-shadow--2dp" id="form-login">
+  <span><%= form_tag '/auth/identity/callback' do %></span>
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-textfield mdl-js-textfield email-field mdl-textfield--floating-label">
-      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %>
-      <%= text_field_tag :email, '', class: 'mdl-textfield__input', id: 'login-email' %>
+      <%= label_tag :auth_key, 'E-mail', class: 'mdl-textfield__label' %>
+      <%= text_field_tag :auth_key, '', class: 'mdl-textfield__input', id: 'login-email' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield field-password mdl-textfield--floating-label">
       <%= label_tag :password, 'Senha', class: 'mdl-textfield__label' %>
-      <%= password_field_tag :password, '', class: 'mdl-textfield__input', id:'login-password' %>
-    </div>
-    <div class="error-list">
-      <ul class="error-message" id="error-message"></ul>
+      <%= text_field_tag :auth_key, '', class: 'mdl-textfield__input', id: 'login-email' %>
     </div>
     <div class= "link-buttons-group">
-      <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect', id: 'login-button' %>
+      <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button login-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('fb-icon.png', class: 'facebook-icon') %>
       <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button facebook-btn mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('gp-icon.png', class: 'google-icon') %>
@@ -23,62 +20,3 @@
   </div>
   <% end %>
 </div>
-<script type="text/javascript" defer>
-  const form = document.querySelector(".app");
-  const emailField = document.querySelector("#login-email");
-  const passwordField = document.querySelector("#login-password");
-  const errorMessage = document.querySelector('.error-message');
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    validateLoginForm();
-    if (errorList.length > 0) {
-      showErrorMessage(errorList);
-      return;
-    }
-  });
-
-    function validateLoginForm(form) {
-       errorList = [];
-       errorMessage.innerHTML = "";
-
-      if (!validateEmail(emailField.value)) errorList.push('Preencha esse campo com e-mail válido.');
-      if (!validatePassword(passwordField.value)) errorList.push('Preencha esse campo com senha forte.');
-    }
-
-    function validateEmptyFields(field, fieldValue) {
-      if (fieldValue === '') {
-        errorList.push(`O campo de ${field} é de preenchimento obrigatório.`);
-        return false;
-      }
-      return true;
-    }
-
-    /* Validação de email, identifica e-mail incompleto terminado por nome, ponto e arroba */
-    function validateEmail(emailField) {
-      if(validateEmptyFields('e-mail', emailField)) {
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        return emailRegex.test(String(emailField).toLowerCase());
-      }
-      return true;
-    }
-
-    /* Regex de senha forte de no mínimo 8 caracteres, com ao menos um dígito, letra mínuscula, letra maiúscula e caractere especial */
-    function validatePassword(passwordField) {
-      if(validateEmptyFields('senha', passwordField)) {
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
-        return passwordRegex.test(passwordField);
-      }
-      return true;
-    }
-
-    function showErrorMessage(errorList) {
-        const ul = document.querySelector(".error-message");
-        ul.innerHTML = '';
-        errorList.forEach(function(error){
-          const li = document.createElement("li");
-          li.textContent = error;
-          ul.appendChild(li);
-        })
-    }
-</script> 
