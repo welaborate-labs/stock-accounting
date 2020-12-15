@@ -7,6 +7,11 @@
       Tem alguma dúvida?<br />Entre em contato conosco
     </h1>
     <%= form_with scope: :contact, url: contact_submit_path, local: true do |f| %>
+      <% flash.each do |type, msg| %> 
+        <div class="#{type}">
+        <span class="material-icons feedback-icon">warning</span><%= msg %>
+        </div>
+      <% end %>
       <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-phone form-item">
           <div class="mdl-textfield mdl-js-textfield">
