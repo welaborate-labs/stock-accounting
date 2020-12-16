@@ -166,3 +166,17 @@ form {
     margin-left: 52vh;
   }
 }
+
+.ma-10 {
+  margin: 10px;
+}
+
+.ma-40 {
+  margin: 40px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+
