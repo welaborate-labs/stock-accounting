@@ -36,7 +36,7 @@ header,
 header span.material-icons a,
 header span.material-icons a:hover,
 header span #demo-menu-lower-right {
-  background-color: rgb(0, 150, 136);
+  background-color: #673ab7;
 }
 
 .mdl-button--colored a,
@@ -53,10 +53,6 @@ header ul li a:hover {
 .mdl-navigation a:first-child,
 nav button {
   margin: 5px;
-}
-
-.mdl-button {
-  margin: -15px 0px 0px 0px;
 }
 
 #statement-messages,
@@ -106,25 +102,7 @@ nav button {
   background-color: rgb(221, 75, 57);
 }
 
-form {
-  margin-top: 40px;
-}
-
-.app-statement .mdl-button--colored,
-.app-upload-statement .mdl-button--colored {
-  margin: 60px 20px 20px 40px;
-}
-
-.mdl-button.account-btn {
-  width: 10%;
-  margin-left: 275vh;
-}
-
 @media screen and (min-width: 320px) and (max-width: 360px) {
-  .app-statement .mdl-button--colored,
-  .app-upload-statement .mdl-button--colored {
-    margin: 60px 20px 20px 15px;
-  }
   header .menu {
     margin-left: -1530px;
   }
@@ -135,9 +113,6 @@ form {
 }
 
 @media screen and (min-width: 361px) and (max-width: 600px) {
-  .app-statement .mdl-button--colored {
-    margin: 60px 20px 20px 15px;
-  }
   header .menu {
     margin-left: -1470px;
   }
@@ -177,6 +152,10 @@ form {
 
 .mt-0 {
   margin-top: 0px;
+}
+
+.ma-20 {
+  margin: 20px;
 }
 
 
