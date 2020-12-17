@@ -41,7 +41,9 @@ header span #demo-menu-lower-right {
 
 .mdl-button--colored a,
 header span.material-icons a,
-header span #demo-menu-lower-right {
+header span #demo-menu-lower-right, 
+.app-profile .profile-btn, 
+.app-profile .profile-btn:hover {
   color: white;
 }
 
@@ -154,8 +156,16 @@ nav button {
   margin-top: 0px;
 }
 
+.mt-80{
+  margin-top: 80px;
+}
+
 .ma-20 {
   margin: 20px;
+}
+
+.pa-0 {
+  padding: 0px;
 }
 
 
