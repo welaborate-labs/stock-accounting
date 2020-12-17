@@ -1,34 +1,38 @@
-<div class="app-registration">
-  <%= form_tag "/auth/identity/register" do %>
-  <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="signup-form">
-    <% if @identity && @identity.errors.any? %>
-      <div>
-        <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
-        <ul>
-        <% @identity.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+<div class="app-registration root-container">
+  <div class="mdl-layout__content">
+    <%= form_tag "/auth/identity/register" do %>
+    <div class="demo-card-wide registration-card mdl-card mdl-shadow--2dp" id="signup-form">
+      <% if @identity && @identity.errors.any? %>
+        <div>
+          <h2><%= pluralize(@identity.errors.count, "error") %> prohibited this account from being saved:</h2>
+          <ul>
+          <% @identity.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="container ma-10 pa-10">
+        <div class="mdl-textfield mdl-js-textfield field ma-10 mdl-textfield--floating-label" type="text">
+          <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
+          <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input', type: 'text', id:'name' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %><br>
+          <%= text_field_tag :email, @identity.try(:email), class: 'mdl-textfield__input', id:'email' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password' %><br>
+          <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password', id:'password' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label', for: 'password2' %><br>
+          <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password', id: 'password2'%>
+        </div>
+        <%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button ma-10 app-btn mdl-js-ripple-effect', type: 'submit', data: { disable_with: false } %>
       </div>
+    </div>
     <% end %>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" type="text">
-      <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
-      <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input', type: 'text', id:'name' %>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label' %><br>
-      <%= text_field_tag :email, @identity.try(:email), class: 'mdl-textfield__input', id:'email' %>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password' %><br>
-      <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password', id:'password' %>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label', for: 'password2' %><br>
-      <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password', id: 'password2'%>
-    </div>
-    <div class="actions link-button"><%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button register-btn mdl-js-ripple-effect', type: 'submit', data: { disable_with: false } %></div>
   </div>
-  <% end %>
 </div>
 
