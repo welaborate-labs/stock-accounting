@@ -17,7 +17,8 @@ class StatementsController < ApplicationController
 
   def create
     begin
-    @statement = Statement.new(statement_params)
+      @statement = Statement.new(statement_params)
+
       if @statement.save
         flash[:notice]  = "Statement was successfully created."
       else
@@ -51,6 +52,6 @@ class StatementsController < ApplicationController
   end
 
   def statement_params
-    params.require(:statement).permit(:statement_date, :statement_file_id, :brokerage_account_id)
+    params.require(:statement).permit(:content)
   end
 end
