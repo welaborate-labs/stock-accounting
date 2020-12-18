@@ -183,10 +183,15 @@ RSpec.describe "Sessions", type: :request do
 
   describe "GET /logout" do
     let(:http_request) { get "/logout" }
+    let(:user) { create(:user) }
+
+    before do
+      allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
+    end
 
     describe 'request' do
       it 'logs out the user' do
-        expect_any_instance_of(ApplicationController).to receive(:current_user=).with(nil)
+        expect_any_instance_of(ApplicationController).to receive(:current_user=)
 
         http_request
       end

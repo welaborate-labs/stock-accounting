@@ -3,9 +3,12 @@
 
 RSpec.describe "/statement_files", type: :request do
   let(:file) { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'modelo.pdf'), 'application/pdf') }
-  let(:account) { create(:account) } 
-  let!(:statement_file) { create(:statement_file, :with_file, account_id: account.id) }
-  let!(:statement_file2) { create(:statement_file, :with_file, account_id: account.id) }
+  let(:user) { create(:user) } 
+  let(:account) { create(:account, user: user) } 
+  let!(:statement_file) { create(:statement_file, :with_file, account: account) }
+  let!(:statement_file2) { create(:statement_file, :with_file, account: account) }
+
+  before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
 
   describe 'GET #index' do
     subject { response }
