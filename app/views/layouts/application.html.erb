@@ -18,7 +18,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <% if current_user %>
         <%= render 'shared/navbar' %>
       <% end %>
@@ -28,13 +28,11 @@
         </div>
       <% end %>
       <%= render 'shared/accounts_list' if current_user %>
-      <div class="content-wrapper">
-        <div class="mdl-layout">
-          <div class="mdl-grid mt-0">
-            <%= yield %>
-          </div>
+      <main class="mdl-layout__content">
+        <div class="mdl-grid root-container">
+          <%= yield %>
         </div>
-      </div>
+      </main>
     </div>
   </body>
 </html>

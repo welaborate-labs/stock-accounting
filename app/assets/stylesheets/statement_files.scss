@@ -1,20 +1,13 @@
 // Place all the styles related to the StatementFiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.app-statement table {
-  margin: 40px;
-}
-
 @media screen and (min-width: 320px) and (max-width: 600px) {
-  .app-statement table {
-    margin: 15px;
-  }
-  .app-statement .mdl-data-table td:first-of-type, 
-  .app-statement .mdl-data-table th:first-of-type, 
-  .app-statement .mdl-data-table td:nth-child(2), 
-  .app-statement .mdl-data-table th:nth-child(2), 
-  .app-statement .mdl-data-table td:nth-child(6), 
-  .app-statement .mdl-data-table th:nth-child(6) {
+ .mdl-data-table td:first-of-type, 
+  .mdl-data-table th:first-of-type, 
+  .mdl-data-table td:nth-child(2), 
+  .mdl-data-table th:nth-child(2), 
+  .mdl-data-table td:nth-child(6), 
+  .mdl-data-table th:nth-child(6) {
     display: none;
   }
 }
