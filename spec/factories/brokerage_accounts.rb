@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :brokerage_account do
-    account
     brokerage { 1 }
-    number { "MyString" }
+    number { "1234567-8" }
   end
 end

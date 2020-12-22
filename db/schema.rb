@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_134220) do
+ActiveRecord::Schema.define(version: 2020_11_20_132823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 2020_10_02_134220) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brokerage_account_id", null: false
+    t.text "content"
+    t.string "number"
     t.index ["brokerage_account_id"], name: "index_statements_on_brokerage_account_id"
     t.index ["statement_file_id"], name: "index_statements_on_statement_file_id"
   end

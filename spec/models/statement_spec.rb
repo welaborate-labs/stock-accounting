@@ -2,12 +2,20 @@ require 'rails_helper'
 require 'sidekiq/testing' 
 
 RSpec.describe Statement, type: :model do
-  let(:statement_file) { build(:statement_file, :with_file) }
-  let(:statement) { build(:statement, statement_file: statement_file) } 
+  let(:user) { create(:user) } 
+  let(:account) { create(:account, user: user) }
+  let(:brokerage_account) { create(:brokerage_account, account: account) } 
+  let(:statement_file) { build(:statement_file, :with_file, account: account) }
+  let(:statement) { build(:statement, statement_file: statement_file ) } 
   let(:invalid) { build(:statement, statement_file: nil, brokerage_account: nil) } 
+  before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
 
   describe 'valid attributes' do
-    subject { create(:statement, statement_file: statement_file) }
+    subject { statement }
+    before do
+      allow(statement).to receive(:statement_file) { statement_file }
+    end
+    
     it { is_expected.to be_valid }
   end
 
@@ -15,8 +23,7 @@ RSpec.describe Statement, type: :model do
     before { invalid.save }
     subject { invalid.errors.full_messages }
 
-    it { is_expected.to include("Statement file must exist",
-                                "Brokerage account must exist") }
+    it { is_expected.to eq(["Statement file must exist", "Brokerage account must exist"]) }
   end
 
   describe "relationships" do
