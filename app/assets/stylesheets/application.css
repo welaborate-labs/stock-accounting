@@ -32,7 +32,8 @@ body {
 
 #statement-messages,
 .table-item a,
-.table-item a:hover {
+.table-item a:hover,
+.edit-icon {
   color: #333;
 }
 
