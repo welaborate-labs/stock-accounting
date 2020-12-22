@@ -1,28 +1,39 @@
 require 'rails_helper'
+RSpec::Mocks.configuration.allow_message_expectations_on_nil
 
 RSpec.describe "Accounts", type: :request do
-  let!(:user) { create(:user) }
-  let(:account) { create(:account, user_id: user.id) }
+  let(:user) { create(:user) }
+  let!(:account) { create(:account, user: user) }
+  let(:params) { { choosen_account_id: account.id } }
 
-  before { allow(controller).to receive(:current_user) { user } }
+  before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
 
   describe "GET #index" do
-    before { get accounts_path }
+    context "when user loged in" do
+      before { get accounts_path }
 
-    it { is_expected.to render_template("index") }
-    it { expect(assigns(:accounts)).to eq([account]) }
+      it { is_expected.to render_template("index") }
+      it { expect(assigns(:accounts)).to eq([account]) }
+    end
+
+    context "when user signed out" do
+      before { expect_any_instance_of(ApplicationController).to receive(:current_user) {nil} }
+      before { get accounts_path  }
+      
+      it { is_expected.to redirect_to login_path }
+    end
   end
 
   describe "GET #show" do
     before { get account_path(account) }
-
+    
     it { expect(assigns(:account)).to eq(account) } 
     it { expect(response.body).to include account.name.to_s } 
   end
 
   describe "GET #new" do
     before { get new_account_path }
-
+    
     it { is_expected.to render_template("new") }
     it { expect(assigns(:account)).to be_a_new(Account) }
   end
@@ -33,7 +44,21 @@ RSpec.describe "Accounts", type: :request do
     it { is_expected.to render_template("edit") }
     it { expect(assigns(:account)).to eq(account) }
   end
-  
+
+  describe "PUT #choose" do
+    before { put account_choose_path, params: params }
+
+    context "when params exists" do
+      it { expect(flash[:notice]).to eq 'Selected Account was successfully changed.' } 
+    end
+
+    context "when params does not exist" do
+      let(:params) { { choosen_account_id: nil } }
+
+      it { expect(flash[:notice]).to eq 'Selected Account was not changed.' } 
+    end
+  end
+
   describe "POST #create" do
     context "valid attributes" do
       before { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
@@ -45,10 +70,10 @@ RSpec.describe "Accounts", type: :request do
     end
 
     context "invalid attributes" do
-      before { post accounts_path, params: { account: { user_id: nil, document: nil, name: nil }}}
-      subject { post accounts_path, params: { account: { user_id: nil, document: nil, name: nil }}} 
+      before { post accounts_path, params: { account: { document: nil, name: nil }}}
+      subject { post accounts_path, params: { account: { document: nil, name: nil }}} 
 
-      it { expect(flash[:alert]).to eq(["User must exist", "User can't be blank", "Name can't be blank", "Document can't be blank"])}
+      it { expect(flash[:alert]).to eq(["Name can't be blank", "Document can't be blank"])}
       it { expect {subject}.not_to change(Account, :count) }
     end
   end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
   get   '/home',                              to: 'homes#index'
   post '/contact/submit',                     to: 'forms#submit_contact'
+  put   '/account/choose',                    to: 'accounts#choose'
 
   resources :accounts
   resources :identities

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :authenticate_user!
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :choosen_account
 
   protected
 
@@ -20,5 +20,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     redirect_to root_path unless signed_in?
+  end
+
+  def choosen_account
+    if session[:choosen_account_id]
+      @choosen_account ||= current_user.accounts.find(session[:choosen_account_id])
+    end
   end
 end

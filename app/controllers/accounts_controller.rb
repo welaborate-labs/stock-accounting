@@ -1,19 +1,17 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:edit, :update, :show, :destroy]
+  before_action :set_account,           only: [:edit, :update, :show, :destroy]
+  before_action :set_choosen_account,   only: [:choose]
 
   def index
-    # TODO need to mock the current_user to pass the test
-    @accounts = Account.where(user_id: current_user)
+    @accounts = current_user.accounts
   end
 
   def new
-    @account = Account.new
+    @account = current_user.accounts.build
   end
 
   def create
-    @account = Account.new(account_params)
-    #TODO need to uncomment for test pass
-    @account.user_id = current_user.id
+    @account = current_user.accounts.build(account_params)
 
     if @account.save
       redirect_to accounts_path, notice: 'Account was successfully created.'
@@ -38,15 +36,30 @@ class AccountsController < ApplicationController
     end
   end
 
+  def choose
+    if set_choosen_account
+      flash[:notice] = 'Selected Account was successfully changed.'
+    else
+      flash[:notice] = 'Selected Account was not changed.'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def set_account
-    @account = Account.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
+  end
+
+  def set_choosen_account
+    if params[:choosen_account_id].present?
+      choosen_account = current_user.accounts.find(params[:choosen_account_id])
+      session[:choosen_account_id] = choosen_account.id
+    end
   end
 
   def account_params
-    params.require(:account).permit(:user_id,
-                                    :name,
+    params.require(:account).permit(:name,
                                     :document,
                                     :address,
                                     :address_complement,
