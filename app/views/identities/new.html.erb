@@ -11,7 +11,7 @@
           </ul>
         </div>
       <% end %>
-      <div class="container ma-10 pa-10">
+      <div class="container-box ma-10 pa-10">
         <div class="mdl-textfield mdl-js-textfield field ma-10 mdl-textfield--floating-label" type="text">
           <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label label-field', for: 'name' %><br>
           <%= text_field_tag :name, @identity.try(:name), class: 'mdl-textfield__input', type: 'text' %>
