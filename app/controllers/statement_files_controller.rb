@@ -11,7 +11,7 @@ class StatementFilesController < ApplicationController
 
   def create
     begin
-      @statement_file = current_user.choosen_account.statement_files.build(statement_file_params)
+      @statement_file = choosen_account.statement_files.build(statement_file_params)
 
       if @statement_file.save
         redirect_to statement_files_path, notice: 'Statement file was successfully created.'
