@@ -2,13 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// Scoping of MDL overrides
 #landing {
-  #logo {
-    width: 50%;
+  .mdl-layout {
+    background: #673ab7;
+    color: #fff;
   }
 
-  #login-button {
-    border: 1px solid;
+  .mdl-layout__drawer {
+    background: #673ab7;
+    color: #fff;
+  }
+
+  .mdl-layout--no-drawer-button .mdl-layout__header-row {
+    display: flex;
+    align-items: center;
+    padding: 0 10vw;
+  }
+
+  .mdl-button {
+    margin: 0;
+  }
+
+  .mdl-navigation {
+    display: flex;
+    align-items: center;
   }
 
   #hero-message-text {
@@ -62,20 +80,6 @@
     justify-content: center;
   }
 
-  .mdl-layout {
-    background: #673ab7;
-    color: #fff;
-  }
-
-  .mdl-layout__header {
-    padding-top: 5vh;
-  }
-
-  .mdl-layout__drawer {
-    background: #673ab7;
-    color: #fff;
-  }
-
   .mdl-textfield__input {
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   }
@@ -91,17 +95,8 @@
     background-color: rgb(255, 171, 64);
   }
 
-  .mdl-layout--no-drawer-button .mdl-layout__header-row {
-    padding: 0 10vw;
-  }
-
   .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
     color: rgb(255, 171, 64);
-  }
-
-  .mdl-layout__drawer .mdl-navigation button {
-    margin-bottom: 2vh;
-    margin-left: 0;
   }
 
   .mdl-layout__drawer .mdl-navigation {
@@ -146,15 +141,6 @@
     margin-top: 48px;
     font-size: 24px;
     line-height: 110%;
-  }
-
-  header nav.mdl-navigation {
-    display: flex;
-    margin: 0;
-  }
-
-  #landing-header a:hover {
-    background: none;
   }
 
   @media screen and (min-width: 1024px) {
@@ -216,10 +202,6 @@
     }
   }
 
-  .mdl-layout__header {
-    margin-bottom: 10vh;
-  }
-
   @media (max-width: 1024px) {
     #hero-message__desktop {
       display: none;
@@ -275,4 +257,30 @@
       margin: 2.5rem 0;
     }
   }
+}
+
+#landing-header {
+  margin: 5rem 0;
+}
+
+#landing-header a:hover {
+  background: none;
+}
+
+#landing-nav-logo {
+  width: 50%;
+}
+
+#landing-nav-login-button {
+  border: 1px solid;
+}
+
+.landing-drawer-nav-child {
+  margin: 1rem 0;
+}
+
+.landing-drawer-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }

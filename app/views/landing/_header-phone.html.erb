@@ -1,25 +1,25 @@
 <div class="mdl-layout__drawer">
-  <span class="mdl-layout__title">
-    <%= image_tag "logo.svg", { id: "logo" } %>
-  </span>
+  <div class="mdl-layout__title landing-drawer-logo-container">
+    <%= image_tag "logo.svg", { id: "landing-nav-logo" } %>
+  </div>
   <nav class="mdl-navigation">
-    <a href="#features">
+    <a href="#features" class="landing-drawer-nav-child">
       <button class="mdl-button mdl-js-button mdl-button--accent">
         o que é
       </button>
     </a>
-    <a href="#price">
+    <a href="#price" class="landing-drawer-nav-child">
       <button class="mdl-button mdl-js-button mdl-button--accent">
         preço
       </button>
     </a>
-    <a href="/login">
-      <button id="login-button" class="mdl-button mdl-js-button mdl-button--accent">
+    <a href="/login" class="landing-drawer-nav-child">
+      <button id="landing-nav-login-button" class="mdl-button mdl-js-button mdl-button--accent landing-drawer-button">
         fazer login
       </button>
     </a>
-    <a href="/signup">
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+    <a href="/signup" class="landing-drawer-nav-child">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent landing-drawer-button">
         quero me inscrever
       </button>
     </a>
