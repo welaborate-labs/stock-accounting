@@ -64,11 +64,10 @@
     </div>
     <div class="buttons-group">
       <%= image_tag('fb-icon.png', class: 'facebook-button-icon app-icon') %>
-      <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'mdl-button mdl-js-button ma-10 facebook-btn app-clr-btn mdl-button--raised mdl-js-ripple-effect' %>
+      <%= link_to 'Login com Facebook', '/auth/facebook/', class: 'w-100 app-btn facebook-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' %>
       <%= image_tag('gp-icon.png', class: 'google-button-icon app-icon') %>
-      <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'mdl-button mdl-js-button ma-10 google-btn app-clr-btn mdl-button--raised mdl-js-ripple-effect' %>
+      <%= link_to 'Login com Google+', '/auth/google_oauth2/', class: 'w-100 app-btn google-btn mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect' %>
     </div>
-    <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mdl-button mdl-js-button ma-10 app-btn save-btn mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
-    </div>
+    <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'w-100 app-btn save-btn mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
   </form>
 </div>

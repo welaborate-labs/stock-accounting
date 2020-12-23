@@ -24,12 +24,6 @@ body {
   background-color: #673ab7;
 }
 
-.nav-item a,
-.mdl-button a,
-.container-box .app-clr-btn {
-  color: white;
-}
-
 #statement-messages,
 .table-item a,
 .table-item a:hover,
@@ -78,15 +72,8 @@ body {
   background-color: rgb(221, 75, 57);
 }
 
-.container-box {
-  text-align: center;
-}
-
-.app-icon,
-#statement-messages {
+.app-icon {
   width: 25px;
-  position: absolute;
-  z-index: 1;
 }
 
 .field {
@@ -94,8 +81,9 @@ body {
   width: 80%;
 }
 
-.container-box .app-btn {
-  width: 90%;
+.app-btn, .app-btn:focus, .app-btn:hover, .app-btn:visited {
+  width: 100%;
+  color: white;
 }
 
 .ma-10 {
@@ -122,4 +110,11 @@ body {
   margin-right: 10px;
 }
 
+.mv-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+.w-100 {
+  width: 100%;
+}
