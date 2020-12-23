@@ -20,8 +20,23 @@
     padding: 0 10vw;
   }
 
-  .mdl-button {
-    margin: 0;
+  .mdl-textfield__input {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .mdl-textfield__label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.025rem;
+    color: rgb(255, 255, 255);
+  }
+
+  .mdl-textfield__label:after {
+    background-color: rgb(255, 171, 64);
+  }
+
+  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    color: rgb(255, 171, 64);
   }
 
   .mdl-navigation {
@@ -31,24 +46,6 @@
 
   #hero-message-text {
     margin-bottom: 5rem;
-  }
-
-  #price-illustration-col button {
-    margin-left: 0;
-    padding: 0 2vw;
-    max-width: fit-content;
-  }
-
-  #price-content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  #price-col3-spacer {
-    width: 100%;
-    height: 5rem;
-    margin-top: -13.15rem;
   }
 
   .column-subtitle {
@@ -80,32 +77,13 @@
     justify-content: center;
   }
 
-  .mdl-textfield__input {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  }
-
-  .mdl-textfield__label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.025rem;
-    color: rgb(255, 255, 255);
-  }
-
-  .mdl-textfield__label:after {
-    background-color: rgb(255, 171, 64);
-  }
-
-  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-    color: rgb(255, 171, 64);
-  }
-
   .mdl-layout__drawer .mdl-navigation {
     padding: 0 16px;
   }
 
-  .mdl-grid {
-    width: 100%;
-  }
+  // .mdl-grid {
+  //   width: 100%;
+  // }
 
   .mdl-typography--display-3,
   .mdl-typography--display-2,
@@ -146,6 +124,7 @@
   @media screen and (min-width: 1024px) {
     #form-section {
       margin-top: 10vh;
+      width: 100%;
     }
 
     #hero-message__phone {
@@ -273,6 +252,12 @@
 
 #landing-nav-login-button {
   border: 1px solid;
+}
+
+#price-col3-spacer {
+  width: 100%;
+  height: 5rem;
+  margin-top: -13.15rem;
 }
 
 .landing-drawer-nav-child {
