@@ -41,6 +41,11 @@ body {
   background-color: #e9e9e9;
 }
 
+.nav-item a,
+.add-file a {
+  color: white;
+}
+
 #statement-messages,
 .subtitle {
   font-size: 18px;
@@ -97,6 +102,10 @@ body {
 
 .mt-0 {
   margin-top: 0px;
+}
+
+.mt-10 {
+  margin-top: 10px;
 }
 
 .ma-20 {

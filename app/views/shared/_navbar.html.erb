@@ -1,38 +1,36 @@
-<header>
-  <nav class="mdl-navigation">
-    <div class="menu">
-      <span class="material-icons">
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <div class="mdl-layout-spacer"></div>
+    <nav class="mdl-navigation">
+      <span class="material-icons mr-10 nav-item">
         <%= link_to "account_circle", "" %>
       </span>
-      <span class="material-icons">
+      <span class="material-icons nav-item">
         <%= link_to "settings", "" %>
       </span>
-      <span>
       <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">more_vert</i>
+        <i class="material-icons nav-item">more_vert</i>
       </button>
-      </span>
-    </div>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-      <li class="mdl-menu__item">
-        <%= link_to "Página Inicial", home_path %>
-      </li>
-      <li class="mdl-menu__item">
-        <%= link_to "Perfil", user_path(current_user.id) %>
-      </li>
-      <li class="mdl-menu__item">
-        <%= link_to "Listas de Notas de Corretagem", statement_files_path %>
-      </li>
-      <li class="mdl-menu__item">
-        <%= link_to "Adicionar Notas de Corretagem", new_statement_file_path %>
-      </li>
-      <li class="mdl-menu__item">
-        <%= link_to "Logout", logout_path %>
-      </li>
-    </ul>
-  </nav>
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu nav-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+        <li class="mdl-menu__item">
+          <%= link_to "Página Inicial", home_path %>
+        </li>
+        <li class="mdl-menu__item">
+          <%= link_to "Perfil", user_path(current_user.id) %>
+        </li>
+        <li class="mdl-menu__item">
+          <%= link_to "Listas de Notas de Corretagem", statement_files_path %>
+        </li>
+        <li class="mdl-menu__item">
+          <%= link_to "Adicionar Notas de Corretagem", new_statement_file_path %>
+        </li>
+        <li class="mdl-menu__item">
+          <%= link_to "Logout", logout_path %>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
-
 <%= form_tag account_choose_path, :method => 'put' do %>
   <%= select_tag 'choosen_account_id', 
     options_from_collection_for_select(current_user.accounts, 'id', 'name', 
