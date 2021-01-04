@@ -1,43 +1,42 @@
-<div class="app-statement">
-  <main>
-    <div class="mdl-layout__content">
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-        <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
-      </button>
-      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-        <thead>
-          <tr>
-            <th class="mdl-data-table__cell--non-numeric">Id</th>
-            <th class="date">Data de criação</th>
-            <th>Visualizar</th>
-            <th>Baixar</th>
-            <th>Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @statement_files.each do |statement_file| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
-            <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
-            <td>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
-              </button>
-            </td>
-            <td>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons"><%= link_to 'get_app', statement_file.file, download: ''%></i>
-              </button>
-            </td>
-            <td>
-              <button class="mdl-button mdl-js-button mdl-button--icon delete-btn">
-                <i class="material-icons"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
-              </button>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </main>
+<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone ma-40">
+  <h1 class="mdl-typography--display-1 ma-10">
+    Notas de Corretagem Importadas
+  </h1>
+  <button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+  <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
+  </button>
+  <table class="mdl-data-table mdl-js-data-table ma-10 mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Id</th>
+        <th class="date">Data de criação</th>
+        <th>Visualizar</th>
+        <th>Baixar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @statement_files.each do |statement_file| %>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
+        <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
+        <td>
+          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
+          </button>
+        </td>
+        <td>
+          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'get_app', statement_file.file, download: ''%></i>
+          </button>
+        </td>
+        <td>
+          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
+          </button>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
