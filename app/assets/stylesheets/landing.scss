@@ -2,64 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// Scoping of MDL overrides
 #landing {
-  #logo {
-    width: 50%;
+  .material-icons {
+    font-size: 1.3rem;
   }
 
-  #login-button {
-    border: 1px solid;
-  }
-
-  #hero-message-text {
-    margin-bottom: 5rem;
-  }
-
-  #price-illustration-col button {
-    margin-left: 0;
-    padding: 0 2vw;
-    max-width: fit-content;
-  }
-
-  #price-content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  #price-col3-spacer {
-    width: 100%;
-    height: 5rem;
-    margin-top: -13.15rem;
-  }
-
-  .column-subtitle {
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
-
-  .feature-item {
-    margin-bottom: 2rem;
-  }
-
-  .feature-title {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-    color: rgb(255, 171, 64);
-  }
-
-  .form-item {
-    margin-left: 0;
-  }
-
-  .form-multiline-field {
-    width: 100%;
-  }
-
-  .img-container {
-    display: flex;
-    justify-content: center;
+  .mdl-button {
+    margin: 0;
   }
 
   .mdl-layout {
@@ -67,13 +17,23 @@
     color: #fff;
   }
 
-  .mdl-layout__header {
-    padding-top: 5vh;
-  }
-
   .mdl-layout__drawer {
     background: #673ab7;
     color: #fff;
+  }
+
+  .mdl-layout__drawer-button {
+    color: #fff;
+  }
+
+  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    color: rgb(255, 171, 64);
+  }
+
+  .mdl-layout--no-drawer-button .mdl-layout__header-row {
+    display: flex;
+    align-items: center;
+    padding: 0 10vw;
   }
 
   .mdl-textfield__input {
@@ -91,25 +51,9 @@
     background-color: rgb(255, 171, 64);
   }
 
-  .mdl-layout--no-drawer-button .mdl-layout__header-row {
-    padding: 0 10vw;
-  }
-
-  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-    color: rgb(255, 171, 64);
-  }
-
-  .mdl-layout__drawer .mdl-navigation button {
-    margin-bottom: 2vh;
-    margin-left: 0;
-  }
-
-  .mdl-layout__drawer .mdl-navigation {
-    padding: 0 16px;
-  }
-
-  .mdl-grid {
-    width: 100%;
+  .mdl-navigation {
+    display: flex;
+    align-items: center;
   }
 
   .mdl-typography--display-3,
@@ -118,161 +62,167 @@
     font-weight: 300;
     line-height: 1.2;
   }
+}
 
-  span.mdl-typography--headline {
-    margin-top: 38px;
+#form-section {
+  margin-top: 10vh;
+  width: 100%;
+}
+
+#hero-message-text {
+  margin-bottom: 5rem;
+}
+
+#landing-header {
+  margin: 5rem 0;
+}
+
+#landing-header a:hover {
+  background: none;
+}
+
+#landing-nav-logo {
+  width: 50%;
+}
+
+#landing-nav-login-button {
+  border: 1px solid;
+}
+
+#price-col3-spacer {
+  width: 100%;
+  height: 5rem;
+  margin-top: -13.15rem;
+}
+
+#price-illustration {
+  width: 80%;
+}
+
+#price-illustration-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.landing-column-subtitle {
+  font-weight: 400;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.landing-drawer-nav-button {
+  width: 100%;
+}
+
+.landing-drawer-nav-child {
+  margin: 1rem 0;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.landing-drawer-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.landing-form-item {
+  margin-left: 0;
+}
+
+.landing-form-multiline-field {
+  width: 100%;
+}
+
+.landing-header-item {
+  margin-left: 2.5vw !important;
+}
+
+.landing-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.landing-price-button {
+  margin-top: 7.5vh !important;
+}
+
+.landing-price-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.landing-price-img {
+  width: 75%;
+}
+
+@media screen and (min-width: 1024px) {
+  #hero-message__phone {
+    display: none;
+    margin-top: 5vh;
   }
 
-  .mdl-cell .mdl-typography--headline {
-    font-size: 16px;
-    line-height: 150%;
-    letter-spacing: 0.005em;
+  #hero-message__desktop {
+    margin-bottom: 5vh;
   }
 
-  .landing-header-item {
-    margin-left: 2.5vw !important;
+  #main-illustration {
+    width: 100%;
   }
 
-  .price-container {
-    display: flex;
-    justify-content: flex-end;
+  .landing-container__desktop {
+    padding: 0 10vw;
   }
 
-  .price-img {
-    width: 75%;
+  .price-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 5vw;
+    margin-top: -10.5rem;
+    margin-right: 2vw;
   }
 
-  h5 {
-    margin-top: 48px;
-    font-size: 24px;
-    line-height: 110%;
+  .section-title {
+    margin: 5rem 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  #hero-message__desktop {
+    display: none;
   }
 
-  header nav.mdl-navigation {
-    display: flex;
-    margin: 0;
+  #hero-message__phone {
+    margin-bottom: 5vh;
   }
 
-  #landing-header a:hover {
-    background: none;
+  #main-illustration {
+    width: 100%;
+    margin-bottom: 5vh;
+    padding: 0 5vw;
   }
 
-  @media screen and (min-width: 1024px) {
-    #form-section {
-      margin-top: 10vh;
-    }
-
-    #hero-message__phone {
-      display: none;
-    }
-
-    #hero-message__desktop {
-      margin-bottom: 5vh;
-    }
-
-    #main-illustration {
-      width: 100%;
-    }
-
-    #price-illustration-col {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    #price-illustration {
-      width: 80%;
-    }
-
-    .price-text {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 5vw;
-      margin-top: -10.5rem;
-      margin-right: 2vw;
-    }
-
-    .container {
-      padding: 0 10vw;
-    }
-
-    .features-img {
-      width: 80%;
-    }
-
-    .material-icons {
-      font-size: 22px;
-    }
-
-    .price-icon {
-      height: 2.5rem;
-    }
-
-    .price-button {
-      margin-top: 7.5vh;
-    }
-
-    .section-title {
-      margin: 5rem 0;
-    }
+  #price-col3-spacer {
+    width: 100%;
+    height: 5rem;
+    margin-top: -11.15rem;
   }
 
-  .mdl-layout__header {
-    margin-bottom: 10vh;
+  .features-images {
+    display: inline-block;
+    max-width: 210px;
+    max-height: 210px;
   }
 
-  @media (max-width: 1024px) {
-    #hero-message__desktop {
-      display: none;
-    }
+  .price-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 5rem;
+    margin-top: -8.5rem;
+    margin-right: 2vw;
+  }
 
-    #hero-message__phone {
-      margin-bottom: 5vh;
-    }
-
-    #main-illustration {
-      width: 100%;
-      margin-bottom: 5vh;
-      padding: 0 5vw;
-    }
-
-    #price-content-container {
-      align-items: center;
-    }
-
-    #price-col3-spacer {
-      width: 100%;
-      height: 5rem;
-      margin-top: -11.15rem;
-    }
-
-    .mdl-navigation a button {
-      width: 100%;
-    }
-
-    .mdl-grid {
-      margin-top: 5vh;
-    }
-
-    .mdl-layout__drawer-button {
-      color: #fff;
-    }
-
-    .features-images {
-      display: inline-block;
-      max-width: 210px;
-      max-height: 210px;
-    }
-
-    .price-text {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 300;
-      font-size: 5rem;
-      margin-top: -8.5rem;
-      margin-right: 2vw;
-    }
-
-    .section-title {
-      margin: 2.5rem 0;
-    }
+  .section-title {
+    margin: 2.5rem 0;
   }
 }
