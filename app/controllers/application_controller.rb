@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :authenticate_user!
   helper_method :current_user, :signed_in?, :choosen_account
-
+  include Pagy::Backend
+  
   protected
 
   def current_user

@@ -2,7 +2,7 @@ class StatementsController < ApplicationController
   before_action :set_statement, only: [:show, :edit, :update, :destroy]
 
   def index
-    @statements = Statement.all
+    @pagy, @statements = pagy(Statement.where(brokerage_account: choosen_account.brokerage_accounts), items: 10)
   end
 
   def show
@@ -22,7 +22,7 @@ class StatementsController < ApplicationController
       if @statement.save
         flash[:notice]  = "Statement was successfully created."
       else
-        flash[:alert] = "#{@statement.errors.full_messages}"
+        flash[:alert] = @statement.errors.full_messages.to_sentence
       end
     rescue ActionController::ParameterMissing => exception
       flash[:alert] = "Statement can't be blank."
@@ -33,7 +33,7 @@ class StatementsController < ApplicationController
     if @statement.update(statement_params)
       flash[:notice]  = 'Statement was successfully updated.'
     else
-      flash[:alert] = "#{@statement.errors.full_messages}"
+      flash[:alert] = @statement.errors.full_messages.to_sentence
     end
     redirect_to statement_files_path
   end
