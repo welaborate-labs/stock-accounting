@@ -31,7 +31,8 @@ body {
   color: #333;
 }
 
-.nav-menu li a:hover {
+.nav-menu li a:hover,
+.preview-file:hover {
   color: #333;
   background-color: #e9e9e9;
 }

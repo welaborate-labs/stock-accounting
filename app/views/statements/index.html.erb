@@ -11,6 +11,7 @@
         <th class="mdl-data-table__cell--non-numeric">Statement file</th>
         <th class="date">Statement date</th>
         <th>Brokerage</th>
+        <th>File</th>
         <th>View File</th>
         <th>Edit File</th>
         <th>Destroy File</th>
@@ -21,8 +22,14 @@
       <% @statements.each do |statement| %>
         <tr>
           <td class="mdl-data-table__cell--non-numeric"><%= statement.statement_file_id %></td>
-          <td class="date-data"><%= statement.statement_date %></td>
+          <td class="date-data"><%= statement.statement_date.to_date %>
           <td><%= statement.brokerage_account_id %></td>
+          <% if statement.statement_file %>
+          <td>
+            <% else %>
+              <td>sem anexo</td>
+            <% end %>
+          </td>
           <td>
             <button class="mdl-button mdl-js-button mdl-button--icon table-button">
               <i class="material-icons table-item"><%= link_to 'visibility', statement %></i>
@@ -44,3 +51,5 @@
   </table>
   <br>
 </div>
+
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
