@@ -18,9 +18,9 @@ RSpec.describe "Accounts", type: :request do
 
     context "when user signed out" do
       before { expect_any_instance_of(ApplicationController).to receive(:current_user) {nil} }
-      before { get accounts_path  }
+      before { get accounts_path }
       
-      it { is_expected.to redirect_to login_path }
+      it { is_expected.to redirect_to root_path }
     end
   end
 

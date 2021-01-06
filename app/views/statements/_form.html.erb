@@ -1,25 +1,15 @@
 <%= form_with(model: statement, local: true) do |form| %>
-  <% if statement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
-
-      <ul>
-        <% statement.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
-    <%= form.label :statement_date %>
-    <%= form.datetime_select :statement_date %>
+    <%= form.label 'Data' %>
+    <%= form.date_field :statement_date %>
   </div>
 
   <div class="field">
-    <%= form.label :statement_file_id %>
-    <%= form.text_field :statement_file_id %>
+    <%= form.label 'Número' %>
+    <%= form.text_field :number, maxlength: '15' %>
   </div>
+
+  <%= link_to_add_fields "Add Trade", form, :trades %>
 
   <div class="actions">
     <%= form.submit %>

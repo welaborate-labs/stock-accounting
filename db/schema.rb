@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_132823) do
 
   create_table "statements", force: :cascade do |t|
     t.datetime "statement_date"
-    t.bigint "statement_file_id", null: false
+    t.bigint "statement_file_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brokerage_account_id", null: false

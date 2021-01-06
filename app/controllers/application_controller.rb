@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :authenticate_user!
   helper_method :current_user, :signed_in?, :choosen_account
-
+  include Pagy::Backend
+  
   protected
 
   def current_user
@@ -23,8 +24,10 @@ class ApplicationController < ActionController::Base
   end
 
   def choosen_account
-    if session[:choosen_account_id]
-      @choosen_account ||= current_user.accounts.find(session[:choosen_account_id])
-    end
+    begin
+      if session[:choosen_account_id]
+        @choosen_account ||= current_user.accounts.find(session[:choosen_account_id])
+      end
+    rescue ActiveRecord::RecordNotFound;end
   end
 end

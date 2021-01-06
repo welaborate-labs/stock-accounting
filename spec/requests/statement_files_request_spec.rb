@@ -9,6 +9,7 @@ RSpec.describe "/statement_files", type: :request do
   let!(:statement_file2) { create(:statement_file, :with_file, account: account) }
 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
+  before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
 
   describe 'GET #index' do
     subject { response }

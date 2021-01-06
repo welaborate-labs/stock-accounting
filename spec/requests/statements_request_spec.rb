@@ -11,6 +11,7 @@ RSpec.describe "/statements", type: :request do
   let!(:statement2) { create(:statement, statement_file_id: statement_file.id, brokerage_account_id: brokerage_account.id) }
 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
+  before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
 
   describe "GET #index" do
     before { get statements_path }

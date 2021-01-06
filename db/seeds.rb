@@ -24,18 +24,16 @@ Account.create!(user_id: User.last.id, name: 'Test Account',
                 phone_mobile:   '33 3333-3333',
                 status: 'active') 
 puts "Account created successfully"
-BrokerageAccount.create!(account_id: Account.last.id, brokerage: 123456, number: '123456-7',account_number: '123.456.789-01')
+BrokerageAccount.create!(account_id: Account.last.id, brokerage: 123456, number: '123456-7')
 puts "BrokerageAccount created successfully"
 
-10.times { 
-  statement_file = StatementFile.new(account_id: Account.last.id, processed_at: DateTime.now)
-  statement_file.file.attach(io: File.open(Rails.root.join 'spec/fixtures/files/modelo.pdf'), filename: 'modelo.pdf', content_type: 'application/pdf')
-  statement_file.save!
-}
-puts "StatementFiles created successfully"
+statement_file = StatementFile.new(account_id: Account.last.id, processed_at: DateTime.now)
+statement_file.file.attach(io: File.open(Rails.root.join 'spec/fixtures/files/modelo.pdf'), filename: 'modelo.pdf', content_type: 'application/pdf')
+statement_file.save!
+puts "StatementFile created successfully"
 
-Statement.create!(statement_date: DateTime.now, 
-                  statement_file_id: StatementFile.last.id,
+Statement.create!(statement_date: DateTime.now,
+                  number: '123456',
                   brokerage_account_id: BrokerageAccount.last.id)
 puts "Statement created successfully"
 
