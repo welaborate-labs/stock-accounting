@@ -17,8 +17,8 @@ class StatementsController < ApplicationController
 
   def create
     begin
-      @statement = Statement.new(statement_params)
-
+      @statement = choosen_account.brokerage_accounts.find_or_create_by(brokerage: 1, number: '123456-7').statements.build(statement_params)
+            
       if @statement.save
         flash[:notice]  = "Statement was successfully created."
       else
@@ -27,6 +27,7 @@ class StatementsController < ApplicationController
     rescue ActionController::ParameterMissing => exception
       flash[:alert] = "Statement can't be blank."
     end
+    redirect_to statements_path
   end
 
   def update
@@ -35,7 +36,7 @@ class StatementsController < ApplicationController
     else
       flash[:alert] = @statement.errors.full_messages.to_sentence
     end
-    redirect_to statement_files_path
+    redirect_to statements_path
   end
 
   def destroy
@@ -47,11 +48,16 @@ class StatementsController < ApplicationController
   end
 
   private
-  def set_statement
-    @statement = Statement.find(params[:id])
-  end
 
-  def statement_params
-    params.require(:statement).permit(:content)
-  end
+    def set_statement
+      @statement = Statement.find(params[:id])
+    end
+
+    def statement_params
+      params.require(:statement).permit(:content, :statement_date, :number, trades_attributes: [
+        :ticker, :direction, 
+        :open, :close, 
+        :quantity, :price, 
+        :transacted_at, :_destroy])
+    end
 end

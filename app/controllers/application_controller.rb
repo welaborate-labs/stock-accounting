@@ -24,8 +24,10 @@ class ApplicationController < ActionController::Base
   end
 
   def choosen_account
-    if session[:choosen_account_id]
-      @choosen_account ||= current_user.accounts.find(session[:choosen_account_id])
-    end
+    begin
+      if session[:choosen_account_id]
+        @choosen_account ||= current_user.accounts.find(session[:choosen_account_id])
+      end
+    rescue ActiveRecord::RecordNotFound;end
   end
 end

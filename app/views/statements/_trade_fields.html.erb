@@ -1,0 +1,16 @@
+<div class="nested-fields">
+  <h3>Trade</h3>
+  <fieldset>
+    <%= f.label 'Ativo' %><br />
+    <%= f.text_field :ticker, type: 'text' %><br />
+    <%= f.label 'Compra/Venda' %><br />
+    <%= f.radio_button :direction, 0 %>Compra <%= f.radio_button :direction, 1 %>Venda<br>
+    <%= f.label 'Quantidade' %><br />
+    <%= f.text_field :quantity, type: 'number' %><br />
+    <%= f.label 'Preço' %><br />
+    <%= f.number_field :price, step: :any %><br />
+    <br >
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "remove", '#', class: "remove_fields" %>
+  </fieldset>
+</div>
