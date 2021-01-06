@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :accounts
   resources :identities
-  resources :statements
+  resources :statements                     
   resources :users,                           only: [:show]
   resources :statement_files,                 only: [:index, :new, :create, :destroy]
 

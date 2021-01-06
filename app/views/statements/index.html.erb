@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Statements</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Statement date</th>
-      <th>Statement file</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @statements.each do |statement| %>
+<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone ma-40">
+  <h1 class="mdl-typography--display-1 ma-10">Listagem das Notas de Corretagem</h1>
+  <button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+    <%= link_to 'Nova Nota de Corretagem', new_statement_path %>
+  </button>
+  <table class="mdl-data-table mdl-js-data-table ma-10 mdl-shadow--2dp">
+    <thead>
       <tr>
-        <td><%= statement.statement_date %></td>
-        <td><%= statement.statement_file_id %></td>
-        <td><%= link_to 'Show', statement %></td>
-        <td><%= link_to 'Edit', edit_statement_path(statement) %></td>
-        <td><%= link_to 'Destroy', statement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="mdl-data-table__cell--non-numeric">Data</th>
+        <th>Número</th>
+        <th>Arquivo Anexo</th>
+        <th>Corretora</th>
+        <th>Nota de Corretagem</th>
+        <th colspan="5"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Statement', new_statement_path %>
+    </thead>
+    <tbody>
+      <% @statements.each do |statement| %>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><%= statement.statement_date.to_date %>
+          <td><%= statement.number %></td>
+          <% if statement.statement_file %>
+            <td><%= link_to 'visualizar anexo', statement.statement_file.file, target: '_blank', class:'preview-file' %></td>
+          <% else %>
+            <td>sem anexo</td>
+          <% end %>
+          <td><%= statement.brokerage_account_id %></td>
+          <td>
+            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+              <i class="material-icons table-item"><%= link_to 'visibility', statement %></i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+              <i class="material-icons table-item"><%= link_to 'get_app', edit_statement_path(statement) %></i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+              <i class="material-icons table-item"><%= link_to 'delete', statement, method: :delete, data: { confirm: 'Você tem certeza?' } %></i>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <div class="ma-10"><%== pagy_nav(@pagy) if @pagy.pages > 1 %></div>
+</div>
