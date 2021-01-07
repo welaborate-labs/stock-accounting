@@ -42,7 +42,7 @@ class AccountsController < ApplicationController
     else
       flash[:notice] = 'Selected Account was not changed.'
     end
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: home_path)
   end
 
   private

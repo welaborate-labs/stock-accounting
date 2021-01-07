@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       end
     end
 
-    redirect_to statement_files_path
+    redirect_to home_path
   end
 
   def destroy

@@ -1,5 +1,6 @@
 class StatementsController < ApplicationController
   before_action :set_statement, only: [:show, :edit, :update, :destroy]
+  before_action :check_choosen_account, only: [:index]
 
   def index
     @pagy, @statements = pagy(Statement.where(brokerage_account: choosen_account.brokerage_accounts), items: 10)

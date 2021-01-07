@@ -1,5 +1,6 @@
 class StatementFilesController < ApplicationController
   before_action :set_statement_file, only: [:destroy]
+  before_action :check_choosen_account, only: [:create]
 
   def index
     @statement_files = StatementFile.all
