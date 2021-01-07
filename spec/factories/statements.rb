@@ -9,5 +9,7 @@ FactoryBot.define do
     sequence :number do |n|
       "01234#{n}"
     end
+    brokerage_account
+    statement_date { '06/01/2021' }
   end
 end

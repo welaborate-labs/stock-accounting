@@ -5,10 +5,10 @@ RSpec.describe "/statements", type: :request do
   let(:file) { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'modelo.pdf'), 'application/pdf') }
   let(:user) { create(:user) }
   let(:account) { create(:account, user: user) }
-  let(:brokerage_account) { create(:brokerage_account, account: account) } 
+  let(:brokerage_account) { create(:brokerage_account, brokerage: 1, number: '123456-1', account: account) }
   let(:statement_file) { create(:statement_file, :with_file, account: account) }
-  let!(:statement) { create(:statement, statement_file_id: statement_file.id, brokerage_account_id: brokerage_account.id) }
-  let!(:statement2) { create(:statement, statement_file_id: statement_file.id, brokerage_account_id: brokerage_account.id) }
+  let!(:statement) { create(:statement, brokerage_account_id: brokerage_account.id) }
+  let!(:statement2) { create(:statement, brokerage_account_id: brokerage_account.id) }
 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
   before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
@@ -25,7 +25,6 @@ RSpec.describe "/statements", type: :request do
 
     it { expect(assigns(:statement)).to eq(statement) }
     it { expect(response.body).to include statement.statement_date.to_s } 
-    it { expect(response.body).to include statement.statement_file.id.to_s } 
     it { expect(response.body).to include statement.brokerage_account.id.to_s } 
   end
 
@@ -42,8 +41,16 @@ RSpec.describe "/statements", type: :request do
       expect { subject }.to have_enqueued_job.with( statement_file.id )
     end
 
-    it "changes statements to 4" do
+    it "changes statements to 2" do
       expect(Statement.count).to eq(2)
+    end
+
+    describe "nested attributes" do
+      before { post statements_path, params: { statement: { statement_date: '01/01/01', number: '12345678', trades_attributes: [ ticker: '123', direction: 0, quantity: 12345, price: 54321 ]}}}
+      subject { post statements_path, params: { statement: { statement_date: '01/01/01', number: '123456789', trades_attributes: [ ticker: '123', direction: 0, quantity: 12345, price: 54321 ]}}}
+
+      it { expect { subject }.to change(Statement, :count).by(1) } 
+      it { expect { subject }.to change(Trade, :count).by(1) } 
     end
   end
 
