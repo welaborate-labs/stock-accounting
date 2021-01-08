@@ -34,7 +34,9 @@ class ApplicationController < ActionController::Base
   def check_choosen_account
     if @choosen_account.nil? && current_user.accounts.last.nil?
       redirect_back(fallback_location: home_path)
-      flash[:alert] = "É necessário criar uma conta para prosseguir.#{view_context.link_to 'CLIQUE AQUI', new_account_path} para criar sua conta."
+      flash[:alert] = "É necessário criar uma conta para prosseguir.
+      #{view_context.link_to 'CLIQUE AQUI', new_account_path, 
+      class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10'} para criar uma conta."
     end
   end
 
