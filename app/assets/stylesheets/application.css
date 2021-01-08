@@ -44,7 +44,7 @@ body {
 
 .nav-item a,
 .add-file a,
-#choosen_account_id:first-of-type {
+.account-btn:first-of-type {
   color: white;
 }
 
