@@ -6,6 +6,9 @@ class Statement < ApplicationRecord
 
   before_validation :set_brokerage_account_from_content
   before_validation :set_statement_date_from_content
+  after_create :generate_trades
+  after_create :set_costs
+  after_create :set_paid_taxes
 
   validates :number, uniqueness: { scope: :brokerage_account_id }
   validates :statement_date, presence: true
@@ -26,6 +29,30 @@ class Statement < ApplicationRecord
         client_number = content.match('\d{7}\-?\d{1}').to_s
         account = statement_file.account
         self.brokerage_account = account.brokerage_accounts.find_or_create_by(brokerage: 1, number: client_number)
+      end
+    end
+
+    def parser
+      @parser ||= StatementParser.new(content: content) if content
+    end
+
+    def generate_trades
+      if content
+        parser.trades.each do |trade|
+          trades.create(trade)
+        end
+      end
+    end
+
+    def set_costs
+      if content
+        # TODO: Set the costs related to this statement from the parser data
+      end
+    end
+
+    def set_paid_taxes
+      if content
+        # TODO: Set the paid taxes related to this statement from the parser data
       end
     end
 end
