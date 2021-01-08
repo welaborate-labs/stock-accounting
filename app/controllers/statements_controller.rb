@@ -1,5 +1,5 @@
 class StatementsController < ApplicationController
-  before_action :set_statement,             only: [:show, :destroy]
+  before_action :set_statement,             only: [:edit, :update, :show, :destroy]
   before_action :check_choosen_account,     only: [:index, :create, :new]
   before_action :set_last_account,          only: [:index, :create, :new]
 
