@@ -44,8 +44,13 @@ body {
 
 .nav-item a,
 .add-file a,
-#demo-menu-lower-right {
+#choosen_account_id:first-of-type {
   color: white;
+}
+
+.account-btn option {
+  color: black;
+  background-color: white;
 }
 
 #statement-messages,
@@ -89,9 +94,17 @@ body {
   width: 80%;
 }
 
-.app-btn, .app-btn:focus, .app-btn:hover, .app-btn:visited {
+.app-btn, 
+.app-btn:focus, 
+.app-btn:hover, 
+.app-btn:visited {
   width: 100%;
   color: white;
+}
+
+.profile-field, 
+.statement-field {
+  width: 40%;
 }
 
 .ma-10 {
