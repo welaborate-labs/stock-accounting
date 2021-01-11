@@ -35,7 +35,7 @@ class addFields {
     let lastNestedFields = nestedFieldsWrapper.querySelector('.nested-fields:last-child');
     // Add the new markup to the form if there are fields to add.
     if (newFields) {
-      lastNestedFields ? lastNestedFields.insertAfter(newFields) : nestedFieldsWrapper.appendChild(newFields);
+      lastNestedFields ? lastNestedFields.insertAdjacentHTML('afterend', newFields) : nestedFieldsWrapper.innerHTML = newFields;
     }
   }
 }
