@@ -1,17 +1,19 @@
 <div>
   <%= form_with(model: statement, local: true) do |form| %>
-    <div class="mdl-textfield mdl-js-textfield  statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.label 'Data', class: 'mdl-textfield__label', for: 'date' %>
-      <%= form.text_field :statement_date, class: 'mdl-textfield__input', type: 'date' %>
+    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+      <%= form.date_field :statement_date, class: 'mdl-textfield__input' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
       <%= form.text_field :number, class: 'mdl-textfield__input', type: 'number', maxlength: '15' %>
     </div>
-    <div class="buttons-group">
+    <div class="nested-fields-wrapper">
+      <div class="nested-container"></div>
+      <div class="buttons-group">
         <%= link_to_add_fields "Adicionar negócio", form, :trades, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
       <div class="actions">
         <%= form.submit 'Criar declaração', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+      </div>
       </div>
     </div>
   <% end %>

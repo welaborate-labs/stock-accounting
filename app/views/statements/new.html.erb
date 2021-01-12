@@ -5,8 +5,10 @@
 
   <%= render 'form', statement: @statement %>
 
-  <button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
-    <%= link_to 'Voltar para listagem', statements_path %>
+  <button class="mdl-button mdl-js-button add-file trade-btn ma-10">
+    <span class="material-icons trade-icon">
+      <%= link_to 'arrow_back', statements_path %>
+    </span>
   </button>
-  
+
 </div>

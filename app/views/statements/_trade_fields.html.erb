@@ -1,16 +1,30 @@
-<div class="nested-fields">
-  <h3>Trade</h3>
+<div class="demo-card-wide trade-card mdl-card mdl-shadow--2dp ma-10 pa-10 nested-fields">
+  <h3 class="mdl-typography--headline ma-10">
+    Negociação
+  </h3>
   <fieldset>
-    <%= f.label 'Ativo' %><br />
-    <%= f.text_field :ticker, type: 'text' %><br />
-    <%= f.label 'Compra/Venda' %><br />
-    <%= f.radio_button :direction, 0 %>Compra <%= f.radio_button :direction, 1 %>Venda<br>
-    <%= f.label 'Quantidade' %><br />
-    <%= f.text_field :quantity, type: 'number' %><br />
-    <%= f.label 'Preço' %><br />
-    <%= f.number_field :price, step: :any %><br />
-    <br >
-    <%= f.hidden_field :_destroy %>
-    <%= link_to "remove", '#', class: "remove_fields" %>
+    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+      <%= f.label 'Ativo', class: 'mdl-textfield__label', for: 'text' %>
+      <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text' %>
+    </div>
+    <label class="mdl-checkbox mdl-js-checkbox statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-2">
+      <h6><%= f.label 'Compra/Venda' %></h6>
+      <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-2' %>Compra
+      <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-2'%>Venda<br>
+    </label>
+    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+      <%= f.label 'Quantidade' , class: 'mdl-textfield__label', for: 'number' %>
+      <%= f.text_field :quantity, class: 'mdl-textfield__input', type: 'nember' %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+      <%= f.label 'Preço' , class: 'mdl-textfield__label' %>
+      <%= f.number_field :price, step: :any, class: 'mdl-textfield__input' %>
+    </div>
+      <br>
+      <%= f.hidden_field :_destroy %>
+    <div class="mdl-card__actions mdl-card--border">
+      <a><%= link_to "Remover", '#', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect add-file ma-10 remove_fields" %></a>
+      <span class="demo-card-image__filename material-icons delete_icon">delete</span>
+    </div>
   </fieldset>
 </div>
