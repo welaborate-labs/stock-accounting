@@ -38,9 +38,7 @@ class addFields {
     // Get last nested fields added
     let nestedFieldsContainer = nestedFieldsWrapper.querySelector('.nested-container');
     // Add the new markup to the form if there are fields to add.
-    if (lastNestedFields) {
-      nestedFieldsContainer.appendChild(newFieldsElem);
-    }
+    nestedFieldsContainer.appendChild(newFieldsElem);
   }
 }
 
