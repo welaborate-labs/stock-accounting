@@ -110,6 +110,10 @@ body {
   width: 40%;
 }
 
+.checkbox-field {
+  width: 20%;
+}
+
 .ma-10 {
   margin: 10px;
 }
