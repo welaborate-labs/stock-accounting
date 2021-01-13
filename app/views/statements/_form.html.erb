@@ -2,28 +2,30 @@
   <fieldset>
     <%= form_with(model: statement, local: true) do |form| %>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.date_field :statement_date, class: 'mdl-textfield__input' %>
+      <%= form.date_field :statement_date, class: 'mdl-textfield__input', id:'date-input' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
       <%= form.text_field :number, class: 'mdl-textfield__input', type: 'number', maxlength: '15' %>
     </div>
+    <div class="buttons-group">
+      <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+        <%= form.label 'Ativo', class: 'mdl-textfield__label', for: 'text' %>
+        <%= form.text_field :ticker, class: 'mdl-textfield__input', type: 'text' %>
+      </div>
+      <div class="checkbox-fields ma-10">
+        <h6><%= form.label 'Compra/Venda' %></h6>
+        <label class="mdl-checkbox mdl-js-checkbox checkbox-field statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-1">
+          <%= form.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-1' %>Compra
+          <span class="mdl-checkbox__label"></span>
+        </label>
+        <label class="mdl-checkbox mdl-js-checkbox checkbox-field statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-2">
+          <%= form.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-2'%>Venda
+          <span class="mdl-checkbox__label"></span>
+        </label>
+      </div>
+    </div>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.label 'Ativo', class: 'mdl-textfield__label', for: 'text' %>
-      <%= form.text_field :ticker, class: 'mdl-textfield__input', type: 'text' %>
-    </div>
-    <div>
-      <h6><%= form.label 'Compra/Venda' %></h6>
-      <label class="mdl-checkbox mdl-js-checkbox statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-1">
-        <%= form.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-1' %>Compra
-        <span class="mdl-checkbox__label"></span>
-      </label>
-      <label class="mdl-checkbox mdl-js-checkbox statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-2">
-        <%= form.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-2'%>Venda
-        <span class="mdl-checkbox__label"></span>
-      </label>
-    </div>
-     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.label 'Quantidade' , class: 'mdl-textfield__label', for: 'number' %>
       <%= form.text_field :quantity, class: 'mdl-textfield__input', type: 'nember' %>
     </div>
@@ -34,8 +36,8 @@
     <br>
     <div class="nested-fields-wrapper">
       <div class="nested-container"></div>
-      <div class="buttons-group">
-        <%= link_to_add_fields "Adicionar negócio", form, :trades, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+      <div class="mdl-button mdl-js-button add-file mdl-button--raised mdl-button--colored ma-10">
+        <%= link_to_add_fields "Adicionar negócio", form, :trades %>
       <div class="actions">
         <%= form.submit 'Criar declaração', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
       </div>
