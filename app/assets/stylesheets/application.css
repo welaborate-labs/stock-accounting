@@ -110,20 +110,6 @@ body {
   width: 40%;
 }
 
-.trade-card {
-  width: 515px;
-}
-
-.delete_icon {
-  color: #673ab7;
-  margin-left: 68%;
-}
-
-.mdl-card__actions {
-  display: flex;
-  align-items: center;
-}
-
 .ma-10 {
   margin: 10px;
 }
