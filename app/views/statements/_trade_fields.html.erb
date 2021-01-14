@@ -1,6 +1,21 @@
-<div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone ma-40 nested-fields">
-  <h1 class="mdl-typography--display-1 ma-10">
-    Negociação
-  </h1>
-    <%= f.hidden_field :_destroy %>
-</div>
+<td style="text-align: center;">
+  <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text', style:"text-align: center;" %>
+</td>
+
+<td style="text-align: center;">
+  <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox' %>
+  <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox' %>
+</td>
+
+<td style="text-align: center;">
+  <%= f.text_field :quantity, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
+</td>
+
+<td style="text-align: center;">
+  <%= f.text_field :price, step: :any, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
+</td>
+
+<td style="text-align: center;">
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remover", '#', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect add-file remove_fields" %>
+</td>

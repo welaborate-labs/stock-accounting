@@ -30,7 +30,7 @@ class addFields {
     // Replace all instances of the `new_object.object_id` with `time`, and save markup into a variable if there's a value in `regexp`.
     let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
     // Generate the new DOM elem
-    let newFieldsElem = document.createElement('div');
+    let newFieldsElem = document.createElement('tr');
     newFieldsElem.innerHTML = newFields;
     newFieldsElem.className = '.nested-fields';
     // Get the nested fields wrapper

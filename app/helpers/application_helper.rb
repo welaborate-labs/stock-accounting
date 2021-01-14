@@ -2,7 +2,7 @@ module ApplicationHelper
   include Pagy::Frontend
 
   # nested forms statement/trades
-  def link_to_add_fields(name, f, association)
+  def link_to_add_fields(name, f, association, locals={})
 
     # Takes an object (@person) and creates a new instance of its associated model (:addresses)
     # To better understand, run the following in your terminal:
@@ -36,7 +36,7 @@ module ApplicationHelper
     # The `fields:` are rendered from the `fields` blocks.
         # We use `gsub("\n", "")` to remove anywhite space from the rendered partial.
     # The `id:` value needs to match the value used in `child_index: id`.
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, '#', class: [locals[:class], "add_fields"], data: {id: id, fields: fields.gsub("\n", "")})
 
   end
 end
