@@ -1,21 +1,17 @@
-<td style="text-align: center;">
+<td>
   <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text', style:"text-align: center;" %>
 </td>
-
-<td style="text-align: center;">
+<td>
   <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox' %>
   <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox' %>
 </td>
-
-<td style="text-align: center;">
+<td>
   <%= f.text_field :quantity, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
 </td>
-
-<td style="text-align: center;">
+<td>
   <%= f.text_field :price, step: :any, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
 </td>
-
-<td style="text-align: center;">
+<td>
   <%= f.hidden_field :_destroy %>
   <%= link_to "Remover", '#', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect add-file remove_fields" %>
 </td>

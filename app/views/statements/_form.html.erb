@@ -1,39 +1,13 @@
-<div >
-  <%= form_with(model: statement, local: true) do |form| %>
-    <div class="mdl-cell mdl-cell--12-col" style="text-align: center;">
-      <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+<div>
+  <fieldset>
+    <%= form_with(model: statement, local: true) do |form| %>
+    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.date_field :statement_date, class: 'mdl-textfield__input' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
       <%= form.text_field :number, class: 'mdl-textfield__input', type: 'number', maxlength: '15' %>
     </div>
-    <div class="buttons-group">
-      <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-        <%= form.label 'Ativo', class: 'mdl-textfield__label', for: 'text' %>
-        <%= form.text_field :ticker, class: 'mdl-textfield__input', type: 'text' %>
-      </div>
-      <div class="checkbox-fields ma-10">
-        <h6><%= form.label 'Compra/Venda' %></h6>
-        <label class="mdl-checkbox mdl-js-checkbox checkbox-field statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-1">
-          <%= form.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-1' %>Compra
-          <span class="mdl-checkbox__label"></span>
-        </label>
-        <label class="mdl-checkbox mdl-js-checkbox checkbox-field statement-field field ma-10 mdl-js-ripple-effect" for="checkbox-2">
-          <%= form.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox', id: 'checkbox-2'%>Venda
-          <span class="mdl-checkbox__label"></span>
-        </label>
-      </div>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.label 'Quantidade' , class: 'mdl-textfield__label', for: 'number' %>
-      <%= form.text_field :quantity, class: 'mdl-textfield__input', type: 'nember' %>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.label 'Preço' , class: 'mdl-textfield__label' %>
-      <%= form.number_field :price, step: :any, class: 'mdl-textfield__input' %>
-    </div>
-    <br>
     <div class="nested-fields-wrapper">
         <div class="buttons-group">
           <%= link_to_add_fields "Adicionar negócio", form, :trades, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
@@ -41,62 +15,32 @@
               <%= form.submit 'Criar declaração', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
             </div>
           </div>
-          <h4 style="text-align: center;">NEGOCIAÇÕES</h4>
-            <table class="mdl-data-table mdl-js-data-table ma-10">
-              <thead>
-                <tr>
-                  <th style="text-align: center;">ATIVO</th>
-                  <th style="text-align: center;">C/V</th>
-                  <th style="text-align: center;">QUANTIDADE</th>
-                  <th style="text-align: center;">PREÇO</th>
-                  <th style="text-align: center;"></th>
-                </tr>
-              </thead>
-              <tbody class="nested-container">
-              </tbody>
-            </table>
+          <h5 class="mdl-typography--headline ma-10">
+            Negociações
+          </h5>
+          <table class="mdl-data-table mdl-js-data-table statements-table ma-10">
+            <thead>
+              <tr>
+                <th>Ativo</th>
+                <th>C/V</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="nested-container">
+            </tbody>
+          </table>
+          <button class="mdl-button mdl-js-button add-file trade-btn ma-10" styles="align-content: left;">
+            <span class="material-icons trade-icon">
+              <%= link_to 'arrow_back', statements_path %>
+            </span>
+          </button>
         </div>
       </div>
     </div>
   </fieldset>
-    <table class="mdl-data-table mdl-js-data-table ma-10 mdl-shadow--2dp">
-    <thead>
-      <tr>
-        <th>Ativo</th>
-        <th>C/V</th>
-        <th>Quantidade</th>
-        <th>Preço</th>
-        <th colspan="4"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td class="date-data"></td>
-        <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
-            <i class="material-icons table-item"></i>
-          </button>
-        </td>
-        <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
-            <i class="material-icons table-item"></i>
-          </button>
-        </td>
-        <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
-            <i class="material-icons table-item"><%= link_to "delete" %></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
   <% end %>
-  <button class="mdl-button mdl-js-button add-file trade-btn ma-10" styles="align-content: left;">
-    <span class="material-icons trade-icon">
-      <%= link_to 'arrow_back', statements_path %>
-    </span>
-  </button>
 </div>
 
 

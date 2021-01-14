@@ -114,8 +114,9 @@ body {
   width: 40%;
 }
 
-.checkbox-field {
-  width: 35%;
+.statements-table th, 
+.statements-table td {
+  text-align: center;
 }
 
 .ma-10 {
