@@ -2,7 +2,7 @@
   <fieldset>
     <%= form_with(model: statement, local: true) do |form| %>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-      <%= form.date_field :statement_date, class: 'mdl-textfield__input' %>
+      <%= form.date_field :statement_date, class: 'mdl-textfield__input', id:'date-input' %>
     </div>
     <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
       <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
@@ -31,7 +31,7 @@
             <tbody class="nested-container">
             </tbody>
           </table>
-          <button class="mdl-button mdl-js-button add-file trade-btn ma-10" styles="align-content: left;">
+          <button class="mdl-button mdl-js-button add-file trade-btn ma-10">
             <span class="material-icons trade-icon">
               <%= link_to 'arrow_back', statements_path %>
             </span>
