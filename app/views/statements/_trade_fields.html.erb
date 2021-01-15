@@ -1,17 +1,23 @@
-<td>
-  <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text', style:"text-align: center;" %>
-</td>
-<td>
-  <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox' %>
-  <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox' %>
-</td>
-<td>
-  <%= f.text_field :quantity, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
-</td>
-<td>
-  <%= f.text_field :price, step: :any, class: 'mdl-textfield__input', type: 'number', style:"text-align: center;" %>
-</td>
-<td>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "Remover", '#', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect add-file remove_fields" %>
-</td>
+<div class="nested-fields" style="display: none;">
+  <fieldset>
+    <td>
+      <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text' %>
+    </td>
+    <td>
+      <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox' %>
+      <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox' %>
+    </td>
+    <td>
+      <%= f.number_field :quantity, class: 'mdl-textfield__input' %>
+    </td>
+    <td>
+      <%= f.number_field :price, step: :any, class: 'mdl-textfield__input' %>
+    </td>
+    <td>
+      <%= f.hidden_field :_destroy %>
+      <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+        <i class="material-icons table-item"><%= link_to "delete", '#', class: "remove_fields" %></i>
+      </div>
+    </td>
+  </fieldset>
+</div>

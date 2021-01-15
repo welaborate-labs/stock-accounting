@@ -1,0 +1,19 @@
+<%= render 'empty' %>
+<% @trades.each do |trade| %>
+  <tr>
+    <td>
+      <%= trade.ticker %>
+    </td>
+    <td>
+      <% trade.direction = 0 ? txt_direction = 'C' : txt_direction = 'V' %>
+      <%= txt_direction %>
+    </td>
+    <td>
+      <%= trade.quantity %>
+    </td>
+    <td>
+      <%= trade.price %>
+    </td>
+    <td></td>
+  </tr>
+<% end %>

@@ -1,8 +1,8 @@
 <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone ma-40">
   <h1 class="mdl-typography--display-1 ma-10">Listagem das Notas de Corretagem</h1>
-  <button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+  <div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
     <%= link_to 'Nova Nota de Corretagem', new_statement_path %>
-  </button>
+  </div>
   <table class="mdl-data-table mdl-js-data-table ma-10 mdl-shadow--2dp">
     <thead>
       <tr>
@@ -11,7 +11,6 @@
         <th>Arquivo Anexo</th>
         <th>Corretora</th>
         <th>Nota de Corretagem</th>
-        <th colspan="5"></th>
       </tr>
     </thead>
     <tbody>
@@ -26,15 +25,15 @@
           <% end %>
           <td><%= statement.brokerage_account_id %></td>
           <td>
-            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
               <i class="material-icons table-item"><%= link_to 'visibility', statement %></i>
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
-              <i class="material-icons table-item"><%= link_to 'get_app', edit_statement_path(statement) %></i>
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+            </div>
+            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+              <i class="material-icons table-item"><%= link_to 'edit', edit_statement_path(statement) %></i>
+            </div>
+            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
               <i class="material-icons table-item"><%= link_to 'delete', statement, method: :delete, data: { confirm: 'Você tem certeza?' } %></i>
-            </button>
+            </div>
           </td>
         </tr>
       <% end %>
