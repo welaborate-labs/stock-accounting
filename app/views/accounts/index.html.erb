@@ -21,21 +21,21 @@
         <td><%= account.document %></td>
         <td><%= account.status %></td>
         <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'visibility', account %></i>
-          </button>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          </div>
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'get_app', edit_account_path(account) %></i>
-          </button>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          </div>
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'delete', account, method: :delete, data: { confirm: 'Você tem certeza' } %></i>
-          </button>
+          </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+<div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
     <%= link_to 'Adicionar Conta', new_account_path %>
-</button>
+</div>
