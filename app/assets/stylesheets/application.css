@@ -115,7 +115,9 @@ body {
 }
 
 .statements-table th, 
-.statements-table td {
+.statements-table td,
+.accounts-table th, 
+.accounts-table td {
   text-align: center;
 }
 
