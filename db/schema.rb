@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_132823) do
     t.boolean "open"
     t.boolean "close"
     t.integer "quantity"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "transacted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
