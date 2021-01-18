@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account,           only: [:edit, :update, :show, :destroy]
   before_action :set_choosen_account,   only: [:choose]
+  after_action  :set_last_account,      only: [:create, :destroy]
 
   def index
     @accounts = current_user.accounts
@@ -42,7 +43,7 @@ class AccountsController < ApplicationController
     else
       flash[:notice] = 'Selected Account was not changed.'
     end
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: home_path)
   end
 
   private
