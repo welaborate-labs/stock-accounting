@@ -18,19 +18,27 @@ class addFields {
 
   handleClick(link, e) {
     // Stop the function from executing if a link or event were not passed into the function.
-    if (!link || !e) return
+    if (!link || !e) return;
     // Prevent the browser from following the URL.
-    e.preventDefault()
+    e.preventDefault();
     // Save a unique timestamp to ensure the key of the associated array is unique.
-    let time = new Date().getTime()
+    let time = new Date().getTime();
     // Save the data id attribute into a variable. This corresponds to `new_object.object_id`.
-    let linkId = link.dataset.id
+    let linkId = link.dataset.id;
     // Create a new regular expression needed to find any instance of the `new_object.object_id` used in the fields data attribute if there's a value in `linkId`.
-    let regexp = linkId ? new RegExp(linkId, 'g') : null
+    let regexp = linkId ? new RegExp(linkId, 'g') : null;
     // Replace all instances of the `new_object.object_id` with `time`, and save markup into a variable if there's a value in `regexp`.
-    let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null
+    let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
+    // Generate the new DOM elem
+    let newFieldsElem = document.createElement('tr');
+    newFieldsElem.innerHTML = newFields;
+    newFieldsElem.className = '.nested-fields';
+    // Get the nested fields wrapper
+    let nestedFieldsWrapper = link.closest('.nested-fields-wrapper');
+    // Get last nested fields added
+    let nestedFieldsContainer = nestedFieldsWrapper.querySelector('.nested-container');
     // Add the new markup to the form if there are fields to add.
-    newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null
+    nestedFieldsContainer.appendChild(newFieldsElem);
   }
 }
 

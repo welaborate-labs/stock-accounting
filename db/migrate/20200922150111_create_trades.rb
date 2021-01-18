@@ -7,7 +7,7 @@ class CreateTrades < ActiveRecord::Migration[6.0]
       t.boolean :open
       t.boolean :close
       t.integer :quantity
-      t.integer :price
+      t.decimal :price, precision: 8, scale: 2
       t.datetime :transacted_at
 
       t.timestamps

@@ -1,17 +1,46 @@
-<%= form_with(model: statement, local: true) do |form| %>
-  <div class="field">
-    <%= form.label 'Data' %>
-    <%= form.date_field :statement_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label 'Número' %>
-    <%= form.text_field :number, maxlength: '15' %>
-  </div>
-
-  <%= link_to_add_fields "Add Trade", form, :trades %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<div>
+  <fieldset>
+    <%= form_with(model: statement, local: true) do |form| %>
+      <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+        <%= form.date_field :statement_date, class: 'mdl-textfield__input', id:'date-input' %>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+        <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
+        <%= form.text_field :number, class: 'mdl-textfield__input', type: 'number', maxlength: '15' %>
+      </div>
+      <div class="nested-fields-wrapper">
+        <div class="buttons-group">
+          <%= link_to_add_fields "Adicionar negociação", form, :trades, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+          <div class="actions">
+            <% !@statement.id.nil? ? button_text = 'Salvar Alterações' : button_text = 'Salvar Nota de Corretagem' %>
+            <%= form.submit button_text, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+          </div>
+        </div>
+        <h5 class="mdl-typography--headline ma-10">
+          Negociações
+        </h5>
+        <table class="mdl-data-table mdl-js-data-table statements-table ma-10 mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th>Ativo</th>
+              <th>C/V</th>
+              <th>Quantidade</th>
+              <th>Preço</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="nested-container">
+            <%= render 'empty' %>
+            <%= render 'trades' unless !@trades %>
+          </tbody>
+        </table>
+        <div class="ma-10"><%== pagy_nav(@pagy) if @pagy.pages > 1 unless !@trades %></div>
+        <div class="mdl-button mdl-js-button add-file trade-btn ma-10">
+          <span class="material-icons trade-icon">
+            <%= link_to 'arrow_back', statements_path %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+</div>

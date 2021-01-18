@@ -20,7 +20,10 @@ body {
 .mdl-button--colored a:hover,
 .nav-item, 
 .nav-item a:hover,
-.label-field:after {
+.label-field:after,
+.trade-btn, 
+.trade-btn:hover,
+.trade-icon a {
   background-color: #673ab7;
 }
 
@@ -37,6 +40,10 @@ body {
   background-color: #e9e9e9;
 }
 
+ #date-input {
+  color: silver;
+}
+
 .table-item a:hover,
 .table-button:hover {
   background-color: #e9e9e9;
@@ -44,8 +51,13 @@ body {
 
 .nav-item a,
 .add-file a,
-#demo-menu-lower-right {
+.account-btn:first-of-type {
   color: white;
+}
+
+.account-btn option {
+  color: black;
+  background-color: white;
 }
 
 #statement-messages,
@@ -89,9 +101,26 @@ body {
   width: 80%;
 }
 
-.app-btn, .app-btn:focus, .app-btn:hover, .app-btn:visited {
+.app-btn, 
+.app-btn:focus, 
+.app-btn:hover, 
+.app-btn:visited {
   width: 100%;
   color: white;
+}
+
+.profile-field, 
+.statement-field {
+  width: 40%;
+}
+
+.statements-table th, 
+.statements-table td {
+  text-align: center;
+}
+
+#date-input {
+  color: silver;
 }
 
 .ma-10 {
@@ -116,6 +145,10 @@ body {
 
 .pa-0 {
   padding: 0px;
+}
+
+.pa-10 {
+  padding: 10px;
 }
 
 .mr-10 {

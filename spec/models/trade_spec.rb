@@ -2,11 +2,12 @@ require 'rails_helper'
 require 'sidekiq/testing'
 
 RSpec.describe Trade, type: :model do
+  let(:brokerage_account) { build(:brokerage_account) } 
   let(:statement_file) { build(:statement_file, :with_file) } 
-  let(:statement) { build(:statement, statement_file: statement_file) }
+  let(:statement) { build(:statement) }
   let(:invalid) { build(:trade, statement: nil) } 
 
-  describe 'validatons' do
+  describe 'validations' do
     context 'valid' do
       subject { build(:trade, statement: statement) }
 

@@ -27,6 +27,6 @@ RSpec.describe ProcessStatementFileJob, type: :job do
 
   it "performs a job" do
     expect{ described_class.perform_now(statement_file_id: statement_file.id) }
-      .to change(Statement, :count).by(2)
+      .to change(Statement, :count).by(1)
   end
 end

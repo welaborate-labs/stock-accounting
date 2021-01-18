@@ -19,15 +19,16 @@ class removeFields {
     // Prevent the browser from following the URL.
     e.preventDefault()
     // Find the parent wrapper for the set of nested fields.
-    let fieldParent = link.closest('.nested-fields')
+    let fieldParent = link.closest('tr')
     // If there is a parent wrapper, find the hidden delete field.
     let deleteField = fieldParent
       ? fieldParent.querySelector('input[type="hidden"]')
       : null
     // If there is a delete field, update the value to `1` and hide the corresponding nested fields.
     if (deleteField) {
-      deleteField.value = 1
-      fieldParent.style.display = 'none'
+      // deleteField.value = 1
+      // fieldParent.style.display = 'none'
+      fieldParent.remove();
     }
   }
 }

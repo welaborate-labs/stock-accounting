@@ -1,17 +1,6 @@
-<p>
-  <strong>Statement date:</strong>
-  <%= @statement.statement_date %>
-</p>
-
-<p>
-  <strong>Statement file:</strong>
-  <%= @statement.statement_file_id %>
-</p>
-
-<p>
-  <strong>Brokerage Account:</strong>
-  <%= @statement.brokerage_account_id %>
-</p>
-
-<%= link_to 'Edit', edit_statement_path(@statement) %> |
-<%= link_to 'Back', statements_path %>
+<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone ma-40">
+  <h5 class="mdl-typography--headline ma-10">
+    Dados da Nota de Corretagem
+  </h5>
+  <%= render 'form', statement: @statement, trades: @trades, pagy: @pagy %>
+</div>

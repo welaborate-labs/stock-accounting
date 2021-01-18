@@ -6,24 +6,28 @@ RSpec.describe Statement, type: :model do
   let(:account) { create(:account, user: user) }
   let(:brokerage_account) { create(:brokerage_account, account: account) } 
   let(:statement_file) { build(:statement_file, :with_file, account: account) }
-  let(:statement) { build(:statement, statement_file: statement_file ) } 
-  let(:invalid) { build(:statement, statement_file: nil, brokerage_account: nil) } 
+  let(:statement) { build(:statement) }
+  let(:invalid) { build(:statement, statement_file: nil, brokerage_account: nil, number: nil, statement_date: nil) } 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
 
   describe 'valid attributes' do
     subject { statement }
-    before do
-      allow(statement).to receive(:statement_file) { statement_file }
-    end
     
-    it { is_expected.to be_valid }
+    context "with statement file" do
+      before { statement.statement_file = statement_file }
+      it { is_expected.to be_valid }
+    end
+
+    context "without statement file" do
+      it { is_expected.to be_valid }
+    end
   end
 
   describe 'invalid attributes' do
     before { invalid.save }
     subject { invalid.errors.full_messages }
 
-    it { is_expected.to eq(["Statement file must exist", "Brokerage account must exist"]) }
+    it { is_expected.to eq(["Brokerage account must exist", "Statement date can't be blank", "Number can't be blank"]) }
   end
 
   describe "relationships" do

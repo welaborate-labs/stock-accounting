@@ -36,7 +36,7 @@ class StatementsController < ApplicationController
     else
       flash[:alert] = @statement.errors.full_messages.to_sentence
     end
-    redirect_to statements_path
+    redirect_back(fallback_location: statements_path)
   end
 
   def destroy
@@ -51,6 +51,7 @@ class StatementsController < ApplicationController
 
     def set_statement
       @statement = Statement.find(params[:id])
+      @pagy, @trades = pagy(Trade.where(statement_id: params[:id]), items: 10)
     end
 
     def statement_params
