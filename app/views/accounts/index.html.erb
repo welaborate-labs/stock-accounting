@@ -1,27 +1,41 @@
-<h1>Accounts</h1>
-<table>
+<div class="mdl-cell mdl-cell--10-col mdl-cell--4-col-phone ma-40">
+<h1 class="mdl-typography--display-1 ma-10">Contas</h1>
+<table class="mdl-data-table mdl-js-data-table accounts-table ma-10 mdl-shadow--2dp">
   <thead>
     <tr>
-      <th>Account id</th>
-      <th>Name</th>
-      <th>Document</th>
+      <th class="mdl-data-table__cell--non-numeric">Data de criação</th>
+      <th>Id da conta</th>
+      <th>Nome</th>
+      <th>Documento</th>
       <th>Status</th>
-      <th colspan="4"></th>
+      <th>Contas</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
+        <td class="date-data"><%= account.created_at.to_date %></td>
         <td><%= account.id %></td>
         <td><%= account.name %></td>
         <td><%= account.document %></td>
         <td><%= account.status %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'visibility', account %></i>
+          </div>
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'get_app', edit_account_path(account) %></i>
+          </div>
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+            <i class="material-icons table-item"><%= link_to 'delete', account, method: :delete, data: { confirm: 'Você tem certeza' } %></i>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Account', new_account_path %>
+<div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+    <%= link_to 'Adicionar Conta', new_account_path %>
+</div>

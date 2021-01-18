@@ -110,12 +110,19 @@ body {
 }
 
 .profile-field, 
-.statement-field {
+.statement-field,
+.account-field {
   width: 40%;
 }
 
+.address-field {
+  width: 80%;
+}
+
 .statements-table th, 
-.statements-table td {
+.statements-table td,
+.accounts-table th, 
+.accounts-table td {
   text-align: center;
 }
 

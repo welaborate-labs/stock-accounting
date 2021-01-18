@@ -2,9 +2,9 @@
   <h1 class="mdl-typography--display-1 ma-10">
     Notas de Corretagem Importadas
   </h1>
-  <button class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+  <div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
   <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
-  </button>
+  </div>
   <table class="mdl-data-table mdl-js-data-table ma-10 mdl-data-table--selectable mdl-shadow--2dp">
     <thead>
       <tr>
@@ -21,19 +21,19 @@
         <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
         <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
         <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
-          </button>
+          </div>
         </td>
         <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'get_app', statement_file.file, download: ''%></i>
-          </button>
+          </div>
         </td>
         <td>
-          <button class="mdl-button mdl-js-button mdl-button--icon table-button">
+          <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
-          </button>
+          </div>
         </td>
       </tr>
       <% end %>
