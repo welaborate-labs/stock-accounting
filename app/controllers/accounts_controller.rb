@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
     @account = current_user.accounts.build(account_params)
 
     if @account.save
-      redirect_to accounts_path, notice: t('.notice')
+      redirect_to accounts_path, notice: 'Account was successfully created.'
     else
       redirect_to new_account_path, alert: @account.errors.full_messages.to_sentence
     end
@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
 
   def update
     if @account.update(account_params)
-      redirect_to accounts_path, notice: t('.notice')
+      redirect_to accounts_path, notice: 'Account was successfully updated.'
     else
       redirect_to edit_account_path(@account), alert: @account.errors.full_messages.to_sentence
     end
@@ -31,17 +31,17 @@ class AccountsController < ApplicationController
 
   def destroy
     if @account.destroy
-      redirect_to accounts_path, notice: t('.notice')
+      redirect_to accounts_path, notice: 'Account was successfully deleted.'
     else
-      redirect_to accounts_path, alert: t('.alert')
+      redirect_to accounts_path, notice: 'Account was not updated.'
     end
   end
 
   def choose
     if set_choosen_account
-      flash[:notice] = t('.notice')
+      flash[:notice] = 'Selected Account was successfully changed.'
     else
-      flash[:alert] = t('.alert')
+      flash[:notice] = 'Selected Account was not changed.'
     end
     redirect_back(fallback_location: home_path)
   end

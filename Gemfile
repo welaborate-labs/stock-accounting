@@ -23,7 +23,6 @@ gem 'active_storage_validations', '~> 0.9.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'awesome_print', '~> 1.8'
 gem 'pagy', '~> 3.10'
-gem 'rails-i18n'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
