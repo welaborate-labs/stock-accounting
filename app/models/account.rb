@@ -15,6 +15,7 @@ class Account < ApplicationRecord
             :phone_business,
             :phone_mobile,        format: { with: /([0-9]{2})([0-9]{3,4}[0-9]{4,5})/ }, allow_blank: true
   validates :document,            format: { with: /([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/ }
+  validates :zipcode,             format: { with: /([0-9]{5}[\-]?[0-9]{3})/ }, allow_blank: true
 
   # length
   validates :name,                length: { minimum: 3, maximum: 150 }
