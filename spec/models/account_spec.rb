@@ -16,12 +16,12 @@ RSpec.describe Account, type: :model do
     before { account_invalid.save }
     subject { account_invalid.errors.full_messages }
 
-    it { is_expected.to include("User must exist",
-                                "Name can't be blank",
-                                "Name is too short (minimum is 3 characters)",
-                                "Document can't be blank",
-                                "Document is invalid",
-                                "Document is too short (minimum is 11 characters)") }
+    it { is_expected.to eq(["Usuário é obrigatório(a)", 
+                            "Nome não pode ficar em branco", 
+                            "Nome é muito curto (mínimo: 3 caracteres)", 
+                            "Documento não pode ficar em branco",
+                            "Documento não é válido", 
+                            "Documento é muito curto (mínimo: 11 caracteres)"]) }
   end
 
   describe "relationships" do

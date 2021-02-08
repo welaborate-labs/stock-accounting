@@ -62,13 +62,13 @@ RSpec.describe "Accounts", type: :request do
     context "when params exists" do
       let(:params) { { choosen_account_id: account.id } }
 
-      it { expect(flash[:notice]).to eq 'Selected Account was successfully changed.' } 
+      it { expect(flash[:notice]).to eq I18n.t('.accounts.choose.notice') } 
     end
 
     context "when params does not exist" do
       let(:params) { { choosen_account_id: nil } }
 
-      it { expect(flash[:notice]).to eq 'Selected Account was not changed.' } 
+      it { expect(flash[:alert]).to eq I18n.t('.accounts.choose.alert') } 
     end
   end
 
@@ -79,14 +79,14 @@ RSpec.describe "Accounts", type: :request do
 
       it { expect {subject}.to change(Account, :count).by(1) }
       it { is_expected.to redirect_to accounts_path }
-      it { expect(flash[:notice]).to eq("Account was successfully created.") }
+      it { expect(flash[:notice]).to eq I18n.t('.accounts.create.notice') }
     end
 
     context "invalid attributes" do
       before { post accounts_path, params: { account: { document: nil, name: nil }}}
       subject { post accounts_path, params: { account: { document: nil, name: nil }}} 
 
-      it { expect(flash[:alert]).to include("Name can't be blank, Name is too short (minimum is 3 characters)")}
+      it { expect(flash[:alert]).to eq("Nome não pode ficar em branco, Nome é muito curto (mínimo: 3 caracteres), Documento não pode ficar em branco, Documento não é válido e Documento é muito curto (mínimo: 11 caracteres)")}
       it { expect {subject}.not_to change(Account, :count) }
     end
   end
@@ -100,7 +100,7 @@ RSpec.describe "Accounts", type: :request do
 
       it { expect(account.name).to eq('NameChanged') }
       it { is_expected.to redirect_to accounts_path }
-      it { expect(flash[:notice]).to eq('Account was successfully updated.') }
+      it { expect(flash[:notice]).to eq I18n.t('.accounts.update.notice') }
     end
 
     describe "invalid attributes" do
@@ -112,7 +112,7 @@ RSpec.describe "Accounts", type: :request do
       it { expect(account.name).to eq('MyFactoryName') }
       it { expect(account.name).not_to eq(nil) }
       it { is_expected.to redirect_to edit_account_path }
-      it { expect(flash[:alert]).to eq("Name can't be blank and Name is too short (minimum is 3 characters)") }
+      it { expect(flash[:alert]).to eq("Nome não pode ficar em branco e Nome é muito curto (mínimo: 3 caracteres)") }
     end
   end
 end
