@@ -25,7 +25,7 @@
       <% end %>
       <% flash.each do |type, msg| %> 
         <div class="#{type}" id="statement-messages">
-          <span class="material-icons feedback-icon">warning</span><%= sanitize(msg.to_s) %>
+          <span class="material-icons feedback-icon">warning</span><%= sanitize(msg) %>
         </div>
       <% end %>
       <main class="mdl-layout__content">

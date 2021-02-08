@@ -6,12 +6,7 @@
       <th>Data Criação</th>
       <th>Nome</th>
       <th>CPF/CNPJ</th>
-      <th>Endereço</th>
-      <th>Cidade</th>
-      <th>Estado</th>
-      <th>País</th>
-      <th>CEP</th>
-      <th>Status</th>
+      <th>Corretora</th>
       <th></th>
     </tr>
   </thead>
@@ -21,12 +16,13 @@
         <td class="date-data"><%= account.created_at.to_date %></td>
         <td><%= account.name %></td>
         <td><%= account.document %></td>
-        <td><%= account.address %></td>
-        <td><%= account.city %></td>
-        <td><%= account.state %></td>
-        <td><%= account.country %></td>
-        <td><%= account.zipcode %></td>
-        <td><%= account.status %></td>
+        <td>
+          <% if account.brokerage_accounts.first.nil? %>
+            <%= link_to 'cadastrar', accounts_path %>
+          <% else %>
+            <%= account.brokerage_accounts.first.number %>
+          <% end %>
+        </td>
         <td>
           <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'visibility', account %></i>
