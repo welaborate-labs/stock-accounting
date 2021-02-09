@@ -28,12 +28,12 @@ RSpec.describe User, type: :model do
     it { is_expected.to be_invalid }
 
     context "name" do
-      it { expect(invalid_user.errors[:name]).to include("can't be blank") }
+      it { expect(invalid_user.errors[:name]).to eq (["não pode ficar em branco"]) }
     end
 
     context "email" do
-      it { expect(invalid_user.errors[:email]).to include("can't be blank") }
-      it { expect(duplicate_user.errors[:email]).to include("has already been taken") }
+      it { expect(invalid_user.errors[:email]).to eq (["não pode ficar em branco"]) }
+      it { expect(duplicate_user.errors[:email]).to eq (["já está em uso"]) }
     end
   end
 

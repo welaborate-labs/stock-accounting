@@ -16,7 +16,7 @@ RSpec.describe BrokerageAccount, type: :model do
     before { invalid.save }
     subject { invalid.errors.full_messages } 
 
-    it { is_expected.to eq(["Account must exist", "Account can't be blank", "Brokerage can't be blank", "Number can't be blank"]) }
+    it { is_expected.to eq(["Account é obrigatório(a)", "Account não pode ficar em branco", "Corretora não pode ficar em branco", "Número não pode ficar em branco"]) }
   end
   
   describe "relationships" do

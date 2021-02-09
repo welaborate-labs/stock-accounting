@@ -24,11 +24,11 @@ RSpec.describe StatementFile, type: :model do
     it { is_expected.to be_invalid }
 
     context "file" do
-      it { expect(invalid.errors[:file]).to include("can't be blank") }
+      it { expect(invalid.errors[:file]).to eq (["não pode ficar em branco"]) }
     end
     
     context "account" do
-      it { expect(invalid.errors[:account]).to include("must exist", "can't be blank") }
+      it { expect(invalid.errors[:account]).to eq (["é obrigatório(a)", "não pode ficar em branco"]) }
     end
   end
 

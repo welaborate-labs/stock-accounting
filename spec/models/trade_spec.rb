@@ -19,7 +19,7 @@ RSpec.describe Trade, type: :model do
       subject { invalid.errors.full_messages }
 
       it { expect(invalid.errors.keys).to include :statement }
-      it { expect(invalid.errors[:statement]).to include 'must exist' }
+      it { expect(invalid.errors[:statement]).to eq (["é obrigatório(a)"]) }
     end
   end
 end
