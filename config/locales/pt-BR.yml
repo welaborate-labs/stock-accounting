@@ -44,6 +44,27 @@ pt-BR:
         phone_business: "Telefone Corpotativo"
         phone_mobile: "Telefone Móvel"
         status: "Estado"
+      brokerage_account:
+        brokerage: "Corretora"
+        number: "Número"
+      identity:
+        name: "Nome"
+        email: "E-mail"
+      statement:
+        brokerage_account: "Conta de Corretora"
+        statement_date: "Data de Declaração"
+        content: "Conteúdo"
+        number: "Número"
+      trade:
+        ticker: "Ativo"
+        direction: "Direção"
+        open: "Aberto"
+        close: "Fechado"
+        quantity: "Quantidade"
+        price: "Preço"
+      user:
+        name: "Nome"
+        email: "E-mail"
 
   # Controller messages
   accounts:
@@ -61,6 +82,32 @@ pt-BR:
     submit_contact:
       notice: "Formulário de contato enviado com sucesso."
       alert: "Dados para contato inválidos."
+  sessions:
+    create:
+      notice_link: "Conta vinculada com sucesso."
+      alert_link: "Não foi possível vincular esta conta."
+      notice_signed: "Assinado."
+      alert_signed: "Não foi possível entrar ou registrar a conta."
+    failure:
+      alert: "Desculpe, não foi possível fazer seu login."
+  statement_files:
+    create:
+      notice: "O arquivo de declaração foi criado com sucesso."
+      alert: "O arquivo de declaração não foi criado, tente novamente."
+    destroy:
+      notice: "O arquivo de declaração foi removido com sucesso."
+      alert: "O arquivo de declaração não foi removido."
+  statements:
+    create:
+      notice: "A declaração foi criada com sucesso."
+    update:
+      notice: "Declaração foi atualizada com sucesso."
+    destroy:
+      notice: "Declaração foi removida com sucesso."
+      alert: "Declaração não foi removida."
+  users:
+    update:
+      notice: "O usuário foi atualizado com sucesso."
 
   date:
     abbr_day_names:

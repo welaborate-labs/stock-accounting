@@ -15,3 +15,29 @@ en:
     submit_contact:
       notice: "Contact form sent successfully."
       alert: "Invalid contact details."
+  sessions:
+    create:
+      notice_link: "Account successfully linked."
+      alert_link: "Could not link this account."
+      notice_signed: "Signed in."
+      alert_signed: "Could not sign in or register account."
+    failure:
+      alert: "Sorry, we could not log you in."
+  statement_files:
+    create:
+      notice: "Statement file was successfully created."
+      alert: "Statement file was not created, please try again."
+    destroy:
+      notice: "Statement file was successfully destroyed."
+      alert: "Statement file was not destroyed."
+  statements:
+    create:
+      notice: "Statement was successfully created."
+    update:
+      notice: "Statement was successfully updated."
+    destroy:
+      notice: "Statement was successfully destroyed."
+      alert: "Statement was not destroyed."
+  users:
+    update:
+      notice: "User was successfully updated."
