@@ -46,7 +46,7 @@ RSpec.describe "Sessions", type: :request do
           it { is_expected.to have_http_status :redirect }
           it { is_expected.to redirect_to home_path }
           it 'sends Signed in! flash message' do
-            expect(flash[:notice]).to eq 'Signed in!'
+            expect(flash[:notice]).to eq I18n.t('.sessions.create.notice_signed')
           end
         end
       end
@@ -75,7 +75,7 @@ RSpec.describe "Sessions", type: :request do
           it { is_expected.to have_http_status :redirect }
           it { is_expected.to redirect_to home_path }
           it 'sends Signed in! flash message' do
-            expect(flash[:notice]).to eq 'Signed in!'
+            expect(flash[:notice]).to eq I18n.t('.sessions.create.notice_signed')
           end
         end
       end
@@ -106,7 +106,7 @@ RSpec.describe "Sessions", type: :request do
           it { is_expected.to have_http_status :redirect }
           it { is_expected.to redirect_to home_path }
           it 'sends Signed in! flash message' do
-            expect(flash[:notice]).to eq 'Signed in!'
+            expect(flash[:notice]).to eq I18n.t('.sessions.create.notice_signed')
           end
         end
       end
@@ -137,7 +137,7 @@ RSpec.describe "Sessions", type: :request do
           it { is_expected.to have_http_status :redirect }
           it { is_expected.to redirect_to home_path }
           it 'sends Account successfully linked! flash message' do
-            expect(flash[:notice]).to eq 'Account successfully linked!'
+            expect(flash[:notice]).to eq I18n.t('.sessions.create.notice_link')
           end
         end
       end
@@ -160,7 +160,7 @@ RSpec.describe "Sessions", type: :request do
           it { is_expected.to have_http_status :redirect }
           it { is_expected.to redirect_to home_path }
           it 'sends Account successfully linked! flash message' do
-            expect(flash[:notice]).to eq 'Account successfully linked!'
+            expect(flash[:notice]).to eq I18n.t('.sessions.create.notice_link')
           end
         end
       end
@@ -177,7 +177,7 @@ RSpec.describe "Sessions", type: :request do
     it { is_expected.to have_http_status(:redirect) }
     it { is_expected.to redirect_to root_path }
     it 'sends alert flash message' do
-      expect(flash[:alert]).to eq 'Sorry, we could not log you in!'
+      expect(flash[:alert]).to eq I18n.t('.sessions.failure.alert')
     end
   end
 

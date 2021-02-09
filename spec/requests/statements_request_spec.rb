@@ -82,6 +82,6 @@ RSpec.describe "/statements", type: :request do
 
     it { expect { subject }.to change(Statement, :count).by(-1) }
     it { is_expected.to redirect_to(statements_path) }
-    it { expect(flash[:notice]).to eq('Statement was successfully destroyed.') }
+    it { expect(flash[:notice]).to eq I18n.t('.statements.destroy.notice') }
   end
 end

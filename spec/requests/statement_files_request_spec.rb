@@ -35,7 +35,7 @@ RSpec.describe "/statement_files", type: :request do
       it { expect { subject }.to change(StatementFile, :count).by(1) }
       it { expect { subject }.to change(ActiveStorage::Attachment, :count).by(1) }
       it { is_expected.to redirect_to statement_files_path }
-      it { expect(flash[:notice]).to eq('Statement file was successfully created.') }
+      it { expect(flash[:notice]).to eq I18n.t('.statement_files.create.notice') }
     end
 
     context 'invalid parameters' do
@@ -44,7 +44,7 @@ RSpec.describe "/statement_files", type: :request do
       
       it { expect { subject }.not_to change(StatementFile, :count) }
       it { expect { subject }.not_to change(ActiveStorage::Attachment, :count) }
-      it { expect(flash[:alert]).to eq('Statement file was not created, please try again.') }
+      it { expect(flash[:alert]).to eq I18n.t('.statement_files.create.alert') }
       it { is_expected.to redirect_to statement_files_path }
     end
   end
@@ -56,6 +56,6 @@ RSpec.describe "/statement_files", type: :request do
     it { expect { subject }.to change(StatementFile, :count).by(-1) }
     it { expect { subject }.to change(ActiveStorage::Attachment, :count).by(-1) }
     it { is_expected.to redirect_to(statement_files_path) }
-    it { expect(flash[:notice]).to eq('Statement file was successfully destroyed.') }
+    it { expect(flash[:notice]).to eq I18n.t('.statement_files.destroy.notice') }
   end
 end
