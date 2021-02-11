@@ -6,9 +6,9 @@ class Statement < ApplicationRecord
 
   before_validation :set_brokerage_account_from_content
   before_validation :set_statement_date_from_content
-  after_create :generate_trades
-  after_create :set_costs
-  after_create :set_paid_taxes
+  # after_create :generate_trades
+  # after_create :set_costs
+  # after_create :set_paid_taxes
 
   validates :number, uniqueness: { scope: :brokerage_account_id }
   validates :statement_date, presence: true
