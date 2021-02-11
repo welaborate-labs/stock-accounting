@@ -28,7 +28,9 @@
           <%= label_tag :password_confirmation, 'Repita a senha', class: 'mdl-textfield__label label-field', for: 'password2' %><br>
           <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password' %>
         </div>
-        <%= submit_tag "Registre-se", class: 'mdl-button mdl-button--colored mdl-js-button ma-10 app-btn mdl-js-ripple-effect', type: 'submit', data: { disable_with: false } %>
+        <div class= "link-buttons-group container ma-10 pa-10">
+          <%= submit_tag "Registre-se", class: 'w-100 mv-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', type: 'submit', data: { disable_with: false } %>
+        </div>
       </div>
     </div>
     <% end %>

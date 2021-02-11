@@ -16,7 +16,7 @@
             <%= form.submit button_text, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
           </div>
         </div>
-        <h5 class="mdl-typography--headline ma-10">
+        <h5 class="mdl-typography--display-1 ma-10">
           Negociações
         </h5>
         <table class="mdl-data-table mdl-js-data-table statements-table ma-10 mdl-shadow--2dp">
@@ -35,11 +35,7 @@
           </tbody>
         </table>
         <div class="ma-10"><%== pagy_nav(@pagy) if @pagy.pages > 1 unless !@trades %></div>
-        <div class="mdl-button mdl-js-button add-file trade-btn ma-10">
-          <span class="material-icons trade-icon">
-            <%= link_to 'arrow_back', statements_path %>
-          </span>
-        </div>
+          <%= link_to 'Voltar', statements_path, class: 'ma-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
       </div>
     <% end %>
   </fieldset>

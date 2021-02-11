@@ -17,13 +17,14 @@ body {
   margin: 0 auto;
 }
 
+.purple-btn {
+  border: 1px solid #673ab7;
+}
+
 .mdl-button--colored a:hover,
 .nav-item, 
 .nav-item a:hover,
-.label-field:after,
-.trade-btn, 
-.trade-btn:hover,
-.trade-icon a {
+.label-field:after {
   background-color: #673ab7;
 }
 
@@ -60,8 +61,7 @@ body {
   background-color: white;
 }
 
-#statement-messages,
-.subtitle {
+#statement-messages {
   font-size: 18px;
 }
 
@@ -124,6 +124,17 @@ body {
 .accounts-table th, 
 .accounts-table td {
   text-align: center;
+}
+
+.mdl-typography--display-3,
+.mdl-typography--display-2,
+.mdl-typography--display-1 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.main-title {
+  margin: 2.5rem 10px;
 }
 
 #date-input {

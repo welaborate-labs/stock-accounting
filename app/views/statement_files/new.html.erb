@@ -9,9 +9,9 @@
             <div class="content-group">
               <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
               <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
-              <label class="ma-20" for="file">Escolha o arquivo</label>
+              <label class="mdl-typography--body-1 ma-20" for="file">Escolha o arquivo</label>
             </div>
-            <%= link_to 'Voltar', statement_files_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+            <%= link_to 'Voltar', statement_files_path, class: 'ma-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
           </div>
       <% end %>
     </div>
