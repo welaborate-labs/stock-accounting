@@ -12,10 +12,12 @@
         <div class="buttons-group">
           <%= link_to_add_fields "Adicionar negociação", form, :trades, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
           <div class="actions">
-            <% !@statement.id.nil? ? button_text = 'Salvar Alterações' : button_text = 'Salvar Nota de Corretagem' %>
-            <%= form.submit button_text, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+            <%= form.submit 'Salvar', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
           </div>
         </div>
+        <span>
+          <p class="ma-10" style="color: rgb(103,58,183);">É necessário clicar em <strong>'SALVAR'</strong> para as alterações serem feitas!</p>
+        </span>
         <h5 class="mdl-typography--headline ma-10">
           Negociações
         </h5>
@@ -31,7 +33,9 @@
           </thead>
           <tbody class="nested-container">
             <%= render 'empty' %>
-            <%= render 'trades' unless !@trades %>
+            <%= form.fields_for :trades, statement.trades.order(id: :desc) do |trade_form| %>
+              <%= render 'trade_fields', f: trade_form %>
+            <% end %>
           </tbody>
         </table>
         <div class="ma-10"><%== pagy_nav(@pagy) if @pagy.pages > 1 unless !@trades %></div>
