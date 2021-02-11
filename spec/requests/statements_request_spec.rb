@@ -7,8 +7,9 @@ RSpec.describe "/statements", type: :request do
   let(:account) { create(:account, user: user) }
   let(:brokerage_account) { create(:brokerage_account, brokerage: 1, number: '123456-1', account: account) }
   let(:statement_file) { create(:statement_file, :with_file, account: account) }
-  let!(:statement) { create(:statement, brokerage_account_id: brokerage_account.id) }
-  let!(:statement2) { create(:statement, brokerage_account_id: brokerage_account.id) }
+  let!(:statement) { create(:statement, brokerage_account_id: brokerage_account.id, statement_file_id: nil) }
+  let!(:statement2) { create(:statement, brokerage_account_id: brokerage_account.id, statement_file_id: nil) }
+  let!(:trade) { create(:trade, statement: statement) }
 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
   before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
@@ -17,15 +18,19 @@ RSpec.describe "/statements", type: :request do
     before { get statements_path }
 
     it { is_expected.to render_template("index") }
-    it { expect(assigns(:statements)).to eq([statement, statement2]) } 
+    it { expect(assigns(:statements)).to eq([statement, statement2]) }
   end
 
   describe "GET #show" do
     before { get statement_path(statement) }
 
     it { expect(assigns(:statement)).to eq(statement) }
-    it { expect(response.body).to include statement.statement_date.to_s } 
-    it { expect(response.body).to include statement.brokerage_account.id.to_s } 
+    it { expect(response.body).to include statement.statement_date.to_date.to_s }
+    it { expect(response.body).to include statement.number.to_s }
+    describe "shows trade" do
+      it { expect(assigns(:trades)).to include trade }
+      it { expect(response.body).to include trade.ticker }
+    end
   end
 
   describe "GET #new" do
@@ -46,7 +51,6 @@ RSpec.describe "/statements", type: :request do
     end
 
     describe "nested attributes" do
-      before { post statements_path, params: { statement: { statement_date: '01/01/01', number: '12345678', trades_attributes: [ ticker: '123', direction: 0, quantity: 12345, price: 54321 ]}}}
       subject { post statements_path, params: { statement: { statement_date: '01/01/01', number: '123456789', trades_attributes: [ ticker: '123', direction: 0, quantity: 12345, price: 54321 ]}}}
 
       it { expect { subject }.to change(Statement, :count).by(1) } 
@@ -59,29 +63,41 @@ RSpec.describe "/statements", type: :request do
 
     it { is_expected.to render_template("edit") } 
     it { expect(assigns(:statement)).to eq(statement) }
-  end
-
-  describe "PATCH/PUT #update" do
-    describe "valid attributes" do
-      before { ProcessStatementFileJob.perform_now(statement_file_id: statement_file.id) }
-
-      subject { response }
-
-      # not implemented
-      # need a file with 2 diferents numbers to start
-      # and more 2 pages with the same number
-      # it "updates the content" do
-      #   expect(Statement.last.content).to match('=====PAGE=====')
-      # end
+    describe "shows trade" do
+      it { expect(assigns(:trades)).to include trade }
+      it { expect(response.body).to include trade.ticker }
     end
   end
 
-  describe "DELETE #destroy" do
-    subject { delete statement_path(statement2) }
-    before { delete statement_path(statement) }
+  describe "PATCH/PUT #update" do
+    before do
+      patch statement_path(statement), params: { statement: { number: '21213232', trades_attributes: [ ticker: '54321', id: trade.id] } }
+      statement.reload
+      trade.reload
+    end
 
-    it { expect { subject }.to change(Statement, :count).by(-1) }
-    it { is_expected.to redirect_to(statements_path) }
-    it { expect(flash[:notice]).to eq I18n.t('.statements.destroy.notice') }
+    describe "updates the statement" do
+      it { expect(statement.number).to eq '21213232' }
+    end
+
+    describe "updates the trade" do
+      it { expect(trade.ticker).to eq '54321' }
+    end
+
+    describe "deletes the trade" do
+      subject { patch statement_path(statement), params: { statement: { trades_attributes: [ _destroy: 1, id: trade.id] } }}
+      it { expect { subject }.to change(Trade, :count).by(-1) }
+    end
+  end
+  
+  describe "DELETE #destroy" do
+    describe "deletes the statement and trades" do
+      subject { delete statement_path(statement) }
+      before { delete statement_path(statement2) }
+      it { expect { subject }.to change(Statement, :count).by(-1) }
+      it { expect { subject }.to change(Trade, :count).by(-1) }
+      it { expect(flash[:notice]).to eq I18n.t('.statements.destroy.notice') }
+      
+    end
   end
 end
