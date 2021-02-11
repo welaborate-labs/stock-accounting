@@ -57,7 +57,7 @@ class StatementsController < ApplicationController
 
     def statement_params
       params.require(:statement).permit(:content, :statement_date, :number, trades_attributes: [
-        :ticker, :direction, 
+        :id, :ticker, :direction, 
         :open, :close, 
         :quantity, :price, 
         :transacted_at, :_destroy])
