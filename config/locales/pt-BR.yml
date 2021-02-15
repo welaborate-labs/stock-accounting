@@ -72,16 +72,16 @@ pt-BR:
       notice: "Conta criada com sucesso."
     destroy:
       notice: "Conta removida com sucesso."
-      alert: "Conta não foi removida."
+      alert: "Não é possível remover a conta."
     update:
       notice: "Conta atualizada com sucesso."
     choose:
       notice: "Conta alterada com sucesso."
-      alert: "Conta não foi alterada."
+      alert: "Não é possível alterar a conta."
   forms:
     submit_contact:
       notice: "Formulário de contato enviado com sucesso."
-      alert: "Dados para contato inválidos."
+      alert: "Dado(s) preenchido(s) incorretamente."
   sessions:
     create:
       notice_link: "Conta vinculada com sucesso."
@@ -93,10 +93,10 @@ pt-BR:
   statement_files:
     create:
       notice: "O arquivo de declaração foi criado com sucesso."
-      alert: "O arquivo de declaração não foi criado, tente novamente."
+      alert: "Não foi possível criar o Arquivo de Declaração"
     destroy:
       notice: "O arquivo de declaração foi removido com sucesso."
-      alert: "O arquivo de declaração não foi removido."
+      alert: "Não foi possível remover o Arquivo de Declaração."
   statements:
     create:
       notice: "A declaração foi criada com sucesso."
@@ -104,7 +104,7 @@ pt-BR:
       notice: "Declaração foi atualizada com sucesso."
     destroy:
       notice: "Declaração foi removida com sucesso."
-      alert: "Declaração não foi removida."
+      alert: "Não é possível remover a declaração."
   users:
     update:
       notice: "O usuário foi atualizado com sucesso."
