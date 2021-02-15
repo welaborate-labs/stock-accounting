@@ -10,9 +10,7 @@
       <tr>
         <th class="mdl-data-table__cell--non-numeric">Id</th>
         <th class="date">Data de criação</th>
-        <th>Visualizar</th>
-        <th>Baixar</th>
-        <th>Excluir</th>
+        <th>Nota de Corretagem</th>
       </tr>
     </thead>
     <tbody>
@@ -24,13 +22,9 @@
           <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
           </div>
-        </td>
-        <td>
           <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'get_app', statement_file.file, download: ''%></i>
           </div>
-        </td>
-        <td>
           <div class="mdl-button mdl-js-button mdl-button--icon table-button">
             <i class="material-icons table-item"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
           </div>

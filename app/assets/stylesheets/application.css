@@ -118,11 +118,10 @@ body {
 .address-field {
   width: 80%;
 }
-
-.statements-table th, 
-.statements-table td,
-.accounts-table th, 
-.accounts-table td {
+ 
+.mdl-data-table td,
+.mdl-data-table th,
+#column-date {
   text-align: center;
 }
 
