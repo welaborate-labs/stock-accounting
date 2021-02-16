@@ -17,20 +17,20 @@ class StatementFilesController < ApplicationController
       @statement_file = choosen_account.statement_files.build(statement_file_params)
 
       if @statement_file.save
-        redirect_to statement_files_path, notice: 'Statement file was successfully created.'
+        redirect_to statement_files_path, notice: t('.notice')
       else
-        redirect_to statement_files_path, alert: 'Statement file was not created, please try again.'
+        redirect_to statement_files_path, alert: t('.alert')
       end
     rescue ActionController::ParameterMissing => exception
-      redirect_to statement_files_path, alert: 'Statement File must be present.'
+      redirect_to statement_files_path, alert: t('.alert')
     end
   end
 
   def destroy
     if @statement_file.destroy
-      redirect_to statement_files_path, notice: 'Statement file was successfully destroyed.'
+      redirect_to statement_files_path, notice: t('.notice')
     else
-      redirect_to statement_files_path, alert: 'Statement file was not destroyed.'
+      redirect_to statement_files_path, alert: t('.alert')
     end
   end
 

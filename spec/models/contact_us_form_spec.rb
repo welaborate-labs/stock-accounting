@@ -12,6 +12,6 @@ RSpec.describe ContactUsForm do
   describe "invalid attributes" do
     before { invalid.valid? }
 
-    it { expect(invalid.errors.full_messages).to eq(["Email can't be blank", "Email is invalid", "Message can't be blank", "Message is too short (minimum is 1 character)"]) }
+    it { expect(invalid.errors.full_messages).to eq(["Email não pode ficar em branco", "Email não é válido", "Message não pode ficar em branco", "Message é muito curto (mínimo: 1 caracter)"]) }
   end
 end

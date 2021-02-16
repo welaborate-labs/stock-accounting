@@ -22,19 +22,18 @@ class StatementsController < ApplicationController
       @statement = choosen_account.brokerage_accounts.find_or_create_by(brokerage: 1, number: '123456-7').statements.build(statement_params)
             
       if @statement.save
-        flash[:notice]  = "Statement was successfully created."
+        redirect_to statements_path, notice: t('.notice')
       else
-        flash[:alert] = @statement.errors.full_messages.to_sentence
+        redirect_to new_statement_path, alert: @statement.errors.full_messages.to_sentence
       end
     rescue ActionController::ParameterMissing => exception
-      flash[:alert] = "Statement can't be blank."
+      redirect_to new_statement_path
     end
-    redirect_to statements_path
   end
 
   def update
     if @statement.update(statement_params)
-      flash[:notice]  = 'Statement was successfully updated.'
+      flash[:notice]  = t('.notice')
     else
       flash[:alert] = @statement.errors.full_messages.to_sentence
     end
@@ -43,9 +42,9 @@ class StatementsController < ApplicationController
 
   def destroy
     if @statement.destroy
-      redirect_to statements_path, notice: 'Statement was successfully destroyed.'
+      redirect_to statements_path, notice: t('.notice')
     else
-      redirect_to statements_path, alert: 'Statement was not destroyed.'
+      redirect_to statements_path, alert: t('.alert')
     end
   end
 

@@ -9,16 +9,17 @@ class SessionsController < ApplicationController
 
     if signed_in?
       if @authentication
-        flash[:notice] = 'Account successfully linked!'
+        
+        flash[:notice] = t('.notice_link')
       else
-        redirect_to root_path, alert: 'Could not link this account!' and return
+        redirect_to root_path, alert: t('.alert_link') and return
       end
     else
       if @authentication
         self.current_user = @authentication.user
-        flash[:notice] = 'Signed in!'
+        flash[:notice] = t('.notice_signed')
       else
-        redirect_to root_path, alert: 'Could not sign in or register account!' and return
+        redirect_to root_path, alert: t('.alert_signed') and return
       end
     end
 
@@ -27,11 +28,11 @@ class SessionsController < ApplicationController
 
   def destroy
     self.current_user = nil
-    redirect_to root_url, notice: 'Signed out!'
+    redirect_to root_path
   end
 
   def failure
-    redirect_to root_url, alert: 'Sorry, we could not log you in!'
+    redirect_to root_path, alert: t('.alert')
   end
 
   protected

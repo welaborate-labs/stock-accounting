@@ -1,31 +1,25 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update, :show]
+
   def index
     @users = User.all
   end
 
-  def show
-    @user = User.find(current_user.id)
-    
-    if @user
-      flash[:notice] = 'User found, probally a redirect here?'
-    else
-      flash[:alert] = 'User not found.'
-    end
-  end
-
   def update
-    @user = User.find(params[:id])
-
     if @user.update(user_params)
-      flash[:notice] = 'Success, user updated.'
+      flash[:notice] = t('.notice')
     else
-      flash[:alert] = 'User not updated, please try again!'
+      flash[:alert] = @user.errors.full_messages.to_sentence
     end
   end
 
   protected
 
-  def user_params
-    params.require(:user).permit(:name, :email, statement_files: [])
-  end
+    def set_user
+      @user = User.find(current_user.id)
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :email, statement_files: [])
+    end
 end
