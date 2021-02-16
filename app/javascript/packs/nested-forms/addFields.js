@@ -30,15 +30,14 @@ class addFields {
     // Replace all instances of the `new_object.object_id` with `time`, and save markup into a variable if there's a value in `regexp`.
     let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
     // Generate the new DOM elem
-    let newFieldsElem = document.createElement('tr');
+    let newFieldsElem = document.createElement('template');
     newFieldsElem.innerHTML = newFields;
-    newFieldsElem.className = '.nested-fields';
     // Get the nested fields wrapper
     let nestedFieldsWrapper = link.closest('.nested-fields-wrapper');
     // Get last nested fields added
     let nestedFieldsContainer = nestedFieldsWrapper.querySelector('.nested-container');
     // Add the new markup to the form if there are fields to add.
-    nestedFieldsContainer.appendChild(newFieldsElem);
+    nestedFieldsContainer.insertAdjacentHTML('afterbegin', newFields);
   }
 }
 
