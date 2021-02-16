@@ -32,7 +32,6 @@ class addFields {
     // Generate the new DOM elem
     let newFieldsElem = document.createElement('template');
     newFieldsElem.innerHTML = newFields;
-    console.log(newFieldsElem)
     // Get the nested fields wrapper
     let nestedFieldsWrapper = link.closest('.nested-fields-wrapper');
     // Get last nested fields added
