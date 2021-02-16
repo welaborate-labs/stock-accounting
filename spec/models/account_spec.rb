@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe Account, type: :model do
   let(:user) { create(:user) }
   let!(:account) { create(:account, user: user) }
-  let(:account_invalid) { build(:account, name: nil, document: nil, user: nil)  }
+  let(:account_invalid) { build(:account, user: nil,
+                                          name: nil,
+                                          document: nil) }
 
   describe "valid attributes" do
     subject { create(:account) }
@@ -15,9 +17,11 @@ RSpec.describe Account, type: :model do
     subject { account_invalid.errors.full_messages }
 
     it { is_expected.to include("User must exist",
-                                "User can't be blank",
                                 "Name can't be blank",
-                                "Document can't be blank") }
+                                "Name is too short (minimum is 3 characters)",
+                                "Document can't be blank",
+                                "Document is invalid",
+                                "Document is too short (minimum is 11 characters)") }
   end
 
   describe "relationships" do

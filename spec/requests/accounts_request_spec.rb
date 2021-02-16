@@ -4,7 +4,18 @@ RSpec::Mocks.configuration.allow_message_expectations_on_nil
 RSpec.describe "Accounts", type: :request do
   let(:user) { create(:user) }
   let!(:account) { create(:account, user: user) }
-  let(:params) { { choosen_account_id: account.id } }
+  let(:acc_params) { { account: { 
+    user: user,
+    name: "MyFactoryName",
+    document: "12345678910",
+    address: "MyFactoryAddress MyFactoryAddress2",
+    address_complement: "MyFactoryComplement",
+    city: "MyFactoryCity",
+    state: "MyFactoryState",
+    country: "MyFactoryCountry",
+    zipcode: "12345678",
+    status: "Active" 
+  }}}
 
   before { allow_any_instance_of(ApplicationController).to receive(:current_user) { user } }
 
@@ -47,8 +58,10 @@ RSpec.describe "Accounts", type: :request do
 
   describe "PUT #choose" do
     before { put account_choose_path, params: params }
-
+    
     context "when params exists" do
+      let(:params) { { choosen_account_id: account.id } }
+
       it { expect(flash[:notice]).to eq 'Selected Account was successfully changed.' } 
     end
 
@@ -61,8 +74,8 @@ RSpec.describe "Accounts", type: :request do
 
   describe "POST #create" do
     context "valid attributes" do
-      before { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
-      subject { post accounts_path, params: { account: { user_id: user.id, document: 'abc', name: 'def' }}}
+      before { post accounts_path, params: acc_params }
+      subject { post accounts_path, params: acc_params }
 
       it { expect {subject}.to change(Account, :count).by(1) }
       it { is_expected.to redirect_to accounts_path }
@@ -73,7 +86,7 @@ RSpec.describe "Accounts", type: :request do
       before { post accounts_path, params: { account: { document: nil, name: nil }}}
       subject { post accounts_path, params: { account: { document: nil, name: nil }}} 
 
-      it { expect(flash[:alert]).to eq(["Name can't be blank", "Document can't be blank"])}
+      it { expect(flash[:alert]).to include("Name can't be blank, Name is too short (minimum is 3 characters)")}
       it { expect {subject}.not_to change(Account, :count) }
     end
   end
@@ -96,10 +109,10 @@ RSpec.describe "Accounts", type: :request do
         account.reload
       end
 
-      it { expect(account.name).to eq('MyString') }
+      it { expect(account.name).to eq('MyFactoryName') }
       it { expect(account.name).not_to eq(nil) }
-      it { is_expected.to redirect_to accounts_path }
-      it { expect(flash[:alert]).to eq(["Name can't be blank"]) }
+      it { is_expected.to redirect_to edit_account_path }
+      it { expect(flash[:alert]).to eq("Name can't be blank and Name is too short (minimum is 3 characters)") }
     end
   end
 end
