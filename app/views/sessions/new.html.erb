@@ -7,8 +7,8 @@
         <%= text_field_tag :auth_key, '', class: 'mdl-textfield__input' %>
       </div>
       <div class="mdl-textfield mdl-js-textfield ma-10 field mdl-textfield--floating-label">
-        <%= label_tag :password, 'Senha', class: 'mdl-textfield__label label-field' %>
-        <%= text_field_tag :password, '', class: 'mdl-textfield__input' %>
+        <%= label_tag :password, 'Senha', class: 'mdl-textfield__label label-field', for: 'password3' %>
+        <%= text_field_tag :password, '', class: 'mdl-textfield__input', type: 'password' %>
       </div>
       <div class= "link-buttons-group container ma-10 pa-10">
         <%= submit_tag 'Acessar', type: 'submit', data: { disable_with: false }, class: 'w-100 mv-10 app-btn mdl-button mdl-js-button  mdl-button--colored mdl-button--raised mdl-js-ripple-effect' %>
