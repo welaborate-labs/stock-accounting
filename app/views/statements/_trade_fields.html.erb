@@ -14,6 +14,9 @@
       <%= f.number_field :price, step: :any, class: 'mdl-textfield__input', style:"text-align: center;" %>
     </td>
     <td>
+      <%= f.check_box :close, class: 'mdl-checkbox__input' %>
+    </td>
+    <td>
       <%= f.hidden_field :_destroy %>
       <div class="mdl-button mdl-js-button mdl-button--icon table-button">
         <i class="material-icons table-item"><%= link_to "delete", '#', class: "remove_fields" %></i>
