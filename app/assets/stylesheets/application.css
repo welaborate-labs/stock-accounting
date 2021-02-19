@@ -24,8 +24,19 @@ body {
 .mdl-button--colored a:hover,
 .nav-item, 
 .nav-item a:hover,
-.label-field:after {
+.label-field:after,
+.mdl-mini-footer,
+footer li a:hover {
   background-color: #673ab7;
+}
+
+.mdl-logo img {
+  margin-right: 15px;
+}
+
+.mdl-mini-footer,
+footer li a:hover {
+  background-color: #5c399c;
 }
 
 #statement-messages,
@@ -52,7 +63,8 @@ body {
 
 .nav-item a,
 .add-file a,
-.account-btn:first-of-type {
+.account-btn:first-of-type,
+.mdl-mini-footer li a {
   color: white;
 }
 
