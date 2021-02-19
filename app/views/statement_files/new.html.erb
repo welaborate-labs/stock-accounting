@@ -1,20 +1,21 @@
-<div class="mdl-cell mdl-cell--6-col ma-40">
-  <main>
-    <div class="mdl-layout__content">
-      <h1 class="mdl-typography--display-1 ma-10">
-        Adicionar Notas de Corretagem
-      </h1>
-      <%= form_with model: StatementFile, method: :post, local: true do |f| %>
-          <div class="button-group">
-            <div class="content-group">
-              <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
-              <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
-              <label class="mdl-typography--body-1 ma-20" for="file">Escolha o arquivo</label>
+  <div class="mdl-cell mdl-cell--6-col ma-40">
+    <main>
+      <div class="mdl-layout__content">
+        <h1 class="mdl-typography--display-1 ma-10">
+          Adicionar Notas de Corretagem
+        </h1>
+        <%= form_with model: StatementFile, method: :post, local: true do |f| %>
+            <div class="button-group">
+              <div class="content-group">
+                <%= f.file_field :file, id: 'file', class: 'hidden', accept: '.pdf' %>
+                <%= f.submit 'Anexar arquivo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+                <label class="mdl-typography--body-1 ma-20" for="file">Escolha o arquivo</label>
+              </div>
+              <%= link_to 'Voltar', statement_files_path, class: 'ma-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
             </div>
-            <%= link_to 'Voltar', statement_files_path, class: 'ma-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
-          </div>
-      <% end %>
-    </div>
-  </main>
+        <% end %>
+      </div>
+    </main>
+  </div>
 </div>
-
+<%= render 'shared/footer' %>
