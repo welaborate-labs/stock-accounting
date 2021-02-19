@@ -17,6 +17,15 @@ body {
   margin: 0 auto;
 }
 
+.home-card {
+  width: 570px;
+  height: 270px;
+}
+.home-card > .mdl-card__title {
+  color: #fff;
+  background: #673ab7;
+}
+
 .purple-btn {
   border: 1px solid #673ab7;
 }
@@ -187,6 +196,11 @@ footer li a:hover {
 .mv-10 {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.mv-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .w-100 {
