@@ -3,10 +3,10 @@ FactoryBot.define do
     statement
     ticker { "MyString" }
     direction { 1 }
-    open { false }
+    open { true }
     close { false }
-    quantity { 1 }
-    price { 1 }
+    quantity { 100 }
+    price { 10 }
     transacted_at { "2020-09-22 15:01:11" }
   end
 end

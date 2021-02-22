@@ -8,7 +8,7 @@ class Custody
 
   def self.avg_cust(trade)
     Rails.cache.fetch([trade.id,__method__], expires_in: 5.seconds) do
-      (trade.quantity /  (trade.price.to_f * trade.quantity)).truncate(2)
+      trade.price.to_f * trade.quantity / trade.quantity
     end
   end
 end
