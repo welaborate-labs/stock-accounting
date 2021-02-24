@@ -1,3 +1,7 @@
+<%= Custody.trades_custody %>
+<%= Rails.cache.read("#{@choosen_account}/trades_custody").inspect %>
+<%= Custody.avg_cust(Trade.last) %>
+<%= Rails.cache.read("#{Trade.last.id}/avg_cust").inspect %>
 <div>
   <fieldset>
     <%= form_with(model: statement, local: true) do |form| %>
@@ -28,7 +32,6 @@
               <th>C/V</th>
               <th>Quantidade</th>
               <th>Preço</th>
-              <th>Fechado</th>
               <th></th>
             </tr>
           </thead>
