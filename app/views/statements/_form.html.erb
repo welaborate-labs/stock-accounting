@@ -2,7 +2,7 @@
   <fieldset>
     <%= form_with(model: statement, local: true) do |form| %>
       <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
-        <%= form.date_field :statement_date, class: 'mdl-textfield__input', id:'date-input' %>
+        <%= form.date_field :statement_date, class: 'mdl-textfield__input', id:'date-input', style: "color: black;" %>
       </div>
       <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
         <%= form.label 'Número', class: 'mdl-textfield__label', for: 'number' %>
@@ -25,16 +25,23 @@
           <thead>
             <tr>
               <th>Ativo</th>
-              <th>C/V</th>
+              <th>Compra/Venda</th>
               <th>Quantidade</th>
-              <th>Preço</th>
+              <th>Preço Unit.</th>
+              <th id="status_title"> Aberta/Fechada
+                <div class="mdl-tooltip mdl-tooltip--large" for="status_title">
+                  Status da Negociação
+                </div>
+              </th>
               <th></th>
             </tr>
           </thead>
           <tbody class="nested-container">
             <%= render 'empty' %>
-            <%= form.fields_for :trades, statement.trades.order(id: :desc) do |trade_form| %>
-              <%= render 'trade_fields', f: trade_form %>
+            <% if @trades %>
+              <%= form.fields_for :trades, @trades.order(id: :desc) do |trade_form| %>
+                <%= render 'trade_fields', f: trade_form %>
+              <% end %>
             <% end %>
           </tbody>
         </table>
