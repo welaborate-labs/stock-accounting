@@ -23,10 +23,9 @@ puts "Statement created successfully"
   Trade.create!(statement_id: Statement.last.id, 
                 ticker: "abc#{index}",
                 direction: 1,
-                open: true,
-                close: false,
-                quantity: 4,
-                price: 44,
+                status: 0,
+                quantity: index,
+                price: 1+index,
                 transacted_at: DateTime.now)
 end
 puts "Trades open created successfully"
@@ -34,10 +33,9 @@ puts "Trades open created successfully"
   Trade.create!(statement_id: Statement.last.id, 
                 ticker: "#{index}abc",
                 direction: 1,
-                open: false,
-                close: true,
-                quantity: 4,
-                price: 44,
+                status: 1,
+                quantity: index,
+                price: 3+index,
                 transacted_at: DateTime.now)
 end 
 puts "Trades close created successfully"
