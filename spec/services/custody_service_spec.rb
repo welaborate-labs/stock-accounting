@@ -7,9 +7,9 @@ RSpec.describe Custody do
   let(:statement2) { create(:statement , brokerage_account: brokerage_account) }
   let!(:trade) { create(:trade, statement: statement) }
   let!(:trade2) { create(:trade, statement: statement) }
-  let!(:trade3) { create(:trade, statement: statement, close: true) }
+  let!(:trade3) { create(:trade, statement: statement, status: 1) }
   let!(:trade4) { create(:trade, statement: statement2) }
-  let!(:trade5) { create(:trade, statement: statement2, close: true) }
+  let!(:trade5) { create(:trade, statement: statement2, status: 1) }
   
   describe "returns the custody trades" do
     before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
