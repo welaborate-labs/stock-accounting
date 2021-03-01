@@ -6,7 +6,7 @@ class CreateTrades < ActiveRecord::Migration[6.0]
       t.integer :direction
       t.integer :status, default: 0
       t.integer :quantity
-      t.decimal :price, :decimal, precision: 8, scale: 2
+      t.decimal :price, precision: 8, scale: 2
       t.datetime :transacted_at
 
       t.timestamps
