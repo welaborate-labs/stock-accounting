@@ -13,8 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
 body {
-  margin: 0 auto;
+  display: grid; 
+  margin: 0px;
+  grid-template-areas:
+  "header",
+  "main-content",
+  "footer";
+  grid-template-rows: 50px auto auto;
+}
+
+body header {
+  grid-area: "header";
+}
+
+body main {
+  grid-area: "main-content";
+}
+
+body footer {
+  grid-area: "footer";
 }
 
 .home-card {
@@ -91,6 +110,9 @@ footer li a:hover {
 }
 
 .root-container {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  height: calc(90vh - 20px);
   align-items: center;
   justify-content: center;
   flex-flow: column;
