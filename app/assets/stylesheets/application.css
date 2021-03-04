@@ -110,6 +110,12 @@ footer li a:hover {
   padding: 10px 20px 10px 15px;
 }
 
+.mdl-grid .root-box {
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .root-container {
   display: grid;
   grid-template-rows: 50% 50%;
