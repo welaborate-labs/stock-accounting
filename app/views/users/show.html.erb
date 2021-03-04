@@ -1,80 +1,82 @@
-<div class="mdl-cell mdl-cell--6-col ma-40">
-  <h1 class="mdl-typography--display-1 ma-10">
-    Perfil do Usuário
-  </h1>
-  <form>  
-    <ul class="demo-list-three mdl-list">
-      <li class="mdl-list__item mdl-list__item--three-line ma-10 pa-0">
-        <span class="mdl-list__item-primary-content">
-          <i class="material-icons mdl-list__item-avatar">person</i>
-          <span>Username</span>
-          <span class="mdl-list__item-text-body">Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-          for playing Hal in Malcom.</span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-          <a class="mdl-list__item-secondary edit-box" href="#"><i class="material-icons edit-icon ma-10">edit</i></a>
-        </span>
-      </li>
-    </ul>
-      <h6 class="subtitle ma-10">Dados cadastrais</h6>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
-        <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text' %>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :name, 'Nome de Usuário', class: 'mdl-textfield__label', for: 'name' %><br>
-        <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text' %>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :name, 'CPF/CNPJ', class: 'mdl-textfield__label', for: 'number' %><br>
-        <%= number_field_tag :name, '', class: 'mdl-textfield__input', type: 'number' %>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label', for: 'email' %><br>
-        <%= email_field_tag :email, '', class: 'mdl-textfield__input', type: 'email' %>
-      </div>
-        <h6 class="subtitle ma-10">Alteração de senha</h6>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password1' %><br>
-        <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password' %>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
-        <%= label_tag :password_confirmation, 'Confirmação de senha', class: 'mdl-textfield__label', for: 'password2' %><br>
-        <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password' %>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield ma-10 mdl-textfield--floating-label">
-        <%= label_tag :name, 'Contas Vinculadas', class: 'mdl-textfield__label' %><br>
-      </div>
-      <div class="link-account">
-        <ul class="demo-list-control mdl-list ma-10 pa-0">
-        <li class="mdl-list__item pa-0">
+<div class="root-grid">
+  <div class="mdl-cell mdl-cell--6-col main-content ma-40">
+    <h1 class="mdl-typography--display-1 ma-10">
+      Perfil do Usuário
+    </h1>
+    <form>  
+      <ul class="demo-list-three mdl-list">
+        <li class="mdl-list__item mdl-list__item--three-line ma-10 pa-0">
           <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-avatar">facebook</i>
-            <small>Bob Odenkirk</small>
-            <label class="mdl-switch facebook-switch mdl-js-switch mdl-js-ripple-effect" for="switch">
-              <input type="checkbox" id="switch" class="mdl-switch__input" checked>
-              <span class="mdl-switch__label"></span>
-            </label>
+            <i class="material-icons mdl-list__item-avatar">person</i>
+            <span>Username</span>
+            <span class="mdl-list__item-text-body">Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+            for playing Hal in Malcom.</span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <a class="mdl-list__item-secondary edit-box" href="#"><i class="material-icons edit-icon ma-10">edit</i></a>
           </span>
         </li>
-        </ul>
+      </ul>
+        <h6 class="subtitle ma-10">Dados cadastrais</h6>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
+          <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :name, 'Nome de Usuário', class: 'mdl-textfield__label', for: 'name' %><br>
+          <%= text_field_tag :name, '', class: 'mdl-textfield__input', type: 'text' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :name, 'CPF/CNPJ', class: 'mdl-textfield__label', for: 'number' %><br>
+          <%= number_field_tag :name, '', class: 'mdl-textfield__input', type: 'number' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :email, 'E-mail', class: 'mdl-textfield__label', for: 'email' %><br>
+          <%= email_field_tag :email, '', class: 'mdl-textfield__input', type: 'email' %>
+        </div>
+          <h6 class="subtitle ma-10">Alteração de senha</h6>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :password, 'Senha', class: 'mdl-textfield__label', for: 'password1' %><br>
+          <%= password_field_tag :password, '', class: 'mdl-textfield__input', type: 'password' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield profile-field ma-10 mdl-textfield--floating-label">
+          <%= label_tag :password_confirmation, 'Confirmação de senha', class: 'mdl-textfield__label', for: 'password2' %><br>
+          <%= password_field_tag :password_confirmation, '', class: 'mdl-textfield__input', type: 'password' %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield ma-10 mdl-textfield--floating-label">
+          <%= label_tag :name, 'Contas Vinculadas', class: 'mdl-textfield__label' %><br>
+        </div>
+        <div class="link-account">
+          <ul class="demo-list-control mdl-list ma-10 pa-0">
+          <li class="mdl-list__item pa-0">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-avatar">facebook</i>
+              <small>Bob Odenkirk</small>
+              <label class="mdl-switch facebook-switch mdl-js-switch mdl-js-ripple-effect" for="switch">
+                <input type="checkbox" id="switch" class="mdl-switch__input" checked>
+                <span class="mdl-switch__label"></span>
+              </label>
+            </span>
+          </li>
+          </ul>
+        </div>
+      <div class="mdl-textfield mdl-js-textfield ma-10 field-reset-password mdl-textfield--floating-label">
+        <%= label_tag :name, 'Vincular Conta', class: 'mdl-textfield__label' %><br>
       </div>
-    <div class="mdl-textfield mdl-js-textfield ma-10 field-reset-password mdl-textfield--floating-label">
-      <%= label_tag :name, 'Vincular Conta', class: 'mdl-textfield__label' %><br>
+      <div class="buttons-group">
+        <%= link_to '/auth/facebook/', class: 'w-100 mv-10 mr-10 app-btn facebook-btn mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect' do %>
+          <%= image_tag('fb-icon.png', class: 'facebook-button-icon app-icon' ) %>
+          Login com Facebook
+        <% end %>
+        <%= link_to '/auth/google_oauth2/', class: 'w-100 mv-10 app-btn google-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' do %>
+          <%= image_tag('gp-icon.png', class: 'google-button-icon app-icon') %>
+          Login com Google+
+        <% end %>
+      </div>
+      <br>
+        <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mt-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+      </form>
     </div>
-    <div class="buttons-group">
-      <%= link_to '/auth/facebook/', class: 'w-100 mv-10 mr-10 app-btn facebook-btn mdl-button mdl-js-button  mdl-button--raised mdl-js-ripple-effect' do %>
-        <%= image_tag('fb-icon.png', class: 'facebook-button-icon app-icon' ) %>
-        Login com Facebook
-      <% end %>
-      <%= link_to '/auth/google_oauth2/', class: 'w-100 mv-10 app-btn google-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' do %>
-        <%= image_tag('gp-icon.png', class: 'google-button-icon app-icon') %>
-        Login com Google+
-      <% end %>
-    </div>
-    <br>
-      <%= submit_tag 'Salvar Dados', type: 'submit', data: { disable_with: false }, class: 'mt-10 purple-btn mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
-    </form>
   </div>
 </div>
 <%= render 'shared/footer' %>

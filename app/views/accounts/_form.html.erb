@@ -1,63 +1,65 @@
-  <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone ma-40 nested-fields main-content">
-    <div class="content">
-      <h1 class="mdl-typography--display-1 ma-10">
-        Cadastro de Conta de Usuário
-      </h1>
-      <fieldset>
-        <%= form_with(model: account, local: true) do |form| %>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :name, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :document, 'RG/CNPJ', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :document, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield address-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :address, 'Endereço', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :address, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :address_complement, 'Complemento', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :address_complement, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :city, 'Cidade', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :city, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :state, 'Estado', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :state, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :country, 'País', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :country, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :zipcode, 'CEP', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :zipcode, class: 'mdl-textfield__input', type: 'text' %>
-          </div> 
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :phone_personal, 'Telefone Pessoal', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :phone_personal, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :phone_business, 'Telefone Corporativo', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :phone_business, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :phone_mobile, 'Telefone Móvel', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :phone_mobile, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
-            <%= label_tag :status, 'Status', class: 'mdl-textfield__label', for: 'name' %><br>
-            <%= form.text_field :status, class: 'mdl-textfield__input', type: 'text' %>
-          </div>
-            <div class="actions">
-              <%= form.submit 'Criar Conta', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+  <div class="root-container">  
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone ma-40 nested-fields main-content">
+      <div class="content">
+        <h1 class="mdl-typography--display-1 ma-10">
+          Cadastro de Conta de Usuário
+        </h1>
+        <fieldset>
+          <%= form_with(model: account, local: true) do |form| %>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :name, 'Nome Completo', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :name, class: 'mdl-textfield__input', type: 'text' %>
             </div>
-          <% end %>
-      </fieldset>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :document, 'RG/CNPJ', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :document, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield address-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :address, 'Endereço', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :address, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :address_complement, 'Complemento', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :address_complement, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :city, 'Cidade', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :city, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :state, 'Estado', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :state, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :country, 'País', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :country, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :zipcode, 'CEP', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :zipcode, class: 'mdl-textfield__input', type: 'text' %>
+            </div> 
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :phone_personal, 'Telefone Pessoal', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :phone_personal, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :phone_business, 'Telefone Corporativo', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :phone_business, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :phone_mobile, 'Telefone Móvel', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :phone_mobile, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield account-field field ma-10 mdl-textfield--floating-label">
+              <%= label_tag :status, 'Status', class: 'mdl-textfield__label', for: 'name' %><br>
+              <%= form.text_field :status, class: 'mdl-textfield__input', type: 'text' %>
+            </div>
+              <div class="actions">
+                <%= form.submit 'Criar Conta', class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored ma-10' %>
+              </div>
+            <% end %>
+        </fieldset>
+      </div>
     </div>
   </div>
 </div>
