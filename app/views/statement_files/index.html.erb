@@ -1,38 +1,40 @@
   <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone main-content ma-40">
-    <h1 class="mdl-typography--display-1 ma-10">
-      Notas de Corretagem Importadas
-    </h1>
-    <div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
-    <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
+    <div class="content">
+      <h1 class="mdl-typography--display-1 ma-10">
+        Notas de Corretagem Importadas
+      </h1>
+      <div class="mdl-button mdl-js-button add-file ma-10 mdl-button--raised mdl-button--colored">
+      <%= link_to 'Adicionar Arquivo', new_statement_file_path %>
+      </div>
+      <table class="mdl-data-table mdl-js-data-table ma-10 mdl-data-table--selectable mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Id</th>
+            <th class="date">Data de criação</th>
+            <th>Nota de Corretagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @statement_files.each do |statement_file| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
+            <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
+            <td>
+              <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+                <i class="material-icons table-item"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
+              </div>
+              <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+                <i class="material-icons table-item"><%= link_to 'get_app', statement_file.file, download: ''%></i>
+              </div>
+              <div class="mdl-button mdl-js-button mdl-button--icon table-button">
+                <i class="material-icons table-item"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-    <table class="mdl-data-table mdl-js-data-table ma-10 mdl-data-table--selectable mdl-shadow--2dp">
-      <thead>
-        <tr>
-          <th class="mdl-data-table__cell--non-numeric">Id</th>
-          <th class="date">Data de criação</th>
-          <th>Nota de Corretagem</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @statement_files.each do |statement_file| %>
-        <tr>
-          <td class="mdl-data-table__cell--non-numeric"><%= statement_file.file.record.id %></td>
-          <td class="date-data"><%= statement_file.file.record.created_at.to_date %></td>
-          <td>
-            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
-              <i class="material-icons table-item"><%= link_to 'visibility', statement_file.file, target: '_blank'%></i>
-            </div>
-            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
-              <i class="material-icons table-item"><%= link_to 'get_app', statement_file.file, download: ''%></i>
-            </div>
-            <div class="mdl-button mdl-js-button mdl-button--icon table-button">
-              <i class="material-icons table-item"><%= link_to 'delete', statement_file, method: :delete, id: statement_file, data: { confirm: 'Tem certeza que deseja excluir esse arquivo?' } %></i>
-            </div>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
   </div>
 </div>
 <%= render 'shared/footer' %>
