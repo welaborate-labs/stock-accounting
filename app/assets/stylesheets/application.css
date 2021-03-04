@@ -120,7 +120,7 @@ footer li a:hover {
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-columns: 100%;
-  height: calc(90vh - 20px);
+  height: calc(130vh - 20px);
   align-items: center;
   justify-content: center;
   flex-flow: column;
@@ -132,7 +132,7 @@ footer li a:hover {
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
-  height: calc(90vh - 20px);
+  height: calc(130vh - 20px);
   align-items: center;
   justify-content: center;
   flex-flow: column;
