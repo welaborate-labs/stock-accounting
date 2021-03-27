@@ -4,14 +4,18 @@
       <%= f.text_field :ticker, class: 'mdl-textfield__input', type: 'text', style:"text-align: center;" %>
     </td>
     <td>
-      <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input', type:'checkbox' %>
-      <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input', type:'checkbox' %>
+      <%= f.radio_button :direction, 0, class: 'mdl-checkbox__input' %>
+      <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input' %>
     </td>
     <td>
       <%= f.number_field :quantity, class: 'mdl-textfield__input', style:"text-align: center;" %>
     </td>
     <td>
       <%= f.number_field :price, step: :any, class: 'mdl-textfield__input', style:"text-align: center;" %>
+    </td>
+    <td>
+      <%= f.radio_button :status, "open", class: 'mdl-checkbox__input' %>
+      <%= f.radio_button :status, "close", class: 'mdl-checkbox__input' %>
     </td>
     <td>
       <%= f.hidden_field :_destroy %>

@@ -105,8 +105,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_132823) do
     t.bigint "statement_id"
     t.string "ticker"
     t.integer "direction"
-    t.boolean "open"
-    t.boolean "close"
+    t.integer "status", default: 0
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.datetime "transacted_at"
