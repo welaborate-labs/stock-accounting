@@ -13,7 +13,7 @@ class Account < ApplicationRecord
   # format
   validates :phone_personal,
             :phone_business,
-            :phone_mobile,        format: { with: /([0-9]{2})([0-9]{3,4}[0-9]{4,5})/ }, allow_blank: true
+            :phone_mobile,        format: { with: /\(?[0-9]{2}\)?[\s]?[0-9]{3,5}[\s-]?[0-9]{4}/ }, allow_blank: true
   validates :document,            format: { with: /([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/ }
   validates :zipcode,             format: { with: /([0-9]{5}[\-]?[0-9]{3})/ }, allow_blank: true
 

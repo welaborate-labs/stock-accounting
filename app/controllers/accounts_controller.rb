@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
     if @account.save
       redirect_to accounts_path, notice: t('.notice')
     else
-      redirect_to new_account_path, alert: @account.errors.full_messages.to_sentence
+      render :new, alert: @account.errors.full_messages.to_sentence
     end
   end
 
@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
     if @account.update(account_params)
       redirect_to accounts_path, notice: t('.notice')
     else
-      redirect_to edit_account_path(@account), alert: @account.errors.full_messages.to_sentence
+      render :edit, alert: @account.errors.full_messages.to_sentence
     end
   end
 
