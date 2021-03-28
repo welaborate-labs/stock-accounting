@@ -8,10 +8,10 @@
       <%= f.radio_button :direction, 1, class: 'mdl-checkbox__input' %>
     </td>
     <td>
-      <%= f.number_field :quantity, class: 'mdl-textfield__input', style:"text-align: center;" %>
+      <%= f.number_field :quantity, min: 1, class: 'mdl-textfield__input', style:"text-align: center;" %>
     </td>
     <td>
-      <%= f.number_field :price, step: :any, class: 'mdl-textfield__input', style:"text-align: center;" %>
+      <%= f.number_field :price, step: :any, min: 0, class: 'mdl-textfield__input', style:"text-align: center;" %>
     </td>
     <td>
       <%= f.radio_button :status, "open", class: 'mdl-checkbox__input' %>
