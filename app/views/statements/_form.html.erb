@@ -46,6 +46,55 @@
           </tbody>
         </table>
         <div class="ma-10"><%== pagy_nav(@pagy) if @pagy.pages > 1 unless !@trades %></div>
+        <div class="mt-40">
+          <h5 class="mdl-typography--headline ma-10">
+            Taxas e Impostos
+          </h5>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Taxa de Liquidação', class: 'mdl-textfield__label', for: 'liquidation_fee' %>
+            <%= form.number_field :liquidation_fee, step: :any, min: 0, class: 'mdl-textfield__input' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Taxa de Registro', class: 'mdl-textfield__label', for: 'registration_fee' %>
+            <%= form.number_field :registration_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Taxa de Termos/Opções', class: 'mdl-textfield__label', for: 'terms_fee' %>
+            <%= form.number_field :terms_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label "Taxa ANA", class: 'mdl-textfield__label', for: 'ana_fee' %>
+            <%= form.number_field :ana_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Emolumentos', class: 'mdl-textfield__label', for: 'exchange_fee' %>
+            <%= form.number_field :exchange_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Taxa Operacional', class: 'mdl-textfield__label', for: 'operational_fee' %>
+            <%= form.number_field :operational_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Execução', class: 'mdl-textfield__label', for: 'execution_fee' %>
+            <%= form.number_field :execution_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Taxa de Custódia', class: 'mdl-textfield__label', for: 'custody_fee' %>
+            <%= form.number_field :custody_fee, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Impostos', class: 'mdl-textfield__label', for: 'taxes' %>
+            <%= form.number_field :taxes, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'IRRF', class: 'mdl-textfield__label', for: 'capital_gain_tax' %>
+            <%= form.number_field :capital_gain_tax, step: :any, min: 0, class: 'mdl-textfield__input', type: 'decimal', maxlength: '15' %>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield statement-field field ma-10 mdl-textfield--floating-label">
+            <%= form.label 'Outros', class: 'mdl-textfield__label', for: 'other_fees' %>
+            <%= form.number_field :other_fees, step: :any, min: 0, class: 'mdl-textfield__input', maxlength: '15' %>
+          </div>
+        </div>    
         <div class="mdl-button mdl-js-button add-file trade-btn ma-10">
           <span class="material-icons trade-icon">
             <%= link_to 'arrow_back', statements_path %>

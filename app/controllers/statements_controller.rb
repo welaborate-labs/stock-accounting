@@ -56,7 +56,12 @@ class StatementsController < ApplicationController
     end
 
     def statement_params
-      params.require(:statement).permit(:content, :statement_date, :number, trades_attributes: [
-        :id, :ticker, :direction, :status, :quantity, :price, :transacted_at, :_destroy])
+      params.require(:statement).permit(:content, :statement_date, :number, :ana_fee,
+        :liquidation_fee, :registration_fee, :terms_fee, :exchange_fee, :operational_fee,
+        :execution_fee, :custody_fee, :taxes, :capital_gain_tax, :other_fees,
+        trades_attributes: [
+          :id, :ticker, :direction, :status, :quantity, :price, :transacted_at, :_destroy
+        ]
+      )
     end
 end
