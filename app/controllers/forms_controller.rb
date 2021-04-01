@@ -1,5 +1,6 @@
 class FormsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:submit_contact]
+  skip_before_action :check_subscription!, only: [:submit_contact]
   before_action :set_contact, only: [:submit_contact]
 
   def submit_contact

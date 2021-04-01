@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :failure]
+  skip_before_action :check_subscription!, only: [:new, :create, :failure, :destroy]
 
   def new
   end

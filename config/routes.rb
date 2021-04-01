@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   match '/logout',                            to: 'sessions#destroy', via: [:get, :post]
   get   '/signup',                            to: 'identities#new' # registering user with omniauth-identity
   get   '/home',                              to: 'homes#index'
-  post '/contact/submit',                     to: 'forms#submit_contact'
+  post  '/contact/submit',                    to: 'forms#submit_contact'
   put   '/account/choose',                    to: 'accounts#choose'
+  get   '/plans',                             to: 'application#plans_route'
 
   resources :accounts
   resources :identities

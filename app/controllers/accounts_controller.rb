@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
   before_action :set_account,           only: [:edit, :update, :show, :destroy]
   before_action :set_choosen_account,   only: [:choose]
   after_action  :set_last_account,      only: [:create, :destroy]
+  skip_before_action :check_subscription!, only: [:new, :create]
 
   def index
     @accounts = current_user.accounts
