@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec::Mocks.configuration.allow_message_expectations_on_nil
 
 RSpec.describe "Accounts", type: :request do
-  let(:user) { create(:user) }
+  let(:user) { create(:user, email: 'rspec@test.com') }
   let!(:account) { create(:account, user: user) }
   let(:acc_params) { { account: { 
     user: user,
@@ -32,6 +32,16 @@ RSpec.describe "Accounts", type: :request do
       before { get accounts_path }
       
       it { is_expected.to redirect_to root_path }
+    end
+
+    context "when subscription is inactive" do
+      before do 
+        user.email = 'test@gmail.com'
+        user.save!
+        get accounts_path
+      end
+      
+      it { is_expected.to redirect_to home_path }
     end
   end
 

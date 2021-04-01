@@ -3,8 +3,8 @@
 
 RSpec.describe "/statement_files", type: :request do
   let(:file) { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'modelo.pdf'), 'application/pdf') }
-  let(:user) { create(:user) } 
-  let(:account) { create(:account, user: user) } 
+  let(:user) { create(:user, email: 'rspec@test.com') }
+  let!(:account) { create(:account, user: user) } 
   let!(:statement_file) { create(:statement_file, :with_file, account: account) }
   let!(:statement_file2) { create(:statement_file, :with_file, account: account) }
 
@@ -12,11 +12,29 @@ RSpec.describe "/statement_files", type: :request do
   before { allow_any_instance_of(ApplicationController).to receive(:choosen_account) { account } }
 
   describe 'GET #index' do
-    subject { response }
-    before { get statement_files_path }
-    
-    it { is_expected.to render_template('index') }
-    it { expect(assigns(:statement_files)).to eq([statement_file, statement_file2]) }
+    context "when user loged in" do
+      before { get statement_files_path }
+
+      it { is_expected.to render_template('index') }
+      it { expect(assigns(:statement_files)).to eq([statement_file, statement_file2]) }
+    end
+
+    context "when user signed out" do
+      before { expect_any_instance_of(ApplicationController).to receive(:current_user) {nil} }
+      before { get statement_files_path }
+      
+      it { is_expected.to redirect_to root_path }
+    end
+
+    context "when subscription is inactive" do
+      before do 
+        user.email = 'test@gmail.com'
+        user.save!
+        get statement_files_path
+      end
+      
+      it { is_expected.to redirect_to home_path }
+    end
   end
 
   describe 'GET #new' do
