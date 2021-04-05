@@ -1,11 +1,11 @@
 class SwingTradeResult
-  attr_reader :brokerage_account, :ticker, :date, :position, :qty, :price
+  attr_reader :brokerage_account, :ticker, :date, :direction, :qty, :price
 
   def initialize(brokerage_account:, ticker:, date:, direction:, qty:, price:)
     @brokerage_account = brokerage_account
     @ticker = ticker
     @date = date
-    @position = position
+    @direction = direction
     @qty = qty
     @price = price
   end
