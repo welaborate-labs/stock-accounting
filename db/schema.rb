@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_132823) do
+ActiveRecord::Schema.define(version: 2021_03_28_195146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,17 @@ ActiveRecord::Schema.define(version: 2020_11_20_132823) do
     t.bigint "brokerage_account_id", null: false
     t.text "content"
     t.string "number"
+    t.decimal "liquidation_fee"
+    t.decimal "registration_fee"
+    t.decimal "terms_fee"
+    t.decimal "ana_fee"
+    t.decimal "exchange_fee"
+    t.decimal "operational_fee"
+    t.decimal "execution_fee"
+    t.decimal "custody_fee"
+    t.decimal "taxes"
+    t.decimal "capital_gain_tax"
+    t.decimal "other_fees"
     t.index ["brokerage_account_id"], name: "index_statements_on_brokerage_account_id"
     t.index ["statement_file_id"], name: "index_statements_on_statement_file_id"
   end
@@ -105,8 +116,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_132823) do
     t.bigint "statement_id"
     t.string "ticker"
     t.integer "direction"
-    t.boolean "open"
-    t.boolean "close"
+    t.integer "status", default: 0
     t.integer "quantity"
     t.decimal "price", precision: 8, scale: 2
     t.datetime "transacted_at"
