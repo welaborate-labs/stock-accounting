@@ -59,20 +59,21 @@ class ApplicationController < ActionController::Base
   end
 
   def set_customer
-    @customers.map do |customer|
-      customer if customer[:email].eql? current_user.email
-    end.compact
+    query = URI::encode("query=status=active AND email=#{current_user.email}")
+    apikey ||= Base64.strict_encode64("#{ENV['VINDI_SANDBOX_KEY']}:")
+    @customer = RestClient.get "#{api_endpoint}/customers?page=1&per_page=5&#{query}", 
+    { Authorization: "Basic " + apikey }
   end
-
+  
   def check_subscription?
-    payment_api
-    set_customer.each do |register|
-      return register[:status].eql? 'active'
-    end unless set_customer.empty?
+    set_customer.include? 'id'
+  end
+  
+  def payment_api
+    @vindi_api ||= Vindi::Client.new(key: ENV['VINDI_SANDBOX_KEY'], api_endpoint: api_endpoint)
   end
 
-  def payment_api
-    @vindi_api = Vindi::Client.new(key: ENV['VINDI_SANDBOX_KEY'], api_endpoint: 'https://sandbox-app.vindi.com.br/api/v1/')
-    @customers = @vindi_api.list_customers
+  def api_endpoint
+    @sandbox_endpoint ||= 'https://sandbox-app.vindi.com.br/api/v1/'
   end
 end
